@@ -1,0 +1,53 @@
+CC=cl
+
+CFLAGS=/W3 /Zi /DWIN32 /c /O2 /nologo /wd4996 /I..\..\src /I..\..\..\ysbitmapfont\src
+
+LIBS=gdi32.lib user32.lib kernel32.lib shell32.lib winmm.lib opengl32.lib glu32.lib
+
+OBJDIR=.\obj
+
+OBJSIMPLEWIN=$(OBJDIR)\fswin32keymap.obj $(OBJDIR)\fswin32wrapper.obj $(OBJDIR)\fswin32winmain.obj
+OBJGLBITMAP=$(OBJDIR)\ysglfontdata.obj $(OBJDIR)\ysglusefontbitmap.obj
+OBJAPP=$(OBJDIR)\sample05-key.obj
+OBJS=$(OBJAPP) $(OBJSIMPLEWIN) $(OBJGLBITMAP)
+
+EXE=sample05-key.exe
+
+SUBSYS=/subsystem:windows
+#SUBSYS=/subsystem:console
+
+$(EXE) : $(OBJDIR) $(OBJS)
+	$(CC) /Fe$(EXE) $(OBJS) $(LIBS) /link /debug $(SUBSYS)
+
+link :
+	$(CC) /Fe$(EXE) $(OBJS) $(LIBS) /link /debug $(SUBSYS)
+
+$(OBJDIR) :
+	mkdir $(OBJDIR)
+
+
+$(OBJDIR)\sample05-key.obj : sample05-key.cpp
+    $(CC) $? $(CFLAGS) /Fo$@
+
+cln :
+	del $(EXE)
+	del *.ilk
+	del *.pdb
+	rd /S /Q $(OBJDIR)
+
+
+$(OBJDIR)\fswin32keymap.obj : ..\..\src\windows\fswin32keymap.cpp
+    $(CC) $? $(CFLAGS) /Fo$@
+
+$(OBJDIR)\fswin32wrapper.obj : ..\..\src\windows\fswin32wrapper.cpp
+    $(CC) $? $(CFLAGS) /Fo$@
+
+$(OBJDIR)\fswin32winmain.obj : ..\..\src\windows\fswin32winmain.cpp
+    $(CC) $? $(CFLAGS) /Fo$@
+
+$(OBJDIR)\ysglfontdata.obj : ..\..\..\ysbitmapfont\src\ysglfontdata.c
+    $(CC) $? $(CFLAGS) /Fo$@
+
+$(OBJDIR)\ysglusefontbitmap.obj : ..\..\..\ysbitmapfont\src\ysglusefontbitmap.c
+    $(CC) $? $(CFLAGS) /Fo$@
+

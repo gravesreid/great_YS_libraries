@@ -1,0 +1,4264 @@
+<HTML>
+<TITLE>Blue Impulse 3DG SDK Reference Manual</TITLE>
+<BODY bgcolor="#00A0F0"
+      text="#FFFFFF"
+      link="#80FF80"
+      vlink="#FF8080"
+      background="sky.jpg">
+
+<CENTER><BIG><BIG><FONT COLOR="#C0C0FF">
+<B>
+YS CLASS LIBRARY REFERENCE MANUAL
+</B><BR>
+</BIG></BIG></FONT></CENTER>
+
+<UL>
+
+
+<!---------------------------------------------------------->
+
+<A NAME="INDEX">
+<UL>
+<LI>
+<A HREF="#"></A>
+<LI>
+<A HREF="#SRF-FORMAT">SRF-FORMAT</A>
+<LI>
+<A HREF="#YSBOOL">YSBOOL</A>
+,<A HREF="#YSTRUE">YSTRUE</A>
+,<A HREF="#YSFALSE">YSFALSE</A>
+<LI>
+<A HREF="#YSBOOLEANOPERATION">YSBOOLEANOPERATION</A>
+,<A HREF="#YSBOOLBLEND">YSBOOLBLEND</A>
+,<A HREF="#YSBOOLAND">YSBOOLAND</A>
+,<A HREF="#YSBOOLOR">YSBOOLOR</A>
+,<A HREF="#YSBOOLMINUS">YSBOOLMINUS</A>
+<LI>
+<A HREF="#YSCONVEXNIZESTRATEGY">YSCONVEXNIZESTRATEGY</A>
+,<A HREF="#YSCONVEXNIZEDEFAULT">YSCONVEXNIZEDEFAULT</A>
+,<A HREF="#YSCONVEXNIZENOSMALLANGLE">YSCONVEXNIZENOSMALLANGLE</A>
+,<A HREF="#YSCONVEXNIZE90DEGREE">YSCONVEXNIZE90DEGREE</A>
+,<A HREF="#YSCONVEXNIZEFASTEST">YSCONVEXNIZEFASTEST</A>
+<LI>
+<A HREF="#YSCOORDSYSMODEL">YSCOORDSYSMODEL</A>
+,<A HREF="#YSLEFT_ZPLUS_YPLUS">YSLEFT_ZPLUS_YPLUS</A>
+,<A HREF="#YSRIGHT_ZMINUS_YPLUS">YSRIGHT_ZMINUS_YPLUS</A>
+,<A HREF="#YSBLUEIMPULSE">YSBLUEIMPULSE</A>
+,<A HREF="#YSOPENGL">YSOPENGL</A>
+<LI>
+<A HREF="#YSFLIPDIRECTION">YSFLIPDIRECTION</A>
+,<A HREF="#YSFLIPCW">YSFLIPCW</A>
+,<A HREF="#YSFLIPCCW">YSFLIPCCW</A>
+,<A HREF="#YSLIPUNKNOWN">YSLIPUNKNOWN</A>
+<LI>
+<A HREF="#YSINTERSECTION">YSINTERSECTION</A>
+,<A HREF="#YSINTERSECT">YSINTERSECT</A>
+,<A HREF="#YSOVERLAP">YSOVERLAP</A>
+,<A HREF="#YSTOUCH">YSTOUCH</A>
+,<A HREF="#YSSHAREPOINT">YSSHAREPOINT</A>
+,<A HREF="#YSAPART">YSAPART</A>
+<LI>
+<A HREF="#YSRESULT">YSRESULT</A>
+,<A HREF="#YSOK">YSOK</A>
+,<A HREF="#YSERR">YSERR</A>
+<LI>
+<A HREF="#YSSIDE">YSSIDE</A>
+,<A HREF="#YSINSIDE,">YSINSIDE,</A>
+,<A HREF="#YSOUTSIDE,">YSOUTSIDE,</A>
+,<A HREF="#YSBOUNDARY,">YSBOUNDARY,</A>
+,<A HREF="#YSUNKNOWNSIDE">YSUNKNOWNSIDE</A>
+<LI>
+<A HREF="#YsAbs">YsAbs</A>
+<LI>
+<A HREF="#YsArguments">YsArguments</A>
+<LI>
+<A HREF="#YsArray">YsArray</A>
+<LI>
+<A HREF="#YsAtt3">YsAtt3</A>
+<LI>
+<A HREF="#YsBlendShell">YsBlendShell</A>
+<LI>
+<A HREF="#YsBound">YsBound</A>
+<LI>
+<A HREF="#YsBoundingBoxMaker2">YsBoundingBoxMaker2</A>
+<LI>
+<A HREF="#YsBoundingBoxMaker3">YsBoundingBoxMaker3</A>
+<LI>
+<A HREF="#YsCapitalize">YsCapitalize</A>
+<LI>
+<A HREF="#YsCheckBoundingBoxCollision2">YsCheckBoundingBoxCollision2</A>
+,<A HREF="#YsCheckBoundingBoxCollision3">YsCheckBoundingBoxCollision3</A>
+<LI>
+<A HREF="#YsCheckConvex2">YsCheckConvex2</A>
+,<A HREF="#YsCheckConvex3">YsCheckConvex3</A>
+<LI>
+<A HREF="#YsCheckConvexByAngle2">YsCheckConvexByAngle2</A>
+,<A HREF="#YsCheckConvexByAngle3">YsCheckConvexByAngle3</A>
+<LI>
+<A HREF="#YsCheckFlipDirection2">YsCheckFlipDirection2</A>
+,<A HREF="#YsCheckFlipDirection3">YsCheckFlipDirection3</A>
+<LI>
+<A HREF="#YsCheckInBetween2">YsCheckInBetween2</A>
+,<A HREF="#YsCheckInBetween3">YsCheckInBetween3</A>
+<LI>
+<A HREF="#YsCheckInsideBoundingBox2">YsCheckInsideBoundingBox2</A>
+,<A HREF="#YsCheckInsideBoundingBox3">YsCheckInsideBoundingBox3</A>
+<LI>
+<A HREF="#YsCheckInsidePolygon2">YsCheckInsidePolygon2</A>
+,<A HREF="#YsCheckInsidePolygon3">YsCheckInsidePolygon3</A>
+<LI>
+<A HREF="#YsCheckLineOverlap2">YsCheckLineOverlap2</A>
+,<A HREF="#YsCheckLineOverlap3">YsCheckLineOverlap3</A>
+<LI>
+<A HREF="#YsCheckSeparatability2">YsCheckSeparatability2</A>
+,<A HREF="#YsCheckSeparatability3">YsCheckSeparatability3</A>
+<LI>
+<A HREF="#YsCheckShellCollision">YsCheckShellCollision</A>
+<LI>
+<A HREF="#YsCollisionOfPolygon">YsCollisionOfPolygon</A>
+<LI>
+<A HREF="#YsColor">YsColor</A>
+<LI>
+<A HREF="#YsCommandNumber">YsCommandNumber</A>
+<LI>
+<A HREF="#YsCoordSysModel">YsCoordSysModel</A>
+<LI>
+<A HREF="#YsDegToRad">YsDegToRad</A>
+,<A HREF="#YsRadToDeg">YsRadToDeg</A>
+<LI>
+<A HREF="#YsDrawLineByDDA">YsDrawLineByDDA</A>
+<LI>
+<A HREF="#YsE">YsE</A>
+<LI>
+<A HREF="#YsEqual">YsEqual</A>
+<LI>
+<A HREF="#YsFileExist">YsFileExist</A>
+<LI>
+<A HREF="#YsFileSize">YsFileSize</A>
+<LI>
+<A HREF="#YsGetArbitraryInsidePointOfPolygon2">YsGetArbitraryInsidePointOfPolygon2</A>
+,<A HREF="#YsGetArbitraryInsidePointOfPolygon3">YsGetArbitraryInsidePointOfPolygon3</A>
+<LI>
+<A HREF="#YsGetAverageNormalVector">YsGetAverageNormalVector</A>
+<LI>
+<A HREF="#YsGetCenterOfPolygon2">YsGetCenterOfPolygon2</A>
+,<A HREF="#YsGetCenterOfPolygon3">YsGetCenterOfPolygon3</A>
+<LI>
+<A HREF="#YsGetLargestTriangleFromPolygon3">YsGetLargestTriangleFromPolygon3</A>
+,<A HREF="#YsGetLargestTriangleFromPolygon3">YsGetLargestTriangleFromPolygon3</A>
+,<A HREF="#YsGetLargestTriangleFromPolygon2">YsGetLargestTriangleFromPolygon2</A>
+,<A HREF="#YsGetLargestTriangleFromPolygon2">YsGetLargestTriangleFromPolygon2</A>
+<LI>
+<A HREF="#YsGetLineIntersection2">YsGetLineIntersection2</A>
+<LI>
+<A HREF="#YsGetLinePenetration2">YsGetLinePenetration2</A>
+,<A HREF="#YsGetLinePenetration3">YsGetLinePenetration3</A>
+<LI>
+<A HREF="#YsGetNearestPointOfTwoLine">YsGetNearestPointOfTwoLine</A>
+<LI>
+<A HREF="#YsGetNearestPointOnLine2">YsGetNearestPointOnLine2</A>
+,<A HREF="#YsGetNearestPointOnLine3">YsGetNearestPointOnLine3</A>
+<LI>
+<A HREF="#YsGetPolygonPenetration">YsGetPolygonPenetration</A>
+<LI>
+<A HREF="#YsGetPolygonProjectionMatrix">YsGetPolygonProjectionMatrix</A>
+<LI>
+<A HREF="#YsGetTriangleArea3">YsGetTriangleArea3</A>
+,<A HREF="#YsGetTriangleArea2">YsGetTriangleArea2</A>
+<LI>
+<A HREF="#YsGetTwoPlaneCrossLine">YsGetTwoPlaneCrossLine</A>
+<LI>
+<A HREF="#YsGreater">YsGreater</A>
+<LI>
+<A HREF="#YsList">YsList</A>
+<LI>
+<A HREF="#YsMath">YsMath</A>
+<LI>
+<A HREF="#YsMatrix">YsMatrix</A>
+<LI>
+<A HREF="#YsMatrix4x4">YsMatrix4x4</A>
+<LI>
+<A HREF="#YsOneMemoryBlock">YsOneMemoryBlock</A>
+<LI>
+<A HREF="#YsPi">YsPi</A>
+<LI>
+<A HREF="#YsPlane">YsPlane</A>
+<LI>
+<A HREF="#YsPrintf">YsPrintf</A>
+<LI>
+<A HREF="#YsPutExt">YsPutExt</A>
+<LI>
+<A HREF="#YsRelativePath">YsRelativePath</A>
+<LI>
+<A HREF="#YsRotation">YsRotation</A>
+<LI>
+<A HREF="#YsScreenPolygon">YsScreenPolygon</A>
+<LI>
+<A HREF="#YsSeparatePathFile">YsSeparatePathFile</A>
+<LI>
+<A HREF="#YsSeparateShell">YsSeparateShell</A>
+<LI>
+<A HREF="#YsShell">YsShell</A>
+<LI>
+<A HREF="#YsShellEdgeList">YsShellEdgeList</A>
+<LI>
+<A HREF="#YsShellLattice">YsShellLattice</A>
+<LI>
+<A HREF="#YsShellPolygon">YsShellPolygon</A>
+<LI>
+<A HREF="#YsShellSearchTable">YsShellSearchTable</A>
+<LI>
+<A HREF="#YsShellVertex">YsShellVertex</A>
+<LI>
+<A HREF="#YsSmaller">YsSmaller</A>
+<LI>
+<A HREF="#YsSolveThreeLinearEquation">YsSolveThreeLinearEquation</A>
+<LI>
+<A HREF="#YsSolveTwoLinearEquation">YsSolveTwoLinearEquation</A>
+<LI>
+<A HREF="#YsSortPointSet3">YsSortPointSet3</A>
+<LI>
+<A HREF="#YsStringHead">YsStringHead</A>
+<LI>
+<A HREF="#YsStringTail">YsStringTail</A>
+<LI>
+<A HREF="#YsSword">YsSword</A>
+<LI>
+<A HREF="#YsSwordNewVertexLog">YsSwordNewVertexLog</A>
+<LI>
+<A HREF="#YsTolerance">YsTolerance</A>
+<LI>
+<A HREF="#YsUncapitalize">YsUncapitalize</A>
+<LI>
+<A HREF="#YsVec2">YsVec2</A>
+<LI>
+<A HREF="#YsVec3">YsVec3</A>
+<LI>
+<A HREF="#YsZero">YsZero</A>
+</UL>
+<HR>
+<HR>
+<A NAME="">
+<PRE>
+NAME:
+DEFINITION:
+RETURN:
+DESCRIPTION:
+MEMBERVARIABLE:
+MEMBERFUNCTION:
+OPERATOR:
+REFERENCE:
+</PRE>
+<UL>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="SRF-FORMAT">
+<PRE>
+NAME:SRF-FORMAT
+DESCRIPTION:
+  SRF format is a simple polygon model format. Actually, when I designed
+  this format, I thought that I should call it PLG format because it's
+  polygon data. But I decided not to use PLG because it may be too
+  general. I'm sure there are many different kinds of PLG formats.
+  I've never seen SRF. I think my decision was right.
+
+  In SRF file, you have to write
+
+    SURF
+
+  at the top. (Without preceeding spaces. I put four spaces just for
+  indentation).
+
+  You can define a vertex by writing
+
+    V x y z
+
+  or
+
+    V x y z R
+
+  If you put R, it means that the object must be drawn smoothly over
+  this vertex. But, YsClass library simply ignore R option.
+
+  Each vertices has IDs. Id begin with 0. First appeared vertex has an
+  ID of 0. Next one has an ID of 1. Then, 2,3,4....
+
+  After defining vertices, polygons must be defined. A polygon is defined
+  as follows.
+
+    F
+    C col
+    N cx cy cz nx ny nz
+    V vtId vtId vtId vtId .....
+    E
+
+  F tells that a definition of polygon begins with this line.
+  C defines color. The parameter &ltcol&gt is a 15 bit color. If you have
+  8 bit scale RGB color (each component is 0 through 255), &ltcol&gt is
+  calculated as
+
+    col=(((G&gt&gt3)&lt&lt10)|((R&gt&gt3)&lt&lt5)|(B&gt&gt3));
+
+  or
+
+    col=((G/8)*1024)+((R/8)*32)+(B/8);
+
+  Green component comes to the top most bits.
+
+  N defines the gravity center of the polygon and the normal of the
+  polygon. (cx,cy,cz) is the gravity center of the polygon (average of
+  vertices). (nx,ny,nz) is the normal of the polygon. The normal vector
+  must go toward the outside of the object. If the normal is zero,
+  the polygon is two sided polygon. But, if the object has one or more
+  two sided polygon, boolean operation becomes invalid.
+
+  V defines the vertices by IDs.
+
+
+  After defining polygons, you should put one more
+
+    E
+
+  at the end of the file.
+
+eg.) Cube
+SURF
+V -6.0 -6.0 -6.0 R
+V 6.0 -6.0 -6.0 R
+V -6.0 6.0 -6.0 R
+V 6.0 6.0 -6.0 R
+V -6.0 -6.0 6.0 R
+V 6.0 -6.0 6.0 R
+V -6.0 6.0 6.0 R
+V 6.0 6.0 6.0 R
+F
+C 31
+N 0.0 0.0 -6.0 0.0 0.0 -1.0
+V 0 1 3 2
+E
+F
+C 31
+N 0.0 0.0 6.0 0.0 0.0 1.0
+V 6 7 5 4
+E
+F
+C 31
+N 0.0 -6.0 0.0 0.0 -1.0 0.0
+V 4 5 1 0
+E
+F
+C 31
+N 6.0 0.0 0.0 1.0 0.0 0.0
+V 5 7 3 1
+E
+F
+C 31
+N 0.0 6.0 0.0 0.0 1.0 0.0
+V 7 6 2 3
+E
+F
+C 31
+N -6.0 0.0 0.0 -1.0 0.0 0.0
+V 6 4 0 2
+E
+E
+
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsScreenPolygon">YsScreenPolygon</A>,<A HREF="#YsShell">YsShell</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YSBOOL">
+<A NAME="YSTRUE">
+<A NAME="YSFALSE">
+<PRE>
+NAME:YSBOOL
+NAME:YSTRUE
+NAME:YSFALSE
+DEFINITION:
+  typedef enum
+  {
+      YSFALSE,
+      YSTRUE
+  } YSBOOL;
+DESCRIPTION:
+  Macro represents boolean, true or false.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSERR">YSERR</A>,<A HREF="#YSOK">YSOK</A>,<A HREF="#YSRESULT">YSRESULT</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YSBOOLEANOPERATION">
+<A NAME="YSBOOLBLEND">
+<A NAME="YSBOOLAND">
+<A NAME="YSBOOLOR">
+<A NAME="YSBOOLMINUS">
+<PRE>
+NAME:YSBOOLEANOPERATION
+NAME:YSBOOLBLEND
+NAME:YSBOOLAND
+NAME:YSBOOLOR
+NAME:YSBOOLMINUS
+DEFINITION:
+  typedef enum
+  {
+      YSBOOLBLEND,
+      YSBOOLAND,
+      YSBOOLOR,
+      YSBOOLMINUS
+  } YSBOOLEANOPERATION;
+DESCRIPTION:
+  Macro represents boolean operation type.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsBlendShell">YsBlendShell</A>,<A HREF="#YsSeparateShell">YsSeparateShell</A>,<A HREF="#YsShell">YsShell</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YSCONVEXNIZESTRATEGY">
+<A NAME="YSCONVEXNIZEDEFAULT">
+<A NAME="YSCONVEXNIZENOSMALLANGLE">
+<A NAME="YSCONVEXNIZE90DEGREE">
+<A NAME="YSCONVEXNIZEFASTEST">
+<PRE>
+NAME:YSCONVEXNIZESTRATEGY
+NAME:YSCONVEXNIZEDEFAULT
+NAME:YSCONVEXNIZENOSMALLANGLE
+NAME:YSCONVEXNIZE90DEGREE
+NAME:YSCONVEXNIZEFASTEST
+DEFINITION:
+  typedef enum
+  {
+      YSCONVEXNIZEDEFAULT,
+      YSCONVEXNIZENOSMALLANGLE,
+      YSCONVEXNIZE90DEGREE,
+      YSCONVEXNIZEFASTEST
+  } YSCONVEXNIZESTRATEGY;
+DESCRIPTION:
+  Macro represents convexnize/tessellation(trianglize) strategy.
+    YSCONVEXNIZENOSMALLANGLE   Try to maximize the smallest angle
+    YSCONVEXNIZE90DEGREE       Try to make all angles close to 90 degree.
+    YSCONVEXNIZEFASTEST        Just care the calculation speed.
+
+  This macro is used in some member functions of YsSword class.
+  YsSword is used to cut a polygon into pieces, into triangles or
+  into convex polygons. (See also YsSword)
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsSword">YsSword</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YSCOORDSYSMODEL">
+<A NAME="YSLEFT_ZPLUS_YPLUS">
+<A NAME="YSRIGHT_ZMINUS_YPLUS">
+<A NAME="YSBLUEIMPULSE">
+<A NAME="YSOPENGL">
+<PRE>
+NAME:YSCOORDSYSMODEL
+NAME:YSLEFT_ZPLUS_YPLUS
+NAME:YSRIGHT_ZMINUS_YPLUS
+NAME:YSBLUEIMPULSE
+NAME:YSOPENGL
+DEFINITION:
+  typedef enum
+  {
+      YSLEFT_ZPLUS_YPLUS,
+      YSRIGHT_ZMINUS_YPLUS
+  } YSCOORDSYSMODEL;
+
+  #define YSBLUEIMPULSE YSLEFT_ZPLUS_YPLUS
+  #define YSOPENGL YSRIGHT_ZMINUS_YPLUS
+
+DESCRIPTION:
+  Macro represents Coordinate System Model.
+
+  YSLEFT_ZPLUS_YPLUS means left hand coordinate system, Z positive
+  direction as forward and Y positive direction as upward. This
+  is Blue Impulse 3DG-SDK standard.
+  (http://member.nifty.ne.jp/ysdynamics/impulse/impulse.html)
+
+  YSRIGHT_ZMINUS_YPLUS means right hand coordinate system, Z negative
+  direction as forward and Y positive direction as upward. This
+  is OpenGL standard.
+
+  You can also use YSBLUEIMPULSE instead of YSLEFT_ZPLUS_YPLUS and
+  YSOPENGL instead of YSRIGHT_ZMINUS_YPLUS.
+
+  You can switch left hand coordinate system or right hand
+  coordinate system by setting one of these values into the global
+  variable, YsCoordSysModel.
+
+  This will affect coordinate system dependent functions/classes like
+  YsAtt3 and YsCheckFlipDirection3.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSFLIPCCW">YSFLIPCCW</A>,<A HREF="#YSFLIPCW">YSFLIPCW</A>,<A HREF="#YSFLIPDIRECTION">YSFLIPDIRECTION</A>,<A HREF="#YSLIPUNKNOWN">YSLIPUNKNOWN</A>,<A HREF="#YsAtt3">YsAtt3</A>,
+  <A HREF="#YsCheckFlipDirection2">YsCheckFlipDirection2</A>,<A HREF="#YsCheckFlipDirection3">YsCheckFlipDirection3</A>,<A HREF="#YsCoordSysModel">YsCoordSysModel</A>,
+  <A HREF="#YsGetAverageNormalVector">YsGetAverageNormalVector</A>,<A HREF="#YsGetPolygonProjectionMatrix">YsGetPolygonProjectionMatrix</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YSFLIPDIRECTION">
+<A NAME="YSFLIPCW">
+<A NAME="YSFLIPCCW">
+<A NAME="YSLIPUNKNOWN">
+<PRE>
+NAME:YSFLIPDIRECTION
+NAME:YSFLIPCW
+NAME:YSFLIPCCW
+NAME:YSLIPUNKNOWN
+DEFINITION:
+  typedef enum
+  {
+      YSFLIPCCW,
+      YSFLIPCW,
+      YSFLIPUNKNOWN
+  } YSFLIPDIRECTION;
+DESCRIPTION:
+  This macro is used to return a flip direction of a polygon.
+    YSFLIPCCW     Conterclockwise
+    YSFLIPCW      Clockwise
+    YSFLIPUNKNOWN Unknown (Failed to calculate.)
+
+  YsCheckFlipDirection3 is coordinate system dependent.
+  (See YsCoordSysModel and YSCOORDSYSMODEL for more information)
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBLUEIMPULSE">YSBLUEIMPULSE</A>,<A HREF="#YSCOORDSYSMODEL">YSCOORDSYSMODEL</A>,<A HREF="#YSLEFT_ZPLUS_YPLUS">YSLEFT_ZPLUS_YPLUS</A>,<A HREF="#YSOPENGL">YSOPENGL</A>,
+  <A HREF="#YSRIGHT_ZMINUS_YPLUS">YSRIGHT_ZMINUS_YPLUS</A>,<A HREF="#YsCheckFlipDirection2">YsCheckFlipDirection2</A>,<A HREF="#YsCheckFlipDirection3">YsCheckFlipDirection3</A>,
+  <A HREF="#YsCoordSysModel">YsCoordSysModel</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YSINTERSECTION">
+<A NAME="YSINTERSECT">
+<A NAME="YSOVERLAP">
+<A NAME="YSTOUCH">
+<A NAME="YSSHAREPOINT">
+<A NAME="YSAPART">
+<PRE>
+NAME:YSINTERSECTION
+NAME:YSINTERSECT
+NAME:YSOVERLAP
+NAME:YSTOUCH
+NAME:YSSHAREPOINT
+NAME:YSAPART
+DEFINITION:
+  typedef enum
+  {
+      YSINTERSECT,
+      YSOVERLAP,
+      YSTOUCH,
+      YSSHAREPOINT,
+      YSAPART
+  } YSINTERSECTION;
+DESCRIPTION:
+  Macro represents intersection. The meaning of the macro is:
+    YSINTERSECT    Two objects are intersecting
+    YSOVERLAP      Two objects are overlapped
+    YSTOUCH        Two objects are touching
+    YSSHAREPOINT   Two objects are sharing more than one point
+    YSAPART        Two objects are apart
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsGetLinePenetration2">YsGetLinePenetration2</A>,<A HREF="#YsGetLinePenetration3">YsGetLinePenetration3</A>,<A HREF="#YsGetPolygonPenetration">YsGetPolygonPenetration</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YSRESULT">
+<A NAME="YSOK">
+<A NAME="YSERR">
+<PRE>
+NAME:YSRESULT
+NAME:YSOK
+NAME:YSERR
+DEFINITION:
+  typedef enum
+  {
+      YSOK,
+      YSERR
+  } YSRESULT;
+DESCRIPTION:
+  Macro represents No-error or error. If the function returnes YSRESULT,
+  the function will return YSOK when no error, or will return YSERR
+  when error occured.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBOOL">YSBOOL</A>,<A HREF="#YSFALSE">YSFALSE</A>,<A HREF="#YSTRUE">YSTRUE</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YSSIDE">
+<A NAME="YSINSIDE,">
+<A NAME="YSOUTSIDE,">
+<A NAME="YSBOUNDARY,">
+<A NAME="YSUNKNOWNSIDE">
+<PRE>
+NAME:YSSIDE
+NAME:YSINSIDE,
+NAME:YSOUTSIDE,
+NAME:YSBOUNDARY,
+NAME:YSUNKNOWNSIDE
+DEFINITION:
+  typedef enum
+  {
+      YSINSIDE,
+      YSOUTSIDE,
+      YSBOUNDARY,
+      YSUNKNOWNSIDE
+  } YSSIDE;
+
+DESCRIPTION:
+  Macro represents inside,outside or on boundary. Inside/Outside checking
+  functions will return one of YSINSIDE,YSOUTSIDE,YSBOUNDARY or
+  YSUNKNOWNSIDE. Sometimes those calculation fails because of invalid
+  geometry. Typical invalid geometry is self-intersection or twisted
+  polygon. In such cases, a function will return YSUNKNOWNSIDE.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckInsidePolygon2">YsCheckInsidePolygon2</A>,<A HREF="#YsCheckInsidePolygon3">YsCheckInsidePolygon3</A>,<A HREF="#YsShell">YsShell</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsAbs">
+<PRE>
+NAME:YsAbs
+DEFINITION:
+  #define YsAbs(A) ((A)&gt=0 ? (A) : -(A))
+DESCRIPTION:
+  Get an absolute value.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsEqual">YsEqual</A>,<A HREF="#YsZero">YsZero</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsArguments">
+<PRE>
+NAME:YsArguments
+DEFINITION:
+  YSRESULT YsArguments(int *AC,char *AV[],int MXAC,char SRC[]);
+RETURN:
+  YSOK     Successfully separated a string into arguments
+  YSERR    Failed
+DESCRIPTION:
+  This function will separate an input string SRC into a sequence of
+  command arguments. The string SRC is not conserved. This function
+  cares double quote.
+
+  Specify the length of AV to MXAC.
+
+  Number of arguments will set to *AC. Arguments can be refered by
+  AV[0...].
+
+  For example,
+
+    char str[256];
+    strcpy(str,"My bicycle runs about Mach 0.03");
+
+    int ac;
+    char *av[16];
+    YsArguments(&ac,av,16,str);
+
+  This case, av[0] through av[5] will point to:
+    av[0] -&gt "My"
+    av[1] -&gt "bicycle"
+    av[2] -&gt "runs"
+    av[3] -&gt "about"
+    av[4] -&gt "Mach"
+    av[5] -&gt "0.03"
+
+  The string str is not conserved.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCommandNumber">YsCommandNumber</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsArray">
+<PRE>
+NAME:YsArray
+DEFINITION:
+  template &ltclass T&gt class YsArray
+DESCRIPTION:
+  A template class to maintain an array.
+
+  This function is considered better for small class T. If T is a
+  large class, I recommend to use YsList.
+
+MEMBERFUNCTION:
+  YsArray();
+    Constructor. Number of item is set to zero.
+
+  YsArray(int NI,const T I[]);
+    Constructor with setting number of items and items.
+
+  YsArray(const YsArray &ltT&gt &FROM);
+    Copy constructor.
+
+  virtual ~YsArray();
+    Destructor. Allocated memory block is automatically deleted.
+
+  YSRESULT Delete(int N);
+    Delete (N+1)th item (Delete(0) to delete first element.)
+
+  YSRESULT Insert(int N,const T &V);
+    Insert an item. (N+1)th item through last item is shifted to the
+    right. V is set to (N+1)th item.
+
+  YSRESULT Resize(int NEWSIZE);
+    Change the array size to NEWSIZE. Newly created items will not
+    be initialized. And, if the size is reduced, (NEWSIZE+1)th item
+    through last item will be discarded.
+
+  YSRESULT Set(int NV,const T V[]);
+    Set an array. Previous array is automatically discarded. If this
+    function is called as Set(NV,NULL); the array of size NV is
+    allocated, but not initialized.
+
+  inline YSRESULT SetItem(int IDX,const T &ITEM)
+    Set an item to an array. IDX must be:
+      0 &lt= IDX &lt NITEM
+      {NITEM : The number of item contained in this array.}
+
+  inline const int GetNumItem(void) const
+    Get the number of item contained in this array.
+
+  inline const T &v(int IDX) const
+  inline const T &GetItem(int IDX) const
+    Get an item in this array. IDX must be:
+      0 &lt= IDX &lt NITEM
+      {NITEM : The number of item contained in this array.}
+
+  inline const T *GetArray(void) const
+    Get a pointer to the array.
+    CAUTION:The pointer may become invalid after you added a new item
+            to the array.
+
+  YSRESULT AppendItem(const T &dat);
+    Add an item to the end of this array.
+
+  inline T *GetEditableArray(void)
+    Get a non-const pointer to the array. (Application have to be
+    careful to edit this array. But useful for sort operation etc.)
+
+  inline T &GetEditableItem(int N)
+    Get a non-const reference of (N+1)th item.
+
+
+
+OPERATOR:
+  const YsArray &ltT&gt &operator=(const YsArray &ltT&gt &FROM);
+    Copy operator from different array. You can use operator= safely.
+    (As long as there're enough memory space.)
+
+  const YsArray &ltT&gt &operator=(YsList &ltT&gt *FROM);
+    Copy operator from a YsList class. This operator automatically
+    converts a list object FROM into an array.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsList">YsList</A>,<A HREF="#YsSortPointSet3">YsSortPointSet3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsAtt3">
+<PRE>
+NAME:YsAtt3
+DESCRIPTION:
+  Attitude class. An attitude is described with three angles which
+  consists of Heading,Pitching and Bank angles. Or the other way
+  to describe an attitude is use two vectors, forward vector and
+  up vector. (Forward vector is also called as eye vector or
+  viewing vector). The former is Euler angle representation, and
+  the latter is vector representation.
+
+  Using this class, you can go back and forth between Euler angle
+  representation and vector representation. This capability has
+  big power to control an attitude (eg. camera angle).
+
+  This class will also calculate a rotation matrix corresponds to
+  this attitude.
+
+  This class is coordinate system dependent. The coordinate system
+  model is specified by macro YSCOORDSYSMODEL and the global
+  variable YsCoordSysModel.
+
+MEMBERFUNCTION:
+  YsAtt3();
+    Constructor WITHOUT initialization
+
+  YsAtt3(const double &H,const double &P,const double &B);
+    Constructor WITH initialization.
+
+  YsAtt3(const double &A);
+    Constructor. Elements are initialized as h=p=b=A.
+
+  inline double h(void) const
+    Return heading angle.
+
+  inline double p(void) const
+    Return pitching angle
+
+  inline double b(void) const
+    Return bank angle
+
+  void Set(double H,double P,double B);
+    Set an attitude by Heading,Pitching and Bank angle.
+
+  void SetH(double H);
+    Set Heading angle only.
+
+  void SetP(double P);
+    Set Pitching angle only.
+
+  void SetB(double B);
+    Set Bank anle only.
+
+  YsVec3 GetForwardVector(void) const;
+    Get Forward Vector.
+
+  YsVec3 GetUpVector(void) const;
+    Get Up Vector.
+
+  YSRESULT SetTwoVector(const YsVec3 &FWD,const YsVec3 &UP);
+    Set an attitude by forward vector and up vector.
+
+  YSRESULT SetForwardVector(const YsVec3 &VEC);
+    Set an attitude by foward vector only. Can specify Heading and
+    Pitching angles only. Bank angle will become zero.
+
+  YSRESULT SetUpVector(const YsVec3 &VEC);
+    Modify the attitude by up vector. This function will affect Bank
+    angle only. (This function just modify Bank angle. It is available
+    after Heading and Pitching angles are set).
+
+  void NoseUp(double D);
+    Nose up by the angle of d. (Imagine that you are pulling a joystick
+    of an airplane). Nose down to specify d as negative value.
+
+  void YawLeft(double D);
+    Turn Left by the angle of d. (Imagine that you are applying
+    left rudder of an airplane). Turn right to specify d as negative value.
+
+  const YsMatrix4x4 &GetMatrix(void) const;
+    Get an matrix corresponds to this attitude. (This matrix will transform
+    a YsVec3 from local coordinate system to global coordinate system.
+    If you have to convert from global coordinate system to local
+    coordinate system, take inverse matrix.)
+
+OPERATOR:
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBLUEIMPULSE">YSBLUEIMPULSE</A>,<A HREF="#YSCOORDSYSMODEL">YSCOORDSYSMODEL</A>,<A HREF="#YSLEFT_ZPLUS_YPLUS">YSLEFT_ZPLUS_YPLUS</A>,<A HREF="#YSOPENGL">YSOPENGL</A>,
+  <A HREF="#YSRIGHT_ZMINUS_YPLUS">YSRIGHT_ZMINUS_YPLUS</A>,<A HREF="#YsCoordSysModel">YsCoordSysModel</A>,<A HREF="#YsMatrix">YsMatrix</A>,<A HREF="#YsMatrix4x4">YsMatrix4x4</A>,<A HREF="#YsRotation">YsRotation</A>,
+  <A HREF="#YsVec3">YsVec3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsBlendShell">
+<PRE>
+NAME:YsBlendShell
+DEFINITION:
+  YSRESULT YsBlendShell
+    (YsShell &NEWSHELL,
+     const YsShell &SH0,
+     const YsShell &SH1,
+     YSBOOLEANOPERATION BOOL=YSBOOLBLEND);
+RETURN:
+  YSOK    Successfully blended
+  YSERR   Failed
+DESCRIPTION:
+  This function blends two shells, SH0 and SH1. Not only blending,
+  this function also can perform boolean operations, OR(UNION),
+  MINUS(DIFFERENCE) and AND(INTERSECTION).
+
+  You can specify the type of boolean operation by the parameter BOOL.
+  The value of BOOL can be chosen from:
+
+    YSBOOLBLEND
+    YSBOOLAND
+    YSBOOLOR
+    YSBOOLMINUS
+
+  YSBOOLBLEND just blends two shells. All intersecting polygons are
+  slashed along intersecting lines.
+
+  YSBOOLAND takes the intersecting part of two shells.
+
+  YSBOOLOR adds two shells into one shell. All unnecessary polygons
+  ,those are inside the new shell, are eliminated.
+
+  YSBOOLMINUS will subtract SH1 from SH0.
+
+  All operations other than YSBOOLBLEND does not work if one or both
+  of two shells are not solid.
+
+  The result is set to NEWSHELL.
+
+  This function does not inherit freeAttributes of SH0 and Sh1 to
+  NEWSHELL. Instead, you can know which polygons/vertices are come
+  from which shell by refering to freeAttributes.
+
+  YsShellPolygon in NEWSHELL has following attributes.
+
+      freeAttribute0  zero
+      freeAttribute1  zero
+      freeAttribute2  Which shell it is from
+      freeAttribute3  Id in the original shell
+      freeAttribute4  Id in the original shell(if overlapping polygon)
+
+  If freeAttribute2 is 0, this polygon is from SH0. If freeAttribute2
+  is 1, this polygon is from SH1. Polygon ID in the original shell
+  (SH0 or Sh1) is retrieved by freeAttribute3.
+
+  Or, if freeAttribute2 is 2, this polygon is from both. This case
+  (freeAttribute2=2) is a special case. This case occurs when one or
+  more polygons were overlapping with the other shell's polygon.
+  The polygon of freeAttribute2=2 was ID=freeAttribute3 in SH0,
+  ID=freeAttribute4 in SH1.
+
+  YsShellVertex in NEWSHELL has following attributes.
+
+      freeAttribute0  zero
+      freeAttribute1  zero
+      freeAttribute2  Which shell it is from
+      freeAttribute3  Id in the original shell (Negative means newly created)
+      freeAttribute4  zero
+
+  If freeAttribute2 is 0, this vertex is from SH0. If freeAttribute2
+  is 1, this vertex is from SH1. Vertex ID in the original shell
+  (SH0 or Sh1) is retrieved by freeAttribute3. If this vertex is a
+  newly created vertex, freeAttribute3 is a negative value.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBOOLAND">YSBOOLAND</A>,<A HREF="#YSBOOLBLEND">YSBOOLBLEND</A>,<A HREF="#YSBOOLEANOPERATION">YSBOOLEANOPERATION</A>,<A HREF="#YSBOOLMINUS">YSBOOLMINUS</A>,<A HREF="#YSBOOLOR">YSBOOLOR</A>,
+  <A HREF="#YsSeparateShell">YsSeparateShell</A>,<A HREF="#YsShell">YsShell</A>,<A HREF="#YsShellPolygon">YsShellPolygon</A>,<A HREF="#YsShellVertex">YsShellVertex</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsBound">
+<PRE>
+NAME:YsBound
+DEFINITION:
+  #define YsBound(X,A,B) ((X)&lt(A) ? (A) : ((X)&gt(B) ? (B) : (X)))
+DESCRIPTION:
+  If X is between A and B, return X.
+  If X is smaller than A, return A.
+  If X is greater than B, return B.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsGreater">YsGreater</A>,<A HREF="#YsSmaller">YsSmaller</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsBoundingBoxMaker2">
+<PRE>
+NAME:YsBoundingBoxMaker2
+DESCRIPTION:
+  A class to make a bounding box. You can tell the vertices list to this
+  class one by one, by an array or by a list of vertices.
+
+  Making a bounding box is a simple program. But, if there are some
+  bug inside the bounding box making function, many other part are
+  affected. And, since the bounding box making function is simple,
+  it is suspected at last. Resulting huge amount of time wasted. You
+  can use this class instead of writing your bounding box making function.
+
+MEMBERFUNCTION:
+  void Begin(const YsVec2 &VEC);
+  void Add(const YsVec2 &VEC);
+    Add vertices one by one. First, use Begin() to begin adding vertices.
+    Then use Add().
+
+  void Make(int NV,const YsVec2 V[]);
+    Make a bounding box from vertices. NV is number of vertices.
+    V[] are vertices of interest.
+
+  void Make(YsList &ltYsVec2&gt *LST);
+    Make a bounding box from a list of vertices.
+
+  void Make(const YsArray &ltYsVec2&gt &ARY);
+    Make a bounding box from an array of vertices.
+
+  void Get(YsVec2 &min,YsVec2 &MAX) const;
+    Get the result.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsBoundingBoxXMaker3">YsBoundingBoxXMaker3</A>,<A HREF="#YsCheckBoundingBoxCollision2">YsCheckBoundingBoxCollision2</A>,
+  <A HREF="#YsCheckBoundingBoxCollision3">YsCheckBoundingBoxCollision3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsBoundingBoxMaker3">
+<PRE>
+NAME:YsBoundingBoxMaker3
+DESCRIPTION:
+  A class to make a bounding box. You can tell the vertices list to this
+  class one by one, by an array or by a list of vertices.
+
+  Making a bounding box is a simple program. But, if there are some
+  bug inside the bounding box making function, many other part are
+  affected. And, since the bounding box making function is simple,
+  it is suspected at last. Resulting huge amount of time wasted. You
+  can use this class instead of writing your bounding box making function.
+
+MEMBERFUNCTION:
+  void Begin(const YsVec3 &VEC);
+  void Add(const YsVec3 &VEC);
+    Add vertices one by one. First, use Begin() to begin adding vertices.
+    Then use Add().
+
+  void Make(int NV,const YsVec3 V[]);
+    Make a bounding box from vertices. NV is number of vertices.
+    V[] are vertices of interest.
+
+  void Make(YsList &ltYsVec3&gt *LST);
+    Make a bounding box from a list of vertices.
+
+  void Make(const YsArray &ltYsVec3&gt &ARY);
+    Make a bounding box from an array of vertices.
+
+  void Get(YsVec3 &min,YsVec3 &MAX) const;
+    Get the result.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckBoundingBoxCollision2">YsCheckBoundingBoxCollision2</A>,<A HREF="#YsCheckBoundingBoxCollision3">YsCheckBoundingBoxCollision3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCapitalize">
+<PRE>
+NAME:YsCapitalize
+DEFINITION:
+  void YsCapitalize(char l[]);
+DESCRIPTION:
+  Convert all alphabetical letters into capital letter.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsStringHead">YsStringHead</A>,<A HREF="#YsStringTail">YsStringTail</A>,<A HREF="#YsUncapitalize">YsUncapitalize</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckBoundingBoxCollision2">
+<A NAME="YsCheckBoundingBoxCollision3">
+<PRE>
+NAME:YsCheckBoundingBoxCollision2
+NAME:YsCheckBoundingBoxCollision3
+DEFINITION:
+  YSBOOL YsCheckBoundingBoxCollision3
+  (const YsVec3 &MIN1,const YsVec3 &MAX1,const YsVec3 &MIN2,const YsVec3 &MAX2)
+  YSBOOL YsCheckBoundingBoxCollision2
+  (const YsVec2 &MIN1,const YsVec2 &MAX1,const YsVec2 &MIN2,const YsVec2 &MAX2)
+RETURN:
+  YSTRUE    Two bounding boxes are colliding
+  YSFALSE   Two bounding boxes are not colliding
+DESCRIPTION:
+  Check if two bounding boxes defined by (MIN1,MAX1) is colliding with
+  the other bounding box defined by (MIN2,MAX2).
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsBoundingBoxMaker2">YsBoundingBoxMaker2</A>,<A HREF="#YsBoundingBoxMaker3">YsBoundingBoxMaker3</A>,<A HREF="#YsCheckInsideBoundingBox2">YsCheckInsideBoundingBox2</A>,
+  <A HREF="#YsCheckInsideBoundingBox3">YsCheckInsideBoundingBox3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckConvex2">
+<A NAME="YsCheckConvex3">
+<PRE>
+NAME:YsCheckConvex2
+NAME:YsCheckConvex3
+DEFINITION:
+  YSBOOL YsCheckConvex2(int NP,const YsVec2 P[],YSBOOL STRICTCHECK=YSFALSE);
+  YSBOOL YsCheckConvex3(int NP,const YsVec3 P[],YSBOOL STRICTCHECK=YSFALSE);
+RETURN:
+  YSTRUE   The polygon is convex.
+  YSFALSE  The polygon is concave.
+DESCRIPTION:
+  This function checks if the polygon (NP,P) is convex or not.
+
+  The polygon is convex if:
+
+    Condition 1.
+       Pick up 3 conseqtive vertices v1,v2,v3. Let's say
+        e1=e2-v1 and
+        e2=v3-v1
+       Calculate the outer product (cross product) of e1 and e2.
+       The result is pv.
+        pv=e1^c2
+       For convex polygon, pv for all 3 conseqtive vertices must have
+       same direction.
+
+       (Neglecting the vertex that is an intermediate point of the
+        straight edge)
+
+    Condition 2.
+       Every combination of two vertices is separatable pair, except
+       conseqtive vertices. This condition automatically includes no
+       edges are intersecting each other.
+
+       (Neglecting the vertex that is an intermediate point of the
+        straight edge)
+
+  By default, YsCheckConvex2 and YsCheckConvex3 does NOT perform the
+  condition 2 by default. (It means, these functions assumes there are
+  no self intersection). If you need strict check, you can specify
+  YSTRUE for the parameter STRICTCHECK.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckConvexByAngle2">YsCheckConvexByAngle2</A>,<A HREF="#YsCheckConvexByAngle3">YsCheckConvexByAngle3</A>,<A HREF="#YsCheckSeparatability2">YsCheckSeparatability2</A>,
+  <A HREF="#YsCheckSeparatability3">YsCheckSeparatability3</A>,<A HREF="#YsGetArbitraryInsidePointOfPolygon2">YsGetArbitraryInsidePointOfPolygon2</A>,
+  <A HREF="#YsGetArbitraryInsidePointOfPolygon3">YsGetArbitraryInsidePointOfPolygon3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckConvexByAngle2">
+<A NAME="YsCheckConvexByAngle3">
+<PRE>
+NAME:YsCheckConvexByAngle2
+NAME:YsCheckConvexByAngle3
+DEFINITION:
+  YSBOOL YsQuickCheckConvex2(int NP,const YsVec2 P[]);
+  YSBOOL YsQuickCheckConvex3(int NP,const YsVec3 P[]);
+RETURN:
+  YSTRUE    The polygon is convex.
+  YSFALSE   The polygon is concave.
+DESCRIPTION:
+  Check if a polygon (NP,P[]) is convex or concave just angle criteria.
+  This function does not check self-intersection.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckConvex2">YsCheckConvex2</A>,<A HREF="#YsCheckConvex3">YsCheckConvex3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckFlipDirection2">
+<A NAME="YsCheckFlipDirection3">
+<PRE>
+NAME:YsCheckFlipDirection2
+NAME:YsCheckFlipDirection3
+DEFINITION:
+  YSFLIPDIRECTION YsCheckFlipDirection2
+      (int NP,const YsVec2 P[]);
+  YSFLIPDIRECTION YsCheckFlipDirection3
+      (int NP,const YsVec3 P[],const YsVec3 &N);
+RETURN:
+  YSFLIPCCW     Counter clockwise
+  YSFLIPCW      Clockwise
+  YSFLIPUNKNOWN Failed to calculate
+DESCRIPTION:
+  Check the flip direction of the polygon (for 3D case, with respect to
+  the normal vector).
+
+  YsCheckFlipDirection3 is coordinate system dependent.
+  (See YsCoordSysModel and YSCOORDSYSMODEL for more information)
+MEMBERFUNCTION:
+OPERATOR:
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBLUEIMPULSE">YSBLUEIMPULSE</A>,<A HREF="#YSCOORDSYSMODEL">YSCOORDSYSMODEL</A>,<A HREF="#YSFLIPCCW">YSFLIPCCW</A>,<A HREF="#YSFLIPCW">YSFLIPCW</A>,<A HREF="#YSFLIPDIRECTION">YSFLIPDIRECTION</A>,
+  <A HREF="#YSLEFT_ZPLUS_YPLUS">YSLEFT_ZPLUS_YPLUS</A>,<A HREF="#YSLIPUNKNOWN">YSLIPUNKNOWN</A>,<A HREF="#YSOPENGL">YSOPENGL</A>,<A HREF="#YSRIGHT_ZMINUS_YPLUS">YSRIGHT_ZMINUS_YPLUS</A>,
+  <A HREF="#YsCoordSysModel">YsCoordSysModel</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckInBetween2">
+<A NAME="YsCheckInBetween3">
+<PRE>
+NAME:YsCheckInBetween2
+NAME:YsCheckInBetween3
+DEFINITION:
+  YSBOOL YsCheckInBetween2(const YsVec2 &Q,const YsVec2 &P1,const YsVec2 &P2);
+  YSBOOL YsCheckInBetween3(const YsVec3 &Q,const YsVec3 &P1,const YsVec3 &P2);
+RETURN:
+  YSTRUE     if Q is between P1 and P2
+  YSFALSE    if Q is not between P1 and P2
+DESCRIPTION:
+  Check if Q is between P1 and P2 or not. The point Q does not have to
+  be exactly on the line segment P1 and P2.
+
+  The point Q is considered between P1 and P2 if Q is in between the plane
+  (or line) that:
+    1.Has P1 as passing point and parpendicular to the line segment and
+    2.Has P2 as passing point and parpendicular to the line segment
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsGetLineIntersection2">YsGetLineIntersection2</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckInsideBoundingBox2">
+<A NAME="YsCheckInsideBoundingBox3">
+<PRE>
+NAME:YsCheckInsideBoundingBox2
+NAME:YsCheckInsideBoundingBox3
+DEFINITION:
+  YSBOOL YsCheckInsideBoundingBox3
+      (const YsVec3 &REF,const YsVec3 &MIN,const YsVec3 &MAX);
+  YSBOOL YsCheckInsideBoundingBox2
+      (const YsVec2 &REF,const YsVec2 &MIN,const YsVec2 &MAX);
+RETURN:
+  YSTRUE  REF is inside or boundary of the bounding box
+  YSFALSE REF is outside the bounding box
+DESCRIPTION:
+  Check if point REF is inside or boundary of the bounding box.
+  The bounding box is specified by MIN and MAX.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsBoundingBoxMaker">YsBoundingBoxMaker</A>,<A HREF="#YsCheckBoundingBoxCollision2">YsCheckBoundingBoxCollision2</A>,
+  <A HREF="#YsCheckBoundingBoxCollision3">YsCheckBoundingBoxCollision3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckInsidePolygon2">
+<A NAME="YsCheckInsidePolygon3">
+<PRE>
+NAME:YsCheckInsidePolygon2
+NAME:YsCheckInsidePolygon3
+DEFINITION:
+  YSSIDE YsCheckInsidePolygon2(const YsVec2 &REF,int NP,const YsVec2 P[]);
+  YSSIDE YsCheckInsidePolygon3(const YsVec3 &REF,int NP,const YsVec3 P[]);
+RETURN:
+  YSINSIDE       The point of interest is inside the polygon
+  YSOUTSIDE      The point of interest is outside the polygon
+  YSBOUNDARY     The point of interest is on the boundary of the polygon
+  YSUNKNOWNSIDE  Calculation failed.
+DESCRIPTION:
+  Check if the point REF is inside the polygon (NP,P). If the polygon
+  is too much twisted (not exactly on a plane, or on a single line
+  or having zero area), the result will be YSUNKNOWNSIDE.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBOUNDARY">YSBOUNDARY</A>,<A HREF="#YSBOUNDARY">YSBOUNDARY</A>,<A HREF="#YSINSIDE">YSINSIDE</A>,<A HREF="#YSINSIDE">YSINSIDE</A>,<A HREF="#YSOUTSIDE">YSOUTSIDE</A>,<A HREF="#YSOUTSIDE">YSOUTSIDE</A>,<A HREF="#YSSIDE">YSSIDE</A>,
+  <A HREF="#YSUNKNOWNSIDE">YSUNKNOWNSIDE</A>,<A HREF="#YsGetLargestTriangleFromPolygon2">YsGetLargestTriangleFromPolygon2</A>,
+  <A HREF="#YsGetLargestTriangleFromPolygon3">YsGetLargestTriangleFromPolygon3</A>,<A HREF="#YsGetPolygonProjectionMatrix">YsGetPolygonProjectionMatrix</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckLineOverlap2">
+<A NAME="YsCheckLineOverlap3">
+<PRE>
+NAME:YsCheckLineOverlap2
+NAME:YsCheckLineOverlap3
+DEFINITION:
+  YSBOOL YsCheckLineOverlap2
+      (const YsVec2 &O1,const YsVec2 &V1,const YsVec2 &O2,const YsVec2 &V2);
+  YSBOOL YsCheckLineOverlap3
+      (const YsVec3 &O1,const YsVec3 &V1,const YsVec3 &O2,const YsVec3 &V2)
+RETURN:
+  YSTRUE    Two lines are identical
+  YSFALSE   Two lines are not on the same line
+DESCRIPTION:
+  Check if two lines (O1,V1) and (O2,V2) are identical (lying on
+  the same straight line).
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsGetLineIntersection2">YsGetLineIntersection2</A>,<A HREF="#YsGetNearestPointOfTwoLine">YsGetNearestPointOfTwoLine</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckSeparatability2">
+<A NAME="YsCheckSeparatability3">
+<PRE>
+NAME:YsCheckSeparatability2
+NAME:YsCheckSeparatability3
+DEFINITION:
+  YSBOOL YsCheckSeparatability2(int NP,const YsVec2 P[],int IDX1,int IDX2);
+  YSBOOL YsCheckSeparatability3(int NP,const YsVec3 P[],int IDX1,int IDX2);
+RETURN:
+  YSTRUE       The polygon is saparatable by a new edge P[IDX1] and P[IDX2].
+  YSFALSE      The polygon is not saparatable by a new edge P[IDX1] and P[IDX2].
+DESCRIPTION:
+  Check if the polygon is separatable by a new edge P[IDX] and P[IDX2]
+  by the criteria:
+    1.A line segment defined by P[IDX1] and P[IDX2] does not penetrate
+      with any other edge that does not contain P[IDX1] and P[IDX2].
+    2.The center of line segment P[IDX1],P[IDX2] is inside the polygon.
+
+  In 3D case, YsCheckSeparatability3 is a slow function. It is recommended
+  to transform all points into 2D plane by YsGetPolygonProjectionMatrix,
+  then use YsCheckSeparatability2 function.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckConvex2">YsCheckConvex2</A>,<A HREF="#YsCheckConvex3">YsCheckConvex3</A>,<A HREF="#YsGetPolygonProjectionMatrix">YsGetPolygonProjectionMatrix</A>,<A HREF="#YsMatrix">YsMatrix</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCheckShellCollision">
+<PRE>
+NAME:YsCheckShellCollision
+DEFINITION:
+  YSBOOL YsCheckShellCollision(YsShell &SH0,YsShell &SH1);
+RETURN:
+  YSTRUE    Two shells are colliding
+  YSFALSE   Two shells are not colliding
+DESCRIPTION:
+  Check collision between two shells.
+
+  For performance reason, THIS FUNCTION USES freeAttribute3 of
+  polygons in both shells.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCollisionOfPolygon">YsCollisionOfPolygon</A>,<A HREF="#YsShell">YsShell</A>,<A HREF="#YsShellPolygon">YsShellPolygon</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCollisionOfPolygon">
+<PRE>
+NAME:YsCollisionOfPolygon
+DESCRIPTION:
+  A class to check collision of two polygons. To use this class, you
+  have to set two polygons using SetPolygon1 and SetPolygon2 member
+  functions. After setting two polygons, you can call other functions.
+MEMBERFUNCTION:
+  void SetPolygon1(int NV1,const YsVec3 V1[]);
+  void SetPolygon2(int NV2,const YsVec3 V2[]);
+    Set polygons of interest.
+
+  YSBOOL YsCollisionOfPolygon::CheckOnTheSamePlane(void) const;
+    This function returns YSTRUE if two polygons are on the same plane.
+    otherwise, this function will return YSFALSE.
+
+  YSBOOL CheckCollision(void) const;
+    This function returns YSTRUE if two polygons are intersecting or
+    touching more than one point. Otherwise, this function will return
+    YSFALSE.
+
+  YSINTERSECTION CheckPenetration(void) const;
+    This function returns YSTRUE if two polygons are penetrating each
+    other. This function is identical to YsGetPolygonPenetration.
+    Please refer to YsGetPolygonPenetration for the detail.
+
+  YSBOOL OneEdgeLiesOnTheOtherPlane(void) const;
+    This function returns YSTRUE if at least one edge is touching to
+    the other polygon. Otherwise, this function will return YSFALSE.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckShellCollision">YsCheckShellCollision</A>,<A HREF="#YsGetPolygonPenetration">YsGetPolygonPenetration</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsColor">
+<PRE>
+NAME:YsColor
+DEFINITION:
+  class YsColor;
+DESCRIPTION:
+  Color class.
+MEMBERFUNCTION:
+  void Set(int C15BIT);
+    Set a color by 15 bit color. (GGGGGRRRRRBBBBB).
+  void Set(int R,int G,int B);
+    Set a color. R,G and B must be between 0 to 255.
+  void Set(double r,double g,double b);
+    Set a color. R,G and B must be between 0.0 to 1.0.
+  int Get15BitColor(void);
+    Get a color by 15 bit color.
+  void GetIntRGB(int &r,int &g,int &b);
+    Get a color by int. (0 to 255 for each component);
+  void GetDoubleRGB(double &r,double &g,double &b);
+    Get a color by double. (0.0 to 1.0 for each component);
+  double Rd(void);
+  double Gd(void);
+  double Bd(void);
+  int Ri(void);
+  int Gi(void);
+  int Bi(void);
+    Retrieve RGB value by double {Rd,Gd,Bd:0.0 to 1.0},
+    or by int {Ri,Gi,Bi:0 to 255}
+REFERENCE:
+</PRE>
+<UL>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCommandNumber">
+<PRE>
+NAME:YsCommandNumber
+DEFINITION:
+  YSRESULT YsCommandNumber(int *N,char C[],char *LST[]);
+RETURN:
+  YSOK     The command was in the command list
+  YSERR    The command was not in the command list
+DESCRIPTION:
+  Find a command id of the command C with respect to the command list
+  LST. The command id will be set to *N.
+
+  The command list LST must be terminated by NULL.
+
+  For example,
+
+    char str[256];
+    strcpy(str,"VERTEX");
+
+    char *lst[]=
+    {
+        "POLYGON",
+        "VERTEX",
+        "END",
+        NULL
+    };
+    int id;
+    YsCommandNumber(&id,str,lst);
+
+  Then, id will become 1.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsArguments">YsArguments</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsCoordSysModel">
+<PRE>
+NAME:YsCoordSysModel
+DEFINITION:
+  extern YSCOORDSYSMODEL YsCoordSysModel;
+DESCRIPTION:
+  A global variable representing the coordinate system model.
+  Initial value is YSLEFT_ZPLUS_YPLUS.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBLUEIMPULSE">YSBLUEIMPULSE</A>,<A HREF="#YSCOORDSYSMODEL">YSCOORDSYSMODEL</A>,<A HREF="#YSFLIPCCW">YSFLIPCCW</A>,<A HREF="#YSFLIPCW">YSFLIPCW</A>,<A HREF="#YSFLIPDIRECTION">YSFLIPDIRECTION</A>,
+  <A HREF="#YSLEFT_ZPLUS_YPLUS">YSLEFT_ZPLUS_YPLUS</A>,<A HREF="#YSLIPUNKNOWN">YSLIPUNKNOWN</A>,<A HREF="#YSOPENGL">YSOPENGL</A>,<A HREF="#YSRIGHT_ZMINUS_YPLUS">YSRIGHT_ZMINUS_YPLUS</A>,<A HREF="#YsAtt3">YsAtt3</A>,
+  <A HREF="#YsCheckFlipDirection2">YsCheckFlipDirection2</A>,<A HREF="#YsCheckFlipDirection3">YsCheckFlipDirection3</A>,<A HREF="#YsGetAverageNormalVector">YsGetAverageNormalVector</A>,
+  <A HREF="#YsGetPolygonProjectionMatrix">YsGetPolygonProjectionMatrix</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsDegToRad">
+<A NAME="YsRadToDeg">
+<PRE>
+NAME:YsDegToRad
+NAME:YsRadToDeg
+DEFINITION:
+  inline double YsDegToRad(double DEG)
+  {
+      return DEG*YsPi/180.0;
+  }
+
+  inline double YsRadToDeg(double RAD)
+  {
+      return RAD*180.0/YsPi;
+  }
+DESCRIPTION:
+  YsDegToRad converts an angle from degree to radian.
+  YsRadToDeg converts an angle from radian to degree.
+REFERENCE:
+</PRE>
+<UL>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsDrawLineByDDA">
+<PRE>
+NAME:YsDrawLineByDDA
+DESCRIPTION:
+  This class helps drawing a line on a pixel map usint DDA (Digital
+  Differential Analysis) method. DDA is a quick way to trace pixels
+  on the line one pixel by one pixel.
+MEMBERFUNCTION:
+  void Set(int x1,int y1,int x2,int y2);
+    Set both end point of the line segment.
+
+  YSRESULT MoveOneStep(void);
+    Move one pixel.
+
+  void GetPosition(int &x,int &y);
+    Get current position.
+
+  YSBOOL ReachedToTheEnd(void);
+    This function will return YSTRUE if the point reached to the
+    end.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsScreenPolygon">YsScreenPolygon</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsE">
+<PRE>
+NAME:YsE
+DEFINITION:
+  const double YsE=2.71828;
+DESCRIPTION:
+  Natural log
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsPi">YsPi</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsEqual">
+<PRE>
+NAME:YsEqual
+DEFINITION:
+  #define YsEqual(A,B) (YsAbs(A-B)&lt=YsTolerance ? YSTRUE : YSFALSE)
+DESCRIPTION:
+  Check if A equals to B. If the difference is less than YsTolerance,
+  this macro will return YSTRUE. Otherwise YSFALSE.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsAbs">YsAbs</A>,<A HREF="#YsTolerance">YsTolerance</A>,<A HREF="#YsZero">YsZero</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsFileExist">
+<PRE>
+NAME:YsFileExist
+DEFINITION:
+  YSBOOL YsFileExist(char FN[]);
+RETURN:
+  YSTRUE   The file FN exists.
+  YSFALSE  The file FN does not exist.
+DESCRIPTION:
+  Check if the file FN exists.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsFileSize">YsFileSize</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsFileSize">
+<PRE>
+NAME:YsFileSize
+DEFINITION:
+  unsigned long YsFileSize(char FNAME[]);
+RETURN:
+  File size in bytes.
+DESCRIPTION:
+  This function will return the length of the file FNAME in bytes.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsFileExist">YsFileExist</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetArbitraryInsidePointOfPolygon2">
+<A NAME="YsGetArbitraryInsidePointOfPolygon3">
+<PRE>
+NAME:YsGetArbitraryInsidePointOfPolygon2
+NAME:YsGetArbitraryInsidePointOfPolygon3
+DEFINITION:
+  YSRESULT YsGetArbitraryInsidePointOfPolygon2
+    (YsVec2 &A,int NP,const YsVec2 P[],YSBOOL STRICTCHECKOFCONVEXITY=YSFALSE);
+  YSRESULT YsGetArbitraryInsidePointOfPolygon3
+    (YsVec3 &A,int NP,const YsVec3 P[],YSBOOL STRICTCHECKOFCONVEXITY=YSFALSE);
+RETURN:
+  YSOK     Found one inside point
+  YSERR    Could not find a inside point
+DESCRIPTION:
+  Find an arbitrary inside point of the polygon. The polygon must be set
+  to (NP,P). The result is set to A.
+
+  If the function failed to find an inside point, the function return YSERR.
+
+  If the polygon is convex, this function will return the center of
+  gravity of the polygon.
+
+  The polygon's convexity is checked by YsCheckConvex2 and YsCheckConvex3.
+  The parameter STRICTCHECKCONVEXITY is passed to YsCheckConvex2 and
+  YsCheckConvec3. Please refer to YsCheckConvex2 and YsCheckConvex3 for
+  the details. (By default, STRICTCHECKCONVEXITY is YSFALSE)
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckConvex2">YsCheckConvex2</A>,<A HREF="#YsCheckConvex3">YsCheckConvex3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetAverageNormalVector">
+<PRE>
+NAME:YsGetAverageNormalVector
+DEFINITION:
+  YSRESULT YsGetAverageNormalVector(YsVec3 &NOM,int NP,const YsVec3 P[]);
+DESCRIPTION:
+  Find an average normal vector based on a triangle calculated by
+  YsGetLargestTriangleFromPolygon2 or YsGetLargestTriangleFromPolygon3
+
+  If the coordinate system is left hand, the polygon will be
+  counter clockwise with respect to the normal. If the coordinate system
+  is right hand, the polygon will be clockwise with respect to the normal.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBLUEIMPULSE">YSBLUEIMPULSE</A>,<A HREF="#YSCOORDSYSMODEL">YSCOORDSYSMODEL</A>,<A HREF="#YSLEFT_ZPLUS_YPLUS">YSLEFT_ZPLUS_YPLUS</A>,<A HREF="#YSOPENGL">YSOPENGL</A>,
+  <A HREF="#YSRIGHT_ZMINUS_YPLUS">YSRIGHT_ZMINUS_YPLUS</A>,<A HREF="#YsCoordSysModel">YsCoordSysModel</A>,<A HREF="#YsGetLargestTriangleFromPolygon2">YsGetLargestTriangleFromPolygon2</A>,
+  <A HREF="#YsGetLargestTriangleFromPolygon3">YsGetLargestTriangleFromPolygon3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetCenterOfPolygon2">
+<A NAME="YsGetCenterOfPolygon3">
+<PRE>
+NAME:YsGetCenterOfPolygon2
+NAME:YsGetCenterOfPolygon3
+DEFINITION:
+  YSRESULT YsGetCenterOfPolygon2(YsVec2 &CEN,int NP,const YsVec2 PLG[]);
+  YSRESULT YsGetCenterOfPolygon3(YsVec3 &CEN,int NP,const YsVec3 PLG[]);
+RETURN:
+  YSOK     Successfully calculated
+  YSERR    Calculation failed
+DESCRIPTION:
+  Find a center of the polygon based on the largest triangle
+  calculated by YsGetLargestTriangleFromPolygon2/3.
+
+  Note that, it is different from the center of gravity.
+
+MEMBERFUNCTION:
+OPERATOR:
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsGetLargestTriangleFromPolygon2">YsGetLargestTriangleFromPolygon2</A>,<A HREF="#YsGetLargestTriangleFromPolygon3">YsGetLargestTriangleFromPolygon3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetLargestTriangleFromPolygon3">
+<A NAME="YsGetLargestTriangleFromPolygon3">
+<A NAME="YsGetLargestTriangleFromPolygon2">
+<A NAME="YsGetLargestTriangleFromPolygon2">
+<PRE>
+NAME:YsGetLargestTriangleFromPolygon3
+NAME:YsGetLargestTriangleFromPolygon3
+NAME:YsGetLargestTriangleFromPolygon2
+NAME:YsGetLargestTriangleFromPolygon2
+DEFINITION:
+  YSRESULT YsGetLargestTriangleFromPolygon3
+      (YsVec3 *V[3],int NP,const YsVec3 P[]);
+  YSRESULT YsGetLargestTriangleFromPolygon3
+      (const YsVec3 V[3],int NP,const YsVec3 P[]);
+  YSRESULT YsGetLargestTriangleFromPolygon2
+      (YsVec2 *V[3],int NP,const YsVec2 P[]);
+  YSRESULT YsGetLargestTriangleFromPolygon2
+      (const YsVec2 V[3],int NP,const YsVec2 P[]);
+DESCRIPTION:
+  Get the largest triangle that is made by a combination of 3 vertices
+  of (NP,P[]).
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckInsidePolygon2">YsCheckInsidePolygon2</A>,<A HREF="#YsCheckInsidePolygon3">YsCheckInsidePolygon3</A>,<A HREF="#YsGetAverageNormalVector">YsGetAverageNormalVector</A>,
+  <A HREF="#YsGetCenterOfPolygon2">YsGetCenterOfPolygon2</A>,<A HREF="#YsGetCenterOfPolygon3">YsGetCenterOfPolygon3</A>,<A HREF="#YsGetTriangleArea2">YsGetTriangleArea2</A>,
+  <A HREF="#YsGetTriangleArea3">YsGetTriangleArea3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetLineIntersection2">
+<PRE>
+NAME:YsGetLineIntersection2
+DEFINITION:
+  YSRESULT YsGetLineIntersection2
+    (YsVec2 &CRS,
+     const YsVec2 &P1,const YsVec2 &P2,const YsVec2 &Q1,const YsVec2 &Q2);
+RETURN:
+  YSOK      Two lines are intersecting
+  YSERR     Two lines are parallel or identical.
+DESCRIPTION:
+  Get an intersecting point of a line segment P1,P2 and a line segment
+  Q1,Q2.
+
+  If you want to get a nearest point of two 3D lines, use
+  YsGetNearestPointOfTwoLine.
+
+  If the point must be in between line segment, you can use
+  YsCheckInBetween2 function after finding a intersection.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckInBetween2">YsCheckInBetween2</A>,<A HREF="#YsCheckInBetween3">YsCheckInBetween3</A>,<A HREF="#YsCheckLineOverlap2">YsCheckLineOverlap2</A>,
+  <A HREF="#YsCheckLineOverlap3">YsCheckLineOverlap3</A>,<A HREF="#YsGetLinePenetration2">YsGetLinePenetration2</A>,<A HREF="#YsGetLinePenetration3">YsGetLinePenetration3</A>,
+  <A HREF="#YsGetNearestPointOfTwoLine">YsGetNearestPointOfTwoLine</A>,<A HREF="#YsGetNearestPointOnLine2">YsGetNearestPointOnLine2</A>,
+  <A HREF="#YsGetNearestPointOnLine3">YsGetNearestPointOnLine3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetLinePenetration2">
+<A NAME="YsGetLinePenetration3">
+<PRE>
+NAME:YsGetLinePenetration2
+NAME:YsGetLinePenetration3
+DEFINITION:
+  YSINTERSECTION YsGetLinePenetration2
+      (const YsVec2 &P1,const YsVec2 &P2,const YsVec2 &P3,const YsVec2 &P4);
+  YSINTERSECTION YsGetLinePenetration3
+      (const YsVec3 &P1,const YsVec3 &P2,const YsVec3 &Q1,const YsVec3 &Q2);
+RETURN:
+    YSINTERSECT    Two lines are penetrating
+    YSOVERLAP      Two lines are overlapped
+    YSTOUCH        Two lines are touching
+    YSSHAREPOINT   Two lines are sharing more than one point
+    YSAPART        Two lines are apart
+DESCRIPTION:
+  Find penetrating point between two lines (P1,P2) and (P3,P4).
+
+  In 3D case, YsGetLinePenetration3 will use nearest point between
+  two lines, instead of exact intersecting point.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSAPART">YSAPART</A>,<A HREF="#YSINTERSECT">YSINTERSECT</A>,<A HREF="#YSINTERSECTION">YSINTERSECTION</A>,<A HREF="#YSOVERLAP">YSOVERLAP</A>,<A HREF="#YSSHAREPOINT">YSSHAREPOINT</A>,<A HREF="#YSTOUCH">YSTOUCH</A>,
+  <A HREF="#YsGetLineIntersection2">YsGetLineIntersection2</A>,<A HREF="#YsGetNearestPointOfTwoLine">YsGetNearestPointOfTwoLine</A>,
+  <A HREF="#YsGetPolygonPenetration">YsGetPolygonPenetration</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetNearestPointOfTwoLine">
+<PRE>
+NAME:YsGetNearestPointOfTwoLine
+DEFINITION:
+  YSRESULT YsGetNearestPointOfTwoLine
+    (YsVec3 &NP,YsVec3 &NQ,
+     const YsVec3 &P1,const YsVec3 &P2,const YsVec3 &Q1,const YsVec3 &Q2);
+RETURN:
+  YSOK       Successfully calculated
+  YSERR      Calculation failed. (Two lines are parrarel or identical).
+DESCRIPTION:
+  Find a nearest point of two 3D line defined by (P1,P2) and (Q1,Q2).
+  The result will be set to NP and NQ.
+
+  This function is also used to find a intersecting points of two 3D
+  lines.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCheckLineOverlap2">YsCheckLineOverlap2</A>,<A HREF="#YsCheckLineOverlap3">YsCheckLineOverlap3</A>,<A HREF="#YsGetLineIntersection2">YsGetLineIntersection2</A>,
+  <A HREF="#YsGetLinePenetration2">YsGetLinePenetration2</A>,<A HREF="#YsGetLinePenetration3">YsGetLinePenetration3</A>,<A HREF="#YsGetNearestPointOnLine2">YsGetNearestPointOnLine2</A>,
+  <A HREF="#YsGetNearestPointOnLine3">YsGetNearestPointOnLine3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetNearestPointOnLine2">
+<A NAME="YsGetNearestPointOnLine3">
+<PRE>
+NAME:YsGetNearestPointOnLine2
+NAME:YsGetNearestPointOnLine3
+DEFINITION:
+  YSRESULT YsGetNearestPointOnLine3
+    (YsVec3 &NP,const YsVec3 &P1,const YsVec3 &P2,const YsVec3 &REF);
+  YSRESULT YsGetNearestPointOnLine2
+    (YsVec3 &NP,const YsVec3 &P1,const YsVec3 &P2,const YsVec3 &REF);
+RETURN:
+  YSOK     Success
+  YSERR    Calculation failed
+DESCRIPTION:
+  Find a point that is on the line defined by (P1,P2) and that is
+  closest to REF. The result will be set to NP.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsGetLineIntersection2">YsGetLineIntersection2</A>,<A HREF="#YsGetNearestPointOfTwoLine">YsGetNearestPointOfTwoLine</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetPolygonPenetration">
+<PRE>
+NAME:YsGetPolygonPenetration
+DEFINITION:
+  YSINTERSECTION YsGetPolygonPenetration
+      (int NP,const YsVec3 P[],int NQ,const YsVec3 Q[]);
+RETURN:
+    YSINTERSECT    Two objects are penetrating
+    YSOVERLAP      Two objects are overlapped
+    YSTOUCH        Two objects are touching
+    YSAPART        Two objects are apart
+DESCRIPTION:
+  This function will check if two polygons (NP,P) and (NQ,Q) are penetrating
+  each other. This function will return:
+    YSINTERSECT
+      If one edge is penetrating the other polygon. Or, two polygons are
+      touching at more than two points. (* Note: for concave polygon, this
+      condition can be satisfied even two polygons are just touching).
+    YSOVERLAP
+      Two polygons are on the same plane.
+    YSTOUCH
+      Two polygons are touching to each other at only one point.
+    YSAPART
+      Two polygons are apart from each other.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSAPART">YSAPART</A>,<A HREF="#YSINTERSECT">YSINTERSECT</A>,<A HREF="#YSINTERSECTION">YSINTERSECTION</A>,<A HREF="#YSOVERLAP">YSOVERLAP</A>,<A HREF="#YSSHAREPOINT">YSSHAREPOINT</A>,<A HREF="#YSTOUCH">YSTOUCH</A>,
+  <A HREF="#YsCollisionOfPolygon">YsCollisionOfPolygon</A>,<A HREF="#YsGetLinePenetration2">YsGetLinePenetration2</A>,<A HREF="#YsGetLinePenetration3">YsGetLinePenetration3</A>,
+  <A HREF="#YsPlane">YsPlane</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetPolygonProjectionMatrix">
+<PRE>
+NAME:YsGetPolygonProjectionMatrix
+DEFINITION:
+  YSRESULT YsGetPolygonProjectionMatrix
+      (YsMatrix4x4 &MAT,int NP,const YsVec3 P[]);
+RETURN:
+  YSOK        Success
+  YSERR       Feiled
+DESCRIPTION:
+  This function calculates the matrix that transfers points on a plane
+  into XY plane. Flip direction will be inverted in left-hand coordinate
+  system.
+
+  The matrix works so that the center of the polygon will come to origin,
+  and the average normal vector will become (0,0,1).
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBLUEIMPULSE">YSBLUEIMPULSE</A>,<A HREF="#YSCOORDSYSMODEL">YSCOORDSYSMODEL</A>,<A HREF="#YSLEFT_ZPLUS_YPLUS">YSLEFT_ZPLUS_YPLUS</A>,<A HREF="#YSOPENGL">YSOPENGL</A>,
+  <A HREF="#YSRIGHT_ZMINUS_YPLUS">YSRIGHT_ZMINUS_YPLUS</A>,<A HREF="#YsCheckInsidePolygon2">YsCheckInsidePolygon2</A>,<A HREF="#YsCheckInsidePolygon3">YsCheckInsidePolygon3</A>,
+  <A HREF="#YsCheckSeparatability2">YsCheckSeparatability2</A>,<A HREF="#YsCheckSeparatability3">YsCheckSeparatability3</A>,<A HREF="#YsCoordSysModel">YsCoordSysModel</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetTriangleArea3">
+<A NAME="YsGetTriangleArea2">
+<PRE>
+NAME:YsGetTriangleArea3
+NAME:YsGetTriangleArea2
+DEFINITION:
+  double YsGetTriangleArea3(const YsVec3 &P1,const YsVec3 &P2,const YsVec3 &P3)
+  double YsGetTriangleArea2(const YsVec2 &P1,const YsVec2 &P2,const YsVec2 &P3)
+DESCRIPTION:
+  Get an area of the triangle defined by cootdinate P1,P2 and P3.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsGetLargestTriangleFromPolygon2">YsGetLargestTriangleFromPolygon2</A>,<A HREF="#YsGetLargestTriangleFromPolygon3">YsGetLargestTriangleFromPolygon3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGetTwoPlaneCrossLine">
+<PRE>
+NAME:YsGetTwoPlaneCrossLine
+DEFINITION:
+  YSRESULT YsGetTwoPlaneCrossLine
+      (YsVec3 &LNORG,YsVec3 &LNVEC,const YsPlane &PL1,const YsPlane &PL2);
+RETURN:
+  YSOK       Successfully calculated
+  YSERR      Two planes are parallel or identical.
+DESCRIPTION:
+  Find a line that two planes are intersecting. This function will
+  return one passing point to LNORG and return a direction to LNVEC.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsPlane">YsPlane</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsGreater">
+<PRE>
+NAME:YsGreater
+DEFINITION:
+  #define YsGreater(A,B) ((A)&gt(B) ? (A) : (B))
+DESCRIPTION:
+  Macro returns larger one of A and B.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsBound">YsBound</A>,<A HREF="#YsSmaller">YsSmaller</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsList">
+<PRE>
+NAME:YsList
+DEFINITION:
+  template &ltclass T&gt class YsList
+DESCRIPTION:
+  A template class to maintain a list.
+  You have direct access to the item by refering to a member variable {dat}.
+  The top object in the list represents entire list.
+
+  When you finished editing the list, it is recommended to call a member
+  function Encache() to speed up future access to the list object.
+
+MEMBERVARIABLE:
+  T dat;
+    An item kept in the list.
+
+MEMBERFUNCTION:
+  YsList();
+    When an instance is created, it is a complete list with only one
+    list object.
+
+
+  inline YsList &ltT&gt *Next(void);
+  inline const YsList &ltT&gt *Next(void) const;
+    Get a pointer to next list object. If there's no more next object,
+    this will return NULL.
+
+
+  inline YsList &ltT&gt *Prev(void);
+  inline const YsList &ltT&gt *Prev(void) const;
+    Get a pointer to previous list object. If there's no more previous
+    object, this will return NULL.
+
+
+  inline YsList &ltT&gt *SeekTop(void);
+  inline const YsList &ltT&gt *SeekTop(void) const;
+    Get a pointer to the top object of the list.
+
+
+  inline YsList &ltT&gt *SeekEnd(void);
+  inline const YsList &ltT&gt *SeekEnd(void) const;
+    Get a pointer to the last object of the list.
+
+
+  inline YsList &ltT&gt *Seek(int N);
+  inline const YsList &ltT&gt *Seek(int N) const;
+    Get a pointer to the Nth object of the list.
+
+
+  YSBOOL IsTop(void) const;
+    If this object is the top object, this will return YSTRUE. Otherwise
+    this will return YSFALSE.
+
+
+  YSBOOL IsEnd(void) const;
+    If this object is the last object, this will return YSTRUE. Otherwise
+    this will return YSFALSE.
+
+
+  int GetNumObject(void) const;
+    Get the number of list object in this list.
+        // {a0,a1,a2,...,aN)}
+        //   return N+1;
+
+
+  int GetPositionInList(void) const;
+    Get the position of this list object in this list. If the object is
+    Nth object, this function will return N. (N begin with zero). If
+    this pointer is NULL, this function will return -1.
+      // {a0,a1,a2,...,(this=an),...,(aN)}
+      //   return n;
+      // If called by NULL pointer,
+      //   return -1;
+
+
+  YsList &ltT&gt *Append(YsList &ltT&gt *follow);
+    Add a list object to the end. Then return a pointer to the list.
+    This function returnes a pointer to the list because, an empty
+    list (NULL) plus a newly created object is not an empty list
+    (not NULL). So the top member will change.
+      // {(this==a0),(a1),...,(aN)}
+      //    +
+      // {(follow==b0),(b1),...,(bN)}
+      //    to
+      // return {(a0),(a1),...,(aN),(b0),(b1),...,(bN)}
+
+    Eg.
+      YsList &ltint&gt *lst;
+      lst=NULL;           // Empty list is created.
+
+      for(something)
+      {
+          YsList &ltint&gt *toAppend;
+          toAppend=new YsList &ltint&gt;  // Create a new list object.
+          toAppend-&gtdat=something;
+
+          lst=lst-&gtAppend(toAppend);  // New object is appended to the list.
+      }
+
+
+  YsList &ltT&gt *DeleteFromList(void);
+    Delete this object from the list. This function will return
+    a pointer to the list (same as a pointer to the top object)
+    after deleting, because the pointer to the list must change,
+    if this object was a top object.
+      // {(a0),(a1),(a2),...,(a n-1),(an=this),(a n+1),...,(aN)}
+      //   to
+      // return {(a0),(a1),(a2),...,(a n-1),(a n+1),...,(aN)}
+
+    Eg.
+       lst=obj-&gtDeleteFromList();
+
+
+  YsList &ltT&gt *Delete(int N);
+    Delete Nth object in the list. (N begin with zero). This function
+    will return a pointer to the list after deleting.
+      // {(this=a0),(a1),(a2),...,(a n-1),(an),(a n+1),...,(aN)}
+      //    to
+      // return {(a0),(a1),(a2),...,(a n-1),(a n+1),...,(aN)}
+
+
+  YSRESULT DeleteList(void);
+    Delete entire list. This function must be used by only top object.
+
+
+  YsList &ltT&gt *Insert(int N,YsList &ltT&gt *TOINSERT);
+    Insert a list TOINSERT between N-1th and Nth object, then returns
+    a pointer to a new list. After this function, TOINSERT is no longer
+    a independent list.
+      // {(this=a0),(a1),...,(a n-1),(an),...,(aN)}
+      // {(toInsert=b0),(b1),(b2),....,(bN)}
+      //    to
+      // return {(a0),(a1),...,(a n-1),(b0),...,(bN),(an),...,(aN)}
+      //
+      // if this==NULL
+      //   return toInsert;
+
+
+  YsList &ltT&gt *InsertOnTheLeft(YsList &ltT&gt *TOINSERT);
+    Insert a list TOINSERT between this object and the previous object,
+    then return a pointer to a new list.
+      // {(a0),(a1),...,(a n-1),(an=this),(a n+1),...,(aN)}
+      //   to
+      // {(a0),(a1),...,(a n-1),{toInsert},(an=this),(a n+1),...,(aN)}
+
+
+  YsList &ltT&gt *InsertOnTheRight(YsList &ltT&gt *TOINSERT);
+    Insert a list TOINSERT between this object and the next object,
+    then return a pointer to a new list.
+      // {(a0),(a1),...,(a n-1),(an=this),(a n+1),...,(aN)}
+      //   to
+      // {(a0),(a1),...,(a n-1),(an=this),{toInsert},(a n+1),...,(aN)}
+
+
+  YsList &ltT&gt *Split(YsList &ltT&gt *SPLITPOINT);
+    Split a list at SPLITPOINT. After this function, the pointer
+    SPLITPOINT can be used as a independent list. This function will
+    return the pointer to remaining part of the original list.
+
+    Eg.
+      lst=lst-&gtSplit(split);
+        (At this point, lst and split can be used as a independent list).
+
+      // {(a0),(a1),...,(a n-1),(an=splitPoint),...,(aN)}
+      //   to
+      // return {(a0),(a1),...,(a n-1)}
+      //
+      // {(an=splitPoint),...,(aN)} can be used as an independent list.
+
+  YsList &ltT&gt *Duplicate(void) const;
+    This function will duplicate the list and return the pointer to the
+    duplicated list. If the class T's operator= is not properly
+    written, the result is unexpected.
+
+  void Test(void) const;
+    Diagnostic itself.
+
+  void Encache(void) const;
+    Re-calculate a cache buffer to speed up accessing list objects.
+    Cache buffer is cleared when the list is modified.
+
+  void Decache(void) const;
+    Clear the cache buffer.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsArray">YsArray</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsMath">
+<PRE>
+NAME:YsMath
+DESCRIPTION:
+  Base class of some math class. You don't have to worry about
+  this class.
+REFERENCE:
+</PRE>
+<UL>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsMatrix">
+<PRE>
+NAME:YsMatrix
+DESCRIPTION:
+  General n*m matrix class. Row and column begins with 1, NOT zero.
+  If you want to retrieve left top element, use v(1,1).
+MEMBERFUNCTION:
+  inline double v(int ROW,int COLUMN) const;
+    Get an element at (ROW,COLUMN).
+
+  inline int nr(void) const
+    Get number of rows.
+
+  inline int nc(void) const
+    Get number of columns.
+
+  inline YSRESULT Set(int ROW,int COLUMN,double V);
+    Set an element at (ROW,COLUMN) to the value of V.
+
+  void Create(int NR,int NC);
+    Create a matrix of NR*NC. All elements are initialized to zero.
+
+  void Create(int NR,int NC,double D[]);
+    Create a matrix of NR*NC. Elements are initialized by D[].
+      (1,1) &lt- D[0]
+      (1,2) &lt- D[2]
+      (1,3) &lt- D[3]
+          :
+      (2,1) &lt- D[NC]
+      (r,c) &lt- D[NC*(r-1)+(c-1)]
+
+
+  void CreateWithoutClear(int NR,int NC);
+    Create a matrix of NR*NC. All elements are NOT initialized.
+
+  void LoadIdentity(void);
+    Set an identity matrix.
+
+  YSRESULT GetSubMatrix(YsMatrix &MAT,int R,int C) const;
+    Get a submatrix. A submatrix is a matrix that is made by eliminating
+    row R and column C from the original matrix. The resulting matrix
+    is set to MAT.
+
+  YSRESULT GetDeterminantMatrix(YsMatrix &MAT) const;
+    Get a determinant matrix.
+
+  YSRESULT GetDeterminant(double &DET) const;
+    Get a determinant. If the matrix is not n*n matrix, this function
+    will return YSERR.
+
+  YSRESULT Transpose(void);
+    Transpose the matrix.
+
+  YSRESULT Invert(void);
+    Invert the matrix. If inverse matrix is not available, this function
+    will return YSERR.
+
+  YSRESULT SwapRow(int R1,int R2);
+    Swap row R1 and R2.
+
+  YSRESULT MulRow(int R,double M);
+    Multiply each elements contained in row R by the factor of M.
+
+  YSRESULT DivRow(int R,double D);
+    Divide each elements contained in row R by the factor of M.
+
+  YSRESULT Row1MinusRow2Mul(int R1,int R2,double M);
+    Subtract each element contained in row R1 by the elements in row R2
+    times M.
+
+OPERATOR:
+  const YsMatrix &operator=(const YsMatrix &);
+    Copy the matrix.
+
+  inline const YsMatrix &operator*(const YsMatrix &A,const YsMatrix &B)
+    Multiply matrices.
+
+  inline const YsMatrix &operator+(const YsMatrix &A,const YsMatrix &B)
+    Add matrices.
+
+  inline const YsMatrix &operator-(const YsMatrix &A,const YsMatrix &B)
+    Subtract matrices.
+
+  inline const YsMatrix &operator-(const YsMatrix &A)
+    Return a negative of A.
+
+  inline const YsMatrix &operator^(const YsMatrix &A,const YsMatrix &B)
+    Calculate an outer product (cross product) of A and B. A and B
+    must be n*1 matarices.
+
+  inline const YsMatrix &operator*(const YsMatrix &A,double B)
+  inline const YsMatrix &operator*(double B,const YsMatrix &A)
+    Return a matrix A*B.
+
+  inline const YsMatrix &operator/(const YsMatrix &A,double B)
+    Return a matrix A/B.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsAtt3">YsAtt3</A>,<A HREF="#YsCheckSeparatability2">YsCheckSeparatability2</A>,<A HREF="#YsCheckSeparatability3">YsCheckSeparatability3</A>,<A HREF="#YsMatrix4x4">YsMatrix4x4</A>,
+  <A HREF="#YsRotation">YsRotation</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsMatrix4x4">
+<PRE>
+NAME:YsMatrix4x4
+DESCRIPTION:
+  4x4 matrix class. Row and column begin with 1, NOT zero. So, if you
+  want to get top-left element, use v(1,1). Or to get bottom-right
+  element, use v(4,4)
+MEMBERFUNCTION:
+  inline YsMatrix4x4();
+    Constructor WITHOUT initialization. To initialize (to identity matrix),
+    use Initialize().
+
+  inline double v(int R,int C) const
+    Get a value of an element at (Row=R,Column=C).
+
+  void Initialize(void);
+    Load the identity matrix.
+
+  void RotateZY(double A);
+    Multiply a matrix of rotation in Z-Y plane by an angle of A.
+
+  void RotateXZ(double A);
+    Multiply a matrix of rotation in X-Z plane by an angle of A.
+
+  void RotateXY(double A);
+    Multiply a matrix of rotation in X-Y plane by an angle of A.
+
+  void Rotate(double X,double Y,double Z,double ANG);
+    Multiply a matrix of rotation about (X,Y,Z) by the angle of ANG.
+
+  void Rotate(const YsRotation &ROT);
+    Multiply a matrix of rotation ROT.
+
+  void Rotate(const YsAtt3 &ATT);
+    Multiply a matrix of rotation ATT. (Local to global rotation).
+
+  void Translate(double X,double Y,double Z);
+    Multiply a matrix of translation (X,Y,Z);
+
+  void Translate(const YsVec3 &VEC);
+    Multiply a matrix of translation by VEC.
+
+  void Scale(double SX,double SY,double SZ);
+    Multiply a matrix of scaling in x,y and z component.
+      newX=oldX*SX
+      newY=oldY*SY
+      newZ=oldZ*SZ
+
+  void Scale(const YsVec3 &SCA);
+    Multiply a matrix of scaling in x,y and z component.
+      newX=oldX*SCA.x()
+      newY=oldY*SCA.y()
+      newZ=oldZ*SCA.z()
+
+  void Mul(double RESULT[4],const double VEC[4]) const;
+  void Mul(YsVec3 &RESULT,const YsVec3 &VEC,double TRANSLATE) const;
+    Multiply this matrix and VEC. The result will be set to RESULT.
+    If VEC[3]==1.0 or TRANSLATE==1.0, the vector is rotated and
+    translated. If VEC[3]==0.0 or TRANSLATE==0.0, the vector
+    is rotated but is not translated.
+
+  void MulInverse(double RESULT[4],const double VEC[4]) const;
+  void MulInverse(YsVec3 &RESULT,const YsVec3 &ORG,double TRANSLATE) const;
+    Multiply inverse matrix of this matrix and VEC.  The result will
+    be set to RESULT. If VEC[3]==1.0 or TRANSLATE==1.0, the vector
+    is rotated and translated. If VEC[3]==0.0 or TRANSLATE==0.0,
+    the vector is rotated but is not translated.
+
+  YSRESULT Invert(void);
+    Invert this matrix. If the inverse matrix is valid (means the
+    matrix is not singular), this function will return YSOK,
+    otherwise return YSERR.
+
+  void GetArray(double BUF[16]) const;
+    Copy elements to buf.
+       Row,Column
+        1    1       to BUF[0]
+        1    2       to BUF[1]
+        1    3       to BUF[2]
+        1    4       to BUF[3]
+        2    1       to BUF[4]
+        2    2       to BUF[5]
+                :
+
+  YSRESULT GetInverseArray(double BUF[16]) const;
+    Get the inversed matrix value to BUF. Order of the element is same
+    as GetArray function. If the inverse matrix is valid (means the
+    matrix is not singular), this function will return YSOK,
+    otherwise return YSERR.
+
+  YSRESULT GetRotation(double &X,double &Y,double &Z,double &RAD) const;
+  YSRESULT GetRotation(YsRotation &ROT) const;
+    Extract a rotation from this matrix.
+
+  YSRESULT GetTranslation(double &X,double &Y,double &Z) const;
+  YSRESULT GetTranslation(YsVec3 &TRS) const;
+    Extract a translation from this matrix.
+
+  const double *GetArray(void) const;
+    Get OpenGL compatible 4x4 array. (You can pass it to glMultMatrixd);
+
+  const double *GetInverseArray(void) const;
+    Get OpenGL compatible 4x4 array of inverse matrix.
+
+OPERATOR:
+  const YsMatrix4x4 &operator=(const YsMatrix &M);
+    Convert matrix from YsMatrix class. YsMatrix &M must be either 3x3 or
+    4x4 matrix.
+
+  friend YsMatrix4x4 operator*(const YsMatrix4x4 &A,const YsMatrix4x4 &B);
+    Multiply A and B. And return the resultant.
+
+  friend YsVec3 operator*(const YsMatrix4x4 &A,const YsVec3 &B);
+    Multiply A and B. And return the resultant.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsAtt3">YsAtt3</A>,<A HREF="#YsMatrix">YsMatrix</A>,<A HREF="#YsRotation">YsRotation</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsOneMemoryBlock">
+<PRE>
+NAME:YsOneMemoryBlock
+DEFINITION:
+  template &ltclass T,const int minimum&gt class YsOneMemoryBlock
+DESCRIPTION:
+  If you want to use an array in a function, and the side of the array
+  is usually less than some value but unbounded, you may tend to use
+  new and delete operator.
+
+  For example, let's say you want to have an array to keep vertices of
+  a polygon. Typically, the number of vertices of a polygon is less than
+  64. Even mostly 3 or 4. But, it could be more than 256 vertices.
+
+  But, new/delete operator (also malloc/free function) are extre----mly
+  slow function. (Regardless of which operating system you are using,
+  Win or UNIX). They are functions which you may want to avoid as much
+  as possible to improve the performance.
+
+  One more problem using new/delete is memory leak. If you forget deleting
+  the memory block, your program will run out of memory, then crash
+  some time.
+
+  Typically,
+
+        void Someclass::function(void)
+        {
+            int n;
+            YsVec3 *vec;
+            n=GetNumberOfVertices();
+            vec=new YsVec3[n];
+            GetVertices(vec);
+
+            DoSomething();
+
+            if(Error Occured)
+            {
+                // Stop everything. It's an emergency.
+                return;
+            }
+
+            DoSomethingElse();
+            delete [] vec;
+            return; // Happy!
+        }
+
+  You may notice if(Erro Occured), vec is not deleted.
+
+  This class will allow you to stop worrying about these performance
+  problems and memory leaks.
+
+  Instead of writing like,
+
+      int *vec;
+      vec=new int[requiredSize];
+
+  write as follows.
+
+      YsOneMemoryBlock &ltint,256&gt memBlock;
+      int *vec;
+      vec=memBlock.GetMemoryBlock(requiredSize);
+
+  You must specify 256 as a typical safe size of the array.
+  YsOneMemoryBlock class hold this size of array by default. It is
+  obtained from stack area, no performance loss. So, you must not
+  specify huge number here. This must be a reasonable number.
+
+  When GetMemoryBlock function is called, if requiredSize is less
+  than typical safe size, YsOneMemoryBlock class just returnes an
+  array that is kept inside the class. Otherwise, this class just
+  establish operator new to allocate a new memory block.
+
+  If requiredSize is usually less than typical safe size, operator
+  new is rarely used. Very little performance loss.
+
+  And even if YsOneMemoryBlock class used operator new, the memory
+  block is automatically released in the destructor of YsOneMemoryBlock.
+  So, no memory leak.
+
+  Note that, this class is only for a local array. The array allocated
+  by this class is automatically deleted when the function exits.
+
+MEMBERFUNCTION:
+  T *GetMemoryBlock(int requiredSize);
+    Get Memory Block.
+REFERENCE:
+</PRE>
+<UL>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsPi">
+<PRE>
+NAME:YsPi
+DEFINITION:
+  const double YsPi=3.14159265358979323;
+DESCRIPTION:
+  PI.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsE">YsE</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsPlane">
+<PRE>
+NAME:YsPlane
+DESCRIPTION:
+  A class represents a plane.
+MEMBERFUNCTION:
+  YsPlane();
+    Constructor WITHOUT initialization.
+
+  YsPlane(const YsVec3 &O,const YsVec3 &N);
+    Constructor with initialization. Specify one passing point or origin
+    by O, normal vector by N.
+
+  inline void Set(const YsVec3 &O,const YsVec3 &N)
+    Set origin O and normal vector N.
+
+  inline void SetOrigin(const YsVec3 &O)
+    Set origin (one passing point of the plane).
+
+  inline void SetNormal(const YsVec3 &N)
+    Set normal vector.
+
+  inline void GetOrigin(YsVec3 &O) const
+    Get origin.
+
+  inline void GetNormal(YsVec3 &N) const
+    Get normal vector.
+
+  YSBOOL CheckOnPlane(const YsVec3 &POS) const;
+    If POS is on the plane, return YSTRUE. Otherwise return YSFALSE.
+
+  YSRESULT GetIntersection
+      (YsVec3 &CRS,const YsVec3 &LNORG,const YsVec3 &LNVEC);
+    Calculate an intersecting point between a line and the plane.
+    The line is specified by originating point LNORG and the direction
+    LNVEC. Intersecting point is returned to CRS. If the line intersects
+    the plane, this function will return YSTRUE, otherwise return YSFALSE.
+    (No intersection means the line is parallel to or on the plane.)
+
+  YSRESULT GetPenetration
+      (YsVec3 &CRS,const YsVec3 &P1,const YsVec3 &P2) const;
+    Calculate a penetrating point between a line segment and the plane.
+    The line is specified by two end points, P1 and P2. Penetrating
+    point is returned to CRS. If the line segment penetrates the plane
+    this function will return YSOK, otherwise return YSERR.
+
+  YSRESULT GetNearestPoint(YsVec3 &NP,const YsVec3 &REFP) const;
+    Return a point on the plane that is closest to REFP. The result will be
+    set to NP. Usually this function will return YSOK, but if
+    the function failed to calculate (Eg. eveutually normal vector
+    has the length of zero), return YSERR.
+
+  YSRESULT MakeBestFitPlane(int NP,const YsVec3 P[]);
+    Make a YsPlane that best fit to the point sets (NP,P[]). If the
+    calculation failed, this function will return YSERR. Otherwise
+    return YSOK.
+
+  YSRESULT MakePlaneFromTriangle(const YsVec3 &P1,const YsVec3 &P2,const YsVec3 &P3);
+    Construct a YsPlane from three points P1,P2 and P3.
+
+  int YsPlane::GetSideOfPlane(const YsVec3 &REF);
+    The function returnes
+      a Positive integer when (REF-ORG)*NOM&gt0
+      a Negative integer when (REF-ORG)*NOM&lt0
+      zero when REF is on the plane
+    where O is a point on the plane, NOM is the normal of the plane.
+
+  inline const YsVec3 &GetOrigin(void) const
+    The function returns a point on the plane.
+
+  inline const YsVec3 &GetNormal(void) const
+    The function returns a normal vector of the plane.
+
+OPERATOR:
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsGetPolygonPenetration">YsGetPolygonPenetration</A>,<A HREF="#YsGetTwoPlaneCrossLine">YsGetTwoPlaneCrossLine</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsPrintf">
+<PRE>
+NAME:YsPrintf
+DESCRIPTION:
+  A class that offeres the same function as printf. You can write
+  a subclass of YsPrintf, overriding the function Output member
+  function. Output member function accepts final output string.
+  You can output the string to a file, a MessageBox or anything
+  you want.
+
+MEMBERVARIABLE:
+  static YsPrintf *def;
+    YsPrintf::def is a pointer to the default YsPrintf object.
+    At the beginning, YsPrintf::def-&gtPrintf(something); will
+    work same as printf of the standard C-library.
+
+MEMBERFUNCTION:
+  virtual void Output(char str[]);
+    You cannot call this function directly. But you can override
+    this function to output a final string to anything.
+
+  int Printf(const char *fom,...);
+    You can use this function same as printf of the standard
+    C-library.
+
+  void SetDefault(void);
+    Make this instance default.
+
+REFERENCE:
+</PRE>
+<UL>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsPutExt">
+<PRE>
+NAME:YsPutExt
+DEFINITION:
+  void YsPutExt(char FNAME[],char EXT[]);
+DESCRIPTION:
+  Put an extension EXT to the filename FNAME, if the filename FNAME does
+  not have an extension. The extension EXT must be in one of following
+  forms.
+
+     *.EXT
+     .EXT
+     EXT
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsSeparatePathFile">YsSeparatePathFile</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsRelativePath">
+<PRE>
+NAME:YsRelativePath
+DEFINITION:
+  YSRESULT YsRelativePath(char RELATIVE[],char FULL[],char ORIGIN[]);
+RETURN:
+  YSOK     Successfully converted
+  YSERR    Given fullpathname cannot be converted to relative path
+DESCRIPTION:
+  Convert a full path name FULL into relative path with respect to
+  the path name ORIGIN. This function may fail if
+    (1)The target file FULL is not in a same drive as ORIGIN.
+    (2)Case of driver letter is different between FULL and ORIGIN.
+       (Eg. FULL   -&gt "C:/src/ysclass/document/ysclass.txt
+            ORIGIN -&gt "c:/src/ysclass/"
+                       ^ Case mismatch )
+REFERENCE:
+</PRE>
+<UL>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsRotation">
+<PRE>
+NAME:YsRotation
+DESCRIPTION:
+  Class that represent a rotation about an arbitrary vector.
+MEMBERFUNCTION:
+  YsRotation();
+    Constructor WITHOUT initialization.
+
+  YsRotation(double X,double Y,double Z,double ANG);
+    Constructor WITH initialization. (X,Y,Z) as axis of rotation.
+    "ANG" as an angle of rotation.
+
+  YsRotation(const YsVec3 &AX,double ANG);
+    Constructor WITH initialization. AX as axis of rotation.
+    ANG as an angle of rotation.
+
+  inline void Set(double X,double Y,double Z,double A)
+  inline void Set(const YsVec3 &AX,double A)
+    Set an axis of rotation {(X,Y,Z) or AX} and an angle of rotation A.
+
+  inline void SetAxis(const YsVec3 &AXS;
+    Set an axis of rotation.
+
+  inline void SetAngle(double A);
+    Set an angle of rotation.
+
+  inline void Get(double &X,double &Y,double &Z,double &A) const
+  inline void Get(YsVec3 &AX,double &A) const
+    Get an axis of rotation and an angle of rotation.
+
+  inline const YsVec3 &GetAxis(void) const
+    Get an axis of rotation.
+
+  inline const double GetAngle(void) const
+    Get an angle of rotation.
+
+  YSRESULT RotatePositive(YsVec3 &RESULT,const YsVec3 &START) const;
+    Rotate the vector START to the right(in right hand coordinate system)
+    or to the left(in left hand coordinate system). The result is set
+    to RESULT.
+
+  YSRESULT RotateNegative(YsVec3 &RESULT,const YsVec3 &START) const;
+    Rotate the vector START to the left(in right hand coordinate system)
+    or to the right(in left hand coordinate system). The result is set
+    to RESULT.
+
+OPERATOR:
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsAtt3">YsAtt3</A>,<A HREF="#YsMatrix">YsMatrix</A>,<A HREF="#YsMatrix4x4">YsMatrix4x4</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsScreenPolygon">
+<PRE>
+NAME:YsScreenPolygon
+DEFINITION:
+  template &ltconst int MAXNXBUF,const int HEI&gt class YsScreenPolygon
+DESCRIPTION:
+  This class provide an easy way to draw a polygon on a pixel map.
+
+  When drawing a polygon on a pixel map, the program trace edges of
+  the polygon and find intersection between each edge and a line y=k
+  {k:constant 0&lt=k&lty resolution}. After findint intersection, the
+  program draws horizontal lines that fills between intersecting
+  points.
+
+  The template parameter MAXNXBUF takes the maximum number of horizontal
+  intersecting points. If there are more than MAXNXBUF of intersection
+  at y=k, this class will ignore some of intersecting points. The
+  intersecting point at righthand side has more priority.
+
+  The other template parameter HEI takes the resolution in y direction.
+  Y component of screen coordinate must be between 0 through HEi-1.
+
+  User MakeHorizontalIntersectionBuffer member function to find
+  intersecting points. Then, use GetRangeOfY,GetNumIntersectionAtY,
+  and GetIntersectionBufferAtY to use retrieve intersecting points
+  at y=k. Then, draw horizontal lines.
+
+MEMBERFUNCTION:
+  YSRESULT MakeHorizontalIntersectionBuffer(int NP,int P[]);
+    Track edges, make the intersection buffer. If NP is less than 3,
+    this function will return YSERR and do nothing.
+
+    The format of the array P is:
+        P[0]=x1
+        P[1]=y1
+        P[2]=x2
+        P[3]=y2
+        P[4]=x3
+        P[5]=y3 .....
+
+  void GetRangeOfY(int &ymin,int &ymax);
+    Get range of Y component. This function does not return valid
+    value.
+
+  int GetNumIntersectionAtY(int Y);
+    Return the number of intersection between the polygon and a
+    horizontal line y=Y.
+
+  int *GetIntersectionBufferAtY(int Y);
+    Return the pointer to a intersection buffer of y=Y. You can draw
+    a polygon by,
+
+        // It's better to check errors and NULL pointers. (I omitted for this)
+        // This code is ad lib code :-) So, it may contain errors,
+        // Please read it as a schematic code :-)
+
+        int i,n,*buf,x,x1,x2,y,y1,y2;
+        YsScreenPolygon plg;
+        plg.MakeHorizontalIntersectionBuffer(somepolygon);
+        plg.GetRangeOfY(y1,y2);
+        for(y=y1; y&lt=y2; y++)
+        {
+            n=GetNumIntersectionAtY(y);
+            buf=GetIntersectioNBufferAtY(y);
+            for(i=0; i&ltn-1; i+=2)
+            {
+                for(x=buf[i]; x&lt=buf[i+1]; x++)
+                {
+                    PutPixel(x,y);
+                }
+            }
+        }
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#SRF-FORMAT">SRF-FORMAT</A>,<A HREF="#YsDrawLineByDDA">YsDrawLineByDDA</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsSeparatePathFile">
+<PRE>
+NAME:YsSeparatePathFile
+DEFINITION:
+  YSRESULT YsSeparatePathFile(char DIR[],char FIL[],char FUL[]);
+RETURN:
+  YSOK    Successfully separated directory name and file name.
+  YSERR   Failed to separate directory name and file name.
+DESCRIPTION:
+  This function will separate directory name part and file name part of
+  the path name FUL. The directory part will be set to DIR. The file name
+  part will be set to FIL.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsPutExt">YsPutExt</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsSeparateShell">
+<PRE>
+NAME:YsSeparateShell
+DEFINITION:
+  YSRESULT YsSeparateShell
+      (YsShell &SH0,YsShell &SH1,YsShell &ORG,YsShell &REF);
+RETURN:
+  YSOK    Succesfully calculated
+  YSERR   Failed
+DESCRIPTION:
+  Split a shell ORG into SH0 and SH1 with respect to REF.
+
+  This function is equivalent to following two lines of code.
+
+    YsBlendShell(SH0,ORG,REF,YSBOOLMINUS);
+    YsBlendShell(SH1,ORG,REF,YSBOOLAND);
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSBOOLAND">YSBOOLAND</A>,<A HREF="#YSBOOLBLEND">YSBOOLBLEND</A>,<A HREF="#YSBOOLEANOPERATION">YSBOOLEANOPERATION</A>,<A HREF="#YSBOOLMINUS">YSBOOLMINUS</A>,<A HREF="#YSBOOLOR">YSBOOLOR</A>,
+  <A HREF="#YsBlendShell">YsBlendShell</A>,<A HREF="#YsShell">YsShell</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsShell">
+<PRE>
+NAME:YsShell
+DESCRIPTION:
+  This class gives a structure that stores a polygonal shell.
+  The shell consists of a list of vertices and a list of polygons.
+  Various operations are available for this class, such as
+  boolean operations, inside/outside checking, collision detection
+  and so on.  Some of them requires that the shell is a valid
+  solid (i.e. the shell is closed, and each edge is used by two
+  polygons).
+
+  YsShell offers two types of accesses to the vertices and the
+  polygons.  One is access by handle, and the other is access by
+  index.  Access by handle is usually faster than access by index.
+  However, when you export the content of the shell into a file,
+  access by index often helps you in writing the exporting
+  function.  If your program has to access by index many times,
+  and if you know that your program does not modify the shell
+  during the operation, you can use Encache function prior to
+  the operation in order to accelerate the access.
+
+  YsShell has an operator=. You can copy shell instances safely
+  with the operator=.
+
+  Currently, number of vertices of one polygon must not exceed 256.
+
+MEMBERFUNCTION:
+  int AddPolygon(int NV,const int V[]);
+  YsShellPolygonHandle AddPolygonH(int NV,const int V[]);
+  YsShellPolygonHandle AddPolygonH(int NV,const YsShellVertexHandle V[]);
+    These functions add a polygon.  NV is the number of vertices of
+    the new polygon.  V is an array of vertex indexes/handles.
+    AddPolygon returns the index of the new polygon.  AddPolygonH
+    returns the handle of the new polygon.
+
+  int AddPolygonVertex(int NV,const YsVec3 V[]);
+    This function adds a polygon.  NV is a number of vertices of
+    the new polygon.  V is an array of positions of vertices.
+    This function returns an index of newly created polygon.
+    This function does not check if all the vertices are co-planer.
+
+    This function creates new vertices regardless of the locations
+    of the vertices.  It means that if a vertex is already located at
+    a location in V, the shell will have two vertices at the same
+    location after this function.
+
+  int AddVertex(const YsVec3 &POS);
+  YsShellVertexHandle AddVertexH(const YsVec3 &POS);
+    This function adds a vertex.  POS is a position of the new
+    vertex.  If is recommended to use AddVertexH unless you have
+    a special reason.
+
+  YSRESULT AttachSearchTable(YsShellSearchTable *search);
+    This function attaches a search table to the shell.  The search
+    table stores detailed topological information of the shell.
+    See YsShellSearchTable for more details.  YsShell is not
+    responsible for releasing the memory block allocated for the
+    search table.  Thus, the application must release the search
+    table when the search table is no longer needed.  If the
+    application needs to release the memory block allocated
+    for the search table, the search table must be detached
+    by DetachSearchTable before it is released.
+    (See DetachSearchTable)
+
+  YSRESULT AutoComputeNormal
+    (YsShellPolygonHandle PLHD,YSBOOL REPLACECURRENT,YSBOOL IGNORECURRENT);
+  YSRESULT AutoComputeNormalAll
+    (YSBOOL REPLACECURRENT,YSBOOL IGNORECURRENT);
+    AutoComputeNormal function computes the normal vector of the
+    polygon PLHD.  AutoComputeNormalAll function computes the
+    normal vector of all polygons.  These functions use
+    YsGetAverageNormalVector internally to compute the normal of
+    the polygons which have more than 3 vertices.
+
+    If REPLACECURRENT is YSTRUE, the function computes normal vectors
+    of all polygons.  If REPLACECURRENT is YSFALSE, the function
+    computes normal vectors of only polygons which originally have
+    zero length (length&ltYsTolerance) polygons.
+
+    If IGNORECURRENT is YSTRUE, the function will not refer to the
+    original normal vector even if the normal is non-zero.  If
+    IGNORECURRENT is YSFALSE, the function refers to the original
+    normal vector and if it is non-zero, and the newly computed
+    normal vector makes over 90 degree against the original normal
+    vector, the function flips the direction of the computed normal
+    vector, which is set to the polygon.  If REPLACECURRENT is YSFALSE,
+    IGNORECURRENT does not affect the result.
+
+    If the shell is closed, and it has a winged-edge structure,
+    use RepairFlipDirectionAssumingWingedEdge function before
+    this function in order to guarantee all normals point to
+    outside.
+
+  YSRESULT BeginReadSrf(void)
+    This function initializes the shell, and prepares for the
+    SRF reading operation.  The program can feed SRF-FORMAT
+    data by using ReadSrfOneLine one line at a time.  The
+    SRF reading operation must be terminated by EndReadSrf.
+
+  void CleanUp(void);
+    This function initializes the shell.
+
+  void CleanUpVertexPolygonStore(void);
+    This function cleans up the vertex/polygon store.
+
+    The vertex/polygon store is a cluster of memory blocks of the
+    vertices/polygons which are no longer used.  YsShell keeps
+    those memory blocks in order to reduce the overhead of memory
+    allocation.  When an application requests YsShell to create
+    a new vertex/polygon, YsShell first tries to pick up a memory
+    block from a vertex/polygon store before allocating a new
+    memory block.
+
+    This feature increases the performance, but if your application
+    creates many YsShells which later become unnecessary, the
+    vertex/polygon store takes up some amount of memory storage.
+    In such a case, you may want to clean up the vertex/polygon store.
+    If you want to clean up the vertex/polygon store, you can call this
+    function (CleanUpVertexPolygonStore()).  Since it is a static function,
+    you can write like
+
+    #include &ltysclass.h&gt
+    int main(void)
+    {
+		(Do something)
+
+        YsShell::CleanUpVertexPolygonStore();
+        return 0;
+    }
+
+  YSSIDE CountRayIntersection
+      (int &COUNTER,const YsVec3 &ORG,const YsVec3 &VEC,int PLIDSKIP=-1) const;
+  YSSIDE CountRayIntersection
+      (int &COUNTER,const YsVec3 &ORG,const YsVec3 &VEC,YsShellPolygonHandle PLHDSKIP=NULL) const;
+    These functions shoot a ray from ORG to the direction of VEC.
+    This function counts how many times the ray penetrates a polygon.
+    The result is set to COUNTER. You can set PLIDSKIP to exclude a
+    particular polygon from intersection check.
+
+    If the ray hits an edge or a vertex, this function stops and
+    returns YSBOUNDARY. Or if the function failed to calculate
+    intersections, this function returns YSUNKNOWNSIDE.
+
+    If this function returned YSBOUNDARY or YSUNKNOWNSIDE, COUNT
+    becomes invalid.
+
+  YSSIDE CheckInsideSolid(const YsVec3 &PNT) const;
+    This function checks if PNT is inside,outside or boundary
+    of this shell.  The return value is valid only when the
+    shell satisfies the condition of solid. If the calculation
+    is failed, this function will return YSUNKNOWNSIDE. Note
+    that if the shell is not a solid (particularly, not closed
+    or having independent polygon etc.), this function may not
+    return YSUNKNOWNSIDE but return false value.
+
+    This function exhaustively checks intersection of a
+    inifinitely long ray against all polygons.  If you need
+    to check many points, it is recommended to build a
+    YsShellLattice first, and then use YsShellLattice's
+    CheckInsideSolid function.  See YsShellLattice class
+    for more details.
+
+  YSRESULT DeletePolygon(int PLID);
+  YSRESULT DeletePolygon(YsShellPolygonHandle PLHD);
+    These functions delete a polygon.
+
+  YSRESULT DeleteVertex(int VTID);
+  YSRESULT DeleteVertex(YsShellVertexHandle VTHD);
+    These functions delete a vertex.  If the vertex is used by
+    one or more polygons, this function will return YSERR and
+    the vertex will not be deleted.
+
+  YSRESULT DeleteVertexAtTheSamePosition(void);
+  YSRESULT DeleteVertexAtTheSamePosition(int &NDELETED);
+    These functions checks locations of vertices, and if
+    more than one vertices are located at the same position,
+    this function deletes those vertices in order to avoid
+    having more than one vertices at one location.
+
+    The application can know how many vertices are deleted
+    by the value of NDELETED after this function.
+
+  YSRESULT DetachSearchTable(void);
+    This function detaches the search table which is attached
+    by using AttachSearchTable.
+
+  void Encache(void) const;
+    This function makes an internal cache table that stores
+    the table of pointers that maps an index number to
+    the pointers of vertices and polygons.  This will
+    accelerate the access by index.
+
+    However, when the shell is modified, internal cache
+    table becomees void.
+
+  YSRESULT EndReadSrf(void)
+    This function termintates the SRF reading operation.
+
+    SRF reading operation begins with BeginReadSrf, and
+    lines of SRF-FORMAT data are fed to YsShell by
+    ReadSrfOneLine.
+
+  YsShellVertexHandle FindNextVertex(YsShellVertexHandle VTHD) const;
+    This function finds a handle to a vertex which is stored next of
+    VTHD in the vertex list.  If VTHD is NULL, this function returns
+    the handle to the first vertex.  If VTHD is the last vertex in
+    the list, the function returns NULL.
+
+  YsShellPolygonHandle FindNextPolygon(YsShellPolygonHandle PLHD) const;
+    This function finds a handle to a polygon which is stored next of
+    PLHD in the polygon list.  If PLHD is NULL, this function returns
+    the handle to the first polygon.  If VTHD is the last polygon in
+    the list, the function returns NULL.
+
+  YSRESULT GetColorOfPolygon(YsColor &COL,int PLID);
+  YSRESULT GetColorOfPolygon(YsColor &COL,YsShellPolygonHandle PLHD) const;
+    These functions gives a color of the polygon PLID.
+
+  void GetBoundingBox(YsVec3 &min,YsVec3 &max);
+    This function gives a bounding box of the shell.
+
+  int GetMaxNumVertexOfPolygon(void) const;
+    This function returns the maximum number of vertices of a
+    polygon stored in the shell.
+
+  void GetMatrix(YsMatrix4x4 &MAT) const;
+    This function gives the transformation matrix which is
+    set to the shell.
+
+  YSRESULT GetNormalOfPolygon(YsVec3 &NOM,int PLID);
+  YSRESULT GetNormalOfPolygon(YsVec3 &NOM,YsShellPolygonHandle PLHD) const;
+    This function gives the normal vector of the polygon.
+    The normal vector is not guaranteed to be correct.
+    And it may have zero length.  If you need all normals
+    are guaranteed to be non-zero and perpendicular to the
+    geometry of the polygons, use AutoComputeNormalAll
+    function to let YsShell compute the normals.
+
+  int GetNumPolygon(void) const;
+    This function returns the number of polygons stored in the shell.
+
+  int GetNumVertex(void) const;
+    This function returns the number of vertices stored in the shell.
+
+  int GetNumVertexOfPolygon(int PLID) const;
+  int GetNumVertexOfPolygon(YsShellPolygonHandle PLHD) const;
+    These functions returns the number of vertices of the polygon of
+    PLID/PLHD.
+
+  YsShellPolygon *GetPolygon(int PLID);
+  const YsShellPolygon *GetPolygon(int PLID) const;
+  const YsShellPolygon *GetPolygon(YsShellPolygonHandle PLHD) const;
+    These functions return a pointer to YsShellPolygon.
+
+  YsShellPolygonHandle GetPolygonHandleFromId(int PLID) const;
+    This function returns a polygon handle corresponds to the index PLID.
+
+  int GetPolygonIdFromHandle(YsShellPolygonHandle PLHD) const;
+    This function returns a polygon index that corresponds to the handle PLHD.
+
+  unsigned GetSearchKey(YsShellVertexHandle VTHD) const;
+  unsigned GetSearchKey(YsShellPolygonHandle PLHD) const;
+    These functions return a unique search key which is assigned to the
+    vertex VTHD or the polygon PLHD.  The search key is used in
+    YsShellSearchTable.
+
+  const YsShellSearchTable *GetSearchTable(void) const;
+    This function returns a pointer to YsShellSearchTable is attached
+    to the shell.  The search table stores detailed topological
+    informations of the shell.  See YsShellSearchTable for more
+    details.
+
+  YsShellVertex *GetVertex(int VTID);
+  const YsShellVertex *GetVertex(int VTID) const;
+  const YsShellVertex *GetVertex(YsShellVertexHandle VTHD) const;
+    These functions return a pointer to YsShellVertex.
+
+  int GetVertexReferenceCount(int VTID) const;
+  int GetVertexReferenceCount(YsShellVertexHandle VTHD) const;
+    These functions return the number of polygons that are using
+    the vertex.
+
+  YSRESULT GetVertexPosition(YsVec3 &POS,int VTID) const;
+  YSRESULT GetVertexPosition(YsVec3 &POS,YsShellVertexHandle VTHD) const;
+    These functions give the position of the vertex VTID/VTHD.
+
+  YSRESULT GetVertexListOfPolygon(int VTID[],int MAXCOUNT,int PLID) const;
+  YSRESULT GetVertexListOfPolygon(YsShellVertexHandle VTHD[],int MAXCOUNT,YsShellPolygonHandle PLHD) const;
+  YSRESULT GetVertexListOfPolygon(YsArray &ltYsShellVertexHandle&gt &VTHD,YsShellPolygonHandle PLHD) const;
+    These functions gives the list of vertex indexes or the list of vertex
+    handles of the polygon PLID/PLHD.  MAXCOUNT is the length of the array
+    VTID.
+
+  YSRESULT GetVertexListOfPolygon(YsVec3 VTX[],int MAXCOUNT,int PLID) const;
+  YSRESULT GetVertexListOfPolygon(YsArray &ltYsVec3&gt &VTX,YsShellPolygonHandle PLHD) const;
+    These functions give the vertex positions of the polygon PLID.
+    You must specify the length of the array VTID to MAXCOUNT.
+
+  YsShellVertexHandle GetVertexHandleFromId(int VTID) const;
+    This function returns a vertex handle corresponds to the index VTID.
+
+  int GetVertexIdFromHandle(YsShellVertexHandle VTHD) const;
+    This function returns a vertex index that corresponds to the handle VTHD.
+
+  const int *GetVertexListOfPolygon(int PLID) const;
+  const YsShellVertexHandle *GetVertexListOfPolygon(YsShellPolygonHandle PLHD) const;
+    These functions returns the const pointer to the array of vertex IDs or
+    vertex handles of the specified polygon.
+
+  YSRESULT InvertPolygon(int PLID);
+  YSRESULT InvertPolygon(YsShellPolygonHandle PLHD);
+    These functions invert the flip direction of the polygon PLID/PLHD.
+
+  YSBOOL IsStarShape(const YsVec3 &PNT,const class YsShellEdgeList *EDGELIST=NULL) const;
+    This function checks if the shell is star-shaped with respect to PNT.
+    A shell is a starshape with respect to PNT when all line segments
+    between PNT and one vertex in the shell do not intersect with the
+    boundary of the shell.  If YsShellEdgeList is already built for the
+    shell, you can pass the pointer to the function to increase the performance.
+
+  YSRESULT LoadSrf(char fn[]);
+    This function loads a SRF-FORMAT file.  The contents stored in
+    the YsShell before using LoadSrf are cleared.
+
+  YSRESULT ModifyVertexPosition(int VTID,const YsVec3 &NEWPOS)
+  YSRESULT ModifyVertexPosition(YsShellVertexHandle VTHD,const YsVec3 &NEWPOS);
+    These function modify vertex position.
+
+  YSRESULT ModifyPolygon(int PLID,int NV,const int V[]);
+  YSRESULT ModifyPolygon(YsShellPolygonHandle PLHD,int NV,const YsShellVertexHandle V[]);
+    These function modify a polygon that is specified by PLID/PLHD.
+    NV,V is a new number of vertices and an array of new vertex indexes/handles.
+    Note that this function does not check if all the vertices are co-planer.
+
+  YSRESULT ReadSrfOneLine(char str[])
+    This function feeds one line of SRF-FORMAT data during SRF reading
+    operation.  SRF reading operation begins with BeginReadSrf and
+    must be terminated by EndReadSrf.
+
+  YSRESULT RepairFlipDirectionAssumingWingedEdge(void);
+    This function repairs inconsistencies of flip directions of the
+    polygons assuming the shell has a closed winged-edge structure.
+    This function needs a search table.  Thus, the search table must
+    be attached prior to using this function.  If the shell is not
+    closed, or does not have a winged-edge structure, the result
+    is undefined.
+
+  YSRESULT SetColorOfPolygon(int PLID,const YsColor &COL);
+  YSRESULT SetColorOfPolygon(YsShellPolygonHandle PLHD,const YsColor &COL);
+    These functions set a color to a polygon.
+
+  void SetMatrix(const YsMatrix4x4 &MAT);
+    This function sets a transformation matrix.
+
+  YSRESULT SetNormalOfPolygon(int PLID,const YsVec3 &NOM);
+  YSRESULT SetNormalOfPolygon(YsShellPolygonHandle PLHD,const YsVec3 &NOM);
+    These functions set a normal vector to a polygon.
+
+  void SetTrustPolygonNormal(YSBOOL TRUST);
+    This function tells the shell if all the normal vectors stored
+    in the polygons are geometrically correct.
+
+    If TRUST is YSTRUE, YsShell will consider that normal vectors
+    set in the polygons are pointing outside, and perpendicular to
+    the face of the polygon.  This will increase the performance
+    of many operations, however, if the normal is not set correctly
+    (because of bad modeling, or all vertices of the polygon are
+    not lying on one plane), some functions will give incorrect
+    results.
+
+  YSRESULT ShootFiniteRay
+      (YsArray &ltYsVec3&gt &PNTS,YsArray &ltYsShellPolygonHandle&gt &PLHDLST,
+       const YsVec3 &P1,const YsVec3 &P2,const YsShellLattice *LTC=NULL);
+    For the given finite length ray (line segment) specified by two points
+    P1 and P2, this function computes the intersection against the shell
+    boundary and returns the list of intersecting points and intersecting
+    polygons.  If a ray hits the edge of the polygon or a vertex of the
+    polygon, the number of intersection will not identify if the point P1
+    or P2 is inside or outside of the shell.
+
+  YSRESULT ShootInfiniteRay
+      (YsArray &ltYsVec3&gt &PNTS,YsArray &ltYsShellPolygonHandle&gt &PLHDLST,
+       const YsVec3 &ORG,const YsVec3 &VEC,const YsShellLattice *LTC=NULL);
+   For the given infinitely long ray specified by a originating point ORG
+   and the direction VEC, this function computes the intersection against
+   the shell boundary and returns the list of intersecting points and
+   intersecting polygons.  If a ray hits the edge of the polygon or a
+   vertex of the polygon, the number of intersection will not identify
+   if the point ORG is inside or outside of the shell.
+
+  int ShootRay(YsVec3 &INTERSECT,const YsVec3 &ORG,const YsVec3 &VEC) const;
+    ShootRay remains only for backward compatibility.  It is recommended
+    to use ShootFiniteRay or ShootInfiniteRay instead of ShootRay.
+
+    Shoot a ray from ORG to the direction of VEC. Find a polygon
+    that the ray hits first. (The polygon that has closest
+    intersecting point with ORG will be chosen). This function
+    will set intersecting point to INTERSECT. The return value
+    is the polygon that the ray hit first.
+
+    If the distance between the point ray hit and ORG is larger than
+    the length of VEC, that point is ignored.
+
+    If no intersection, this function will return negative value.
+
+  void ShootRay
+      (YsArray &ltYsVec3&gt &LST,const YsVec3 &ORG,const YsVec3 &VEC) const;
+    ShootRay' function remains only for backward compatibility.
+    It is recommended to use ShootFiniteRay or ShootInfiniteRay
+    instead of ShootRay.
+
+    Shoot a ray from ORG to the direction of VEC. Make a list of
+    intersection to LST.
+
+    If the distance between the point ray hit and ORG is larger than
+    the length of VEC, that point is ignored.
+
+    If no intersection, LST will be an empty array.
+
+  YSRESULT ValidateVtId(int NVTID,const int VTID[]);
+  YSRESULT ValidatePlId(int NPLID,const int PLID[]);
+    These functions check if VTIDs or PLIDs are valid or invalid.
+    If all of VTIDs or PLIDs are valid, these function return YSOK.
+    Otherwise these function return YSERR.
+
+OPERATOR:
+  const YsShell &operator=(const YsShell &from);
+    You can use operator= to safely copy a shell.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#SRF-FORMAT">SRF-FORMAT</A>,<A HREF="#YSBOOLAND">YSBOOLAND</A>,<A HREF="#YSBOOLBLEND">YSBOOLBLEND</A>,<A HREF="#YSBOOLEANOPERATION">YSBOOLEANOPERATION</A>,<A HREF="#YSBOOLMINUS">YSBOOLMINUS</A>,
+  <A HREF="#YSBOOLOR">YSBOOLOR</A>,<A HREF="#YSBOUNDARY">YSBOUNDARY</A>,<A HREF="#YSBOUNDARY">YSBOUNDARY</A>,<A HREF="#YSINSIDE">YSINSIDE</A>,<A HREF="#YSINSIDE">YSINSIDE</A>,<A HREF="#YSOUTSIDE">YSOUTSIDE</A>,<A HREF="#YSOUTSIDE">YSOUTSIDE</A>,
+  <A HREF="#YSSIDE">YSSIDE</A>,<A HREF="#YSUNKNOWNSIDE">YSUNKNOWNSIDE</A>,<A HREF="#YsBlendShell">YsBlendShell</A>,<A HREF="#YsCheckShellCollision">YsCheckShellCollision</A>,
+  <A HREF="#YsSeparateShell">YsSeparateShell</A>,<A HREF="#YsShellEdgeList">YsShellEdgeList</A>,<A HREF="#YsShellLattice">YsShellLattice</A>,<A HREF="#YsShellPolygon">YsShellPolygon</A>,
+  <A HREF="#YsShellSearchTable">YsShellSearchTable</A>,<A HREF="#YsShellVertex">YsShellVertex</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsShellEdgeList">
+<PRE>
+NAME:YsShellEdgeList
+DESCRIPTION:
+  A simple class which stores list of edges included in a YsShell.
+  This function helps increase the performance of many operations
+  included in YSCLASS.LIB, however, internal structure is not
+  completely fixed.  Therefore, functions not listed here here
+  may change in the future version even though they are declared
+  as 'public' functions.
+
+  Several functions of YSCLASS.LIB requires or can accept a
+  YsShellEdgeList for the performance.  However, building a
+  YsShellEdgeList is relatively slow.  Thus, if your program
+  frequently use a function that requires YsShellEdgeList,
+  you should build YsShellEdgeList once, and re-use it everytime.
+
+  The program needs to re-build YsShellEdgeList if the program
+  modified YsShell.
+MEMBERFUNCTION:
+  YSRESULT CleanUp(void);
+    Clean up the edge list.
+  YSRESULT Build(const YsShell &SHL);
+    Build a YsShellEdgeList from SHL.  If you re-build, you need
+    to CleanUp() first.
+OPERATOR:
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsShell">YsShell</A>,<A HREF="#YsShellSearchTable">YsShellSearchTable</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsShellLattice">
+<PRE>
+NAME:YsShellLattice
+DESCRIPTION:
+  This class stores a lattice over a shell.  Each cell of
+  the lattice has the list of vertices that are located
+  inside the cell, and the list of polygons that are
+  intersecting or included in the cell.
+
+  By using this class, the program can efficinetly check
+  if a point is inside,outside or on the boundary of the
+  shell.
+
+  The lattices does not keep track of the change
+  of the shell automatically.
+MEMBERFUNCTIONS:
+  YsShellLattice(int HASHSIZE);
+    Constructor.  HASHSIZE specifies the size of the hash table,
+    which stores correspondency from a polygon to a cell.
+
+  YSRESULT SetDomain(const class YsShell &SHL,int NX,int NY,int NZ);
+    This function creates a NXxNYxNZ lattice, and stores
+    in each cell the list of polygons intersecting with the
+    cell, and the list of vertices included in the cell.
+
+  YSRESULT AddVertex(YsShellVertexHandle vtHd);
+    (DOCUMENTATION NOT READY)
+
+  YSRESULT DeleteVertex(YsShellVertexHandle vtHd);
+    (DOCUMENTATION NOT READY)
+
+  YSRESULT AddPolygon(YsShellPolygonHandle plHd);
+    (DOCUMENTATION NOT READY)
+
+  YSRESULT DeletePolygon(YsShellPolygonHandle plHd);
+    (DOCUMENTATION NOT READY)
+
+  YSRESULT FixIndeterminantCell(void);
+    (DOCUMENTATION NOT READY)
+
+  YSSIDE CheckInsideSolid(const YsVec3 &POS) const;
+    This function checks if POS is inside/outside or on
+    the boundary of the shell.
+
+  YSRESULT MakePossibllyCollidingPolygonList
+    (YsArray &ltYsShellPolygonHandle,16,16&gt &PLGLIST,int NP,const YsVec3 P[]) const;
+    This function makes the list of polygons that possiblly collide with
+    the polygon specified by NP and P.  Points P do not have to co-planer.
+
+  YSRESULT MakePossibllyCollidingPolygonList
+    (YsArray &ltYsShellPolygonHandle,16,16&gt &PLGLIST,const YsVec3 &VT1,const YsVec3 &VT2) const;
+    This function makes the list of polygons that possiblly collide with
+    the line segment specified by two points VT1 and VT2.
+
+  YSRESULT MakePossibllyIncludedVertexList
+    (YsArray &ltYsShellVertexHandle,16,16&gt &VTXLISTvtxList,int NP,const YsVec3 P[]) const;
+    This function makes the list of vertices that possiblly are included
+    in the bounding box of points specified by NP and P.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsShell">YsShell</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsShellPolygon">
+<PRE>
+NAME:YsShellPolygon
+DESCRIPTION:
+  Polygon class used in YsShell class. You can access to this class
+  only to read/write free attributes.
+MEMBERVARIABLE:
+  int freeAttribute0;
+  int freeAttribute1;
+  int freeAttribute2;
+  int freeAttribute3;
+  int freeAttribute4;
+    These variables do not have any particular meaning. An application
+    program can use these variables for any purpose.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsBlendShell">YsBlendShell</A>,<A HREF="#YsCheckShellCollision">YsCheckShellCollision</A>,<A HREF="#YsShell">YsShell</A>,<A HREF="#YsShellVertex">YsShellVertex</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsShellSearchTable">
+<PRE>
+NAME:YsShellSearchTable
+DESCRIPTION:
+  A class, which stores topological information (search table)
+  of a YsShell.  After a table is attached to a shell by
+  AttachSearchTable function of YsShell class, the table keeps
+  track of topological information of the shell.
+
+  By using this search table, the program can efficiently find
+  topological informations such as neighbors of a polygon and
+  vertex connections.
+
+  Many of the member function returns const-pointer to an
+  internal array, which may change when the associated shell
+  is modified.  Thus, if the program need to keep the obtained
+  array unchanged during making the modification, the program
+  must make a copy of the array.
+
+MEMBERFUNCTION:
+  YsShellSearchTable(int HASHSIZE);
+    Constructor.  It requires a parameter HASHSIZE, which defines
+    the size of the hash tables.
+
+  YsShellVertexHandle FindVertex(const YsShell &SHL,unsigned SEARCHKEY) const;
+    This function finds a vertex handle from a vertex search key.
+    Vertex search key is obtained by GetSearchKey function of
+    YsShell class.
+
+  YsShellPolygonHandle FindPolygon(const YsShell &SHL,unsigned SEARCHKEY) const;
+    This function finds a polygon handle from a polygon search key.
+    Polygon search key is obtained by GetSearchKey function of
+    YsShell class.
+
+  const YsArray &ltYsShellPolygonHandle&gt *FindPolygonListByVertex
+      (const YsShell &SHL,YsShellVertexHandle VTHD) const;
+    This function searches polygons that are using a vertex
+    refered by VTHD, and returns a const-pointer to an array of
+    handles of the polygons.
+
+  const YsArray &ltYsShellPolygonHandle,2,2&gt *FindPolygonListByEdge
+      (const YsShell &SHL,YsShellVertexHandle EDVTHD1,YsShellVertexHandle EDVTHD2) const;
+  const YsArray &ltYsShellPolygonHandle,2,2&gt *FindPolygonListByEdge
+      (const YsShell &SHL,unsigned EDVTKEY1,unsigned EDVTKEY2) const;
+    These functions search polygons that are using an edge
+    defined by two vertices, specified eigher by two handles
+    EDVTHD1 and EDVTHD2 or two search keys EDVTKEY1 and EDVTKEY2,
+    and return a const-pointer to an array of handles of the polygons.
+
+  const YsArray &ltYsShellPolygonHandle,2,2&gt *FindPolygonListByEdge
+      (const YsShell &SHL,const YsShellEdgeEnumHandle &EDHD) const;
+    (DOCUMENTATION IS NOT READY)
+
+  const YsArray &ltYsShellPolygonHandle&gt *FindPolygonListByVertexList
+      (const YsShell &SHL,int NVTX,const YsShellVertexHandle VTHD[]) const;
+    This function searches polygons that includes all the vertices
+    refered by NVTX (number of vertices) and VTHD (vertex handles),
+    and returns a const-pointer to an array of the polygons.
+
+  const YsArray &ltYsShellVtxToEdgTableElem,16,16&gt *FindEdge
+      (const YsShell &shl,YsShellVertexHandle vtHd) const;
+    (DOCUMENTATION IS NOT READY)
+
+  YSRESULT YsShellSearchTable::GetConnectedVertexList
+    (YsArray &ltYsShellVertexHandle,16,16&gt &CONNLST,
+     const YsShell &SHL,YsShellVertexHandle VTHD) const;
+    This function searches vertices that are connected to VTHD, and stores
+    the handles of the vertices in CONNLST.
+
+  YSRESULT RewindEdgeEnumHandle
+    (const YsShell &SHL,YsShellEdgeEnumHandle &EDHD) const;
+  YSRESULT FindNextEdge
+      (const YsShell &SHL,YsShellEdgeEnumHandle &EDHD) const;
+  YSRESULT GetEdge
+      (const YsShell &SHL,unsigned &EDVTKEY1,unsigned &EDVTKEY2,YsShellEdgeEnumHandle &EDHD) const;
+    (DOCUMENTATION IS NOT READY)
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsShell">YsShell</A>,<A HREF="#YsShellEdgeList">YsShellEdgeList</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsShellVertex">
+<PRE>
+NAME:YsShellVertex
+DESCRIPTION:
+  Vertex class used in YsShell class. You can access to this class
+  only to read/write free attributes.
+MEMBERVARIABLE:
+  int freeAttribute0;
+  int freeAttribute1;
+  int freeAttribute2;
+  int freeAttribute3;
+  int freeAttribute4;
+    These variables do not have any particular meaning. An application
+    program can use these variables for any purpose.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsBlendShell">YsBlendShell</A>,<A HREF="#YsShell">YsShell</A>,<A HREF="#YsShellPolygon">YsShellPolygon</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsSmaller">
+<PRE>
+NAME:YsSmaller
+DEFINITION:
+  #define YsSmaller(A,B) ((A)&lt(B) ? (A) : (B))
+DESCRIPTION:
+  Macro returns smaller one of A and B.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsBound">YsBound</A>,<A HREF="#YsGreater">YsGreater</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsSolveThreeLinearEquation">
+<PRE>
+NAME:YsSolveThreeLinearEquation
+DEFINITION:
+  YSRESULT YsSolveThreeLinearEquation
+    (double *X,double *Y,double *Z,
+     double A1,double B1,double C1,double D1,
+     double A2,double B2,double C2,double D2,
+     double A3,double B3,double C3,double D3);
+RETURN:
+  YSOK    Successfully calculated
+  YSERR   No solution for this three linear simultaneous equation.
+DESCRIPTION:
+  Solve a three linear simultaneous equation.
+  Equations are descibed as:
+
+    A1 x  +B1 y  +C1 z  +D1=0
+    A2 x  +B2 y  +C2 z  +D2=0
+    A3 x  +B3 y  +C3 z  +D3=0
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsSolveTwoLinearEquation">YsSolveTwoLinearEquation</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsSolveTwoLinearEquation">
+<PRE>
+NAME:YsSolveTwoLinearEquation
+DEFINITION:
+  YSRESULT YsSolveTwoLinearEquation
+    (double *X,double *Y,
+     double A,double B,double C,
+     double P,double Q,double R);
+RETURN:
+  YSOK    Successfully calculated
+  YSERR   No solution for this two linear simultaneous equation.
+DESCRIPTION:
+  Solve a two linear simultaneous equation.
+  Equations are descibed as:
+
+    Ax+By+C=0
+    Px+Qy+R=0
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsSolveThreeLinearEquation">YsSolveThreeLinearEquation</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsSortPointSet3">
+<PRE>
+NAME:YsSortPointSet3
+DEFINITION:
+  YSRESULT YsSortPointSet3(int NP,YsVec3 P[],int IDX[])
+  YSRESULT YsSortPointSet3(int NP,YsVec3 P[],int IDX[],const YsVec3 &REF)
+RETURN:
+  YSOK   Successfully sorted
+  YSERR  Failed for some reason
+DESCRIPTION:
+  YsSortPointSet3 sorts an array of points (NP,P) with respect to a distance
+  from a reference point (REFP). If you don't provide REFP explicitly,
+  the function automatically try to compute two extreme points of the points
+  assuming all points are co-linear, then take one of the extreme point as
+  reference point.
+
+  If you have non-const array class like
+
+    YsArray &ltYsVec3&gt
+
+  you can use this function as
+
+    YsSortPointSet3(ary.GetNumItem(),ary.GetEditableArray(),referencePoint);
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsArray">YsArray</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsStringHead">
+<PRE>
+NAME:YsStringHead
+DEFINITION:
+  void YsStringHead(char **STR);
+DESCRIPTION:
+  Seek a pointer STR to first letter of the string.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCapitalize">YsCapitalize</A>,<A HREF="#YsStringTail">YsStringTail</A>,<A HREF="#YsUncapitalize">YsUncapitalize</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsStringTail">
+<PRE>
+NAME:YsStringTail
+DEFINITION:
+  void YsStringTail(char *STR);
+DESCRIPTION:
+  Delete control codes at the end of the string. If there are more than
+  one conseqtive control codes at the end, this function will eliminate
+  all of them.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCapitalize">YsCapitalize</A>,<A HREF="#YsStringHead">YsStringHead</A>,<A HREF="#YsUncapitalize">YsUncapitalize</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsSword">
+<PRE>
+NAME:YsSword
+DESCRIPTION:
+  A class to slash a 3D polygon by planes or polygons. This class can
+  also slash 2D polygon by lines.
+
+  Also you can use this function for triangulate (tesselate) a polygon.
+  Or cut a concave polygon into piecewise convex polygons.
+
+  This function accepts both convex and concave polygons (without
+  notification, this class library works for both convex and concave
+  polygons).
+
+  For this class, copy constructor and operator= are not allowed.
+
+  To use this class, you have to set an initial polygon to this
+  class using SetInitialPolygon member function. The initial polygon is
+  the polygon that you want to cut into pieces. Then, you can call
+  Slash functions. You can call Slash function more than once.
+  For example, you can slash a rectangle twice to make it into
+  four pieces.
+
+  Then, finally, you can get GetNumPolygon() member function to get
+  how many pieces the initial polygon became.
+
+MEMBERFUNCTION:
+  YSRESULT SetInitialPolygon(int NP,const YsVec3 P[],const int ID[]=NULL);
+  YSRESULT SetInitialPolygon(int NP,const YsVec2 P[],const int ID[]=NULL);
+    Set an initial polygon. The initial polygon is the polygon
+    that you want to cut into pieces. You can also specify an array
+    of IDs of vertices. If you set vertices, this class will track
+    which new vertex is created between which vertices.
+
+  YSRESULT Slash(const YsPlane &PLN);
+  YSRESULT Slash(int NV,const YsVec3 V[]);
+  YSRESULT SlashByOverlappingPolygon3(int NP,YsVec3 P[],int NOTE=0);
+    Slash the target polygon by a plane PLN, by a polygon (NV,V) or
+    by a overlapping polygon (NP,P).
+
+    An overlapping polygon is a polygon that lies on the same plane
+    as the target polygon. SlashByOverlappingPolygon3 will slash the
+    target polygon by polygons that is parallel to each edge of
+    the overlapping polygon, and is parpendicular to the overlapping
+    polygon.
+
+    You can specify NOTE when you slash a polygon by a overlapping
+    polygon. NOTE is copied to pieces of polygons that were overlapping
+    with slasher polygon.
+
+  YSRESULT Slash(const YsVec2 &ORG,const YsVec2 &VEC);
+    Slash the target polygon by a 2D line specivied by ORG and VEC.
+    This is for only 2D polygon slashing.
+
+  int GetNumPolygon(void) const;
+    Get the number of piecewise polygons generated by slashing.
+
+  int GetNumVertexOfPolygon(int N) const;
+    Get the number of vertices of Nth piece of polygon. (N begins
+    with zero).
+
+  YSRESULT GetVertexListOfPolygon(YsVec3 VEC[],int MAXCOUNT,int N);
+  YSRESULT GetVertexListOfPolygon(const YsVec3 *VEC[],int MAXCOUNT,int N);
+  YSRESULT GetVertexListOfPolygon(YsVec2 VEC[],int MAXCOUNT,int N);
+    Get vertex list of the Nth piece of polygon. The vertex list is
+    returned to VEC[]. You must specify the available length of the
+    VEC to MAXCOUNT.
+
+  const YsArray &ltYsVec3&gt *GetPolygon(int N) const;
+    Get a pointer to an array that contains vertices of Nth piece
+    of polygon.
+
+  const YsArray &ltint&gt *GetVertexIdList(int N) const;
+    Get a pointer to an array that contains vertex IDs of Nth piece
+    of polygon. This function is available only when you set vertex
+    IDs as well as initial polygon.
+
+  int GetNumNewVertex(void) const;
+    Get the number of newly created vertices. This could be zero even
+    when the polygon is slashed into more than two pieces. The numver
+    of newly created vertices will become zero when:
+
+      1.The polygon is not slashed into more than one pieces.
+      2.The polygon is slashed into more than two pieces, but slashing
+        line was lying on existing vertices (within YsTolerance).
+
+  const YsSwordNewVertexLog *GetNewVertexLog(int N) const;
+    Get Nth newly created vertex log. See YsSwordNewVertexLog for more
+    information. This function is available only when you specified
+    vertex IDs as well as initial polygon.
+
+  YSBOOL IsFromOverlappingPolygon3(int N) const;
+    This function will return YSTRUE if Nth piece of polygon was
+    created by a SlashByOverlappingPolygon3 function, and was
+    overlapping part.
+
+  YSBOOL IsFromOverlappingPolygon3(int N,int &NOTE) const;
+    This function will return YSTRUE if Nth piece of polygon was
+    created by a SlashByOverlappingPolygon3 function, and was
+    overlapping part. You also can retrieve NOTE value that is
+    specified when SlashByOverlappingPolygon3 is called.
+
+  YSRESULT Triangulate(YSCONVEXNIZESTRATEGY STRATEGY=YSCONVEXNIZEDEFAULT);
+  YSRESULT Convexnize(YSCONVEXNIZESTRATEGY STRATEGY=YSCONVEXNIZEDEFAULT);
+    Cut the target polygon into piecewise triangles or convex-polygons.
+    See YSCONVEXNIZESTRATEGY for details of the parameter.
+
+OPERATOR:
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YSCONVEXNIZE90DEGREE">YSCONVEXNIZE90DEGREE</A>,<A HREF="#YSCONVEXNIZEDEFAULT">YSCONVEXNIZEDEFAULT</A>,<A HREF="#YSCONVEXNIZEFASTEST">YSCONVEXNIZEFASTEST</A>,
+  <A HREF="#YSCONVEXNIZENOSMALLANGLE">YSCONVEXNIZENOSMALLANGLE</A>,<A HREF="#YSCONVEXNIZESTRATEGY">YSCONVEXNIZESTRATEGY</A>,<A HREF="#YsSwordNewVertexLog">YsSwordNewVertexLog</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsSwordNewVertexLog">
+<PRE>
+NAME:YsSwordNewVertexLog
+DESCRIPTION:
+  A class that keeps an information of newly created vertices in
+  YsSword.
+MEMBERVARIABLE:
+  int freeAttribute;
+    You can use this attribute freely for any purpose.
+
+  int betweenVt1,betweenVt2;
+    The vertex is created between these two vertices.
+
+  int idCreated;
+    The ID number of this vertex.
+
+  YsVec3 pos;
+    The position of the vertex.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsSword">YsSword</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsTolerance">
+<PRE>
+NAME:YsTolerance
+DEFINITION:
+  extern double YsTolerance;
+DESCRIPTION:
+  A global variable representing tolerance. (Very small number.
+  If the difference between a number A and a number B is smaller
+  than the tolerance, these two numbers are considered same.)
+  Initial value is 0.000001.
+
+  Since it is a global variable, you can change tolerance just by
+  substitute new tolerance value into YsTolerance.
+
+REFERNECE:
+  YsCoordSysModel
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsEqual">YsEqual</A>,<A HREF="#YsZero">YsZero</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsUncapitalize">
+<PRE>
+NAME:YsUncapitalize
+DEFINITION:
+  void YsUncapitalize(char l[]);
+RETURN:
+  Convert all alphabetical letters into small letters.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsCapitalize">YsCapitalize</A>,<A HREF="#YsStringHead">YsStringHead</A>,<A HREF="#YsStringTail">YsStringTail</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsVec2">
+<PRE>
+NAME:YsVec2
+DESCRIPTION:
+  2D Vector class.
+MEMBERFUNCTION:
+  inline YsVec2()
+    Constructor. Note that does NOT clear (x,y) to zero.
+
+  inline YsVec2(const double &X,const double &Y);
+    Constructor with initialization.
+
+  inline YsVec2(const double &A);
+    Constructor. Elements are initialized as x=y=A.
+
+  inline double x(void) const;
+    Get x value.
+
+  inline double y(void) const;
+    Get y value.
+
+  inline const double *GetValue(void) const;
+    Return a pointer to an array that contains x and y;
+
+  inline void Get(double &X,double &Y) const;
+    Get x and y.
+
+  inline double GetSquareLength(void) const;
+    Return x*x+y*y
+
+  inline double GetLength(void) const;
+    Return sqrt(x*x+y*y);
+
+  YSBOOL IsNormalized(void) const;
+    Return YSTRUE if the vector is normalized (having length of 1.0).
+    Otherwise return YSFALSE.
+
+  inline YSRESULT Normalize(void);
+    Normalize the vector. If the length of the vector is equal to zero,
+    this function will return YSERR. If no error, this function will
+    return YSOK.
+
+  inline void Set(const double &X,const double &Y)
+    Set x and y value.
+
+  inline void SetX(const double &X)
+    Set x value.
+
+  inline void SetY(const double &Y)
+    Set y value.
+
+  inline void Set(double V[2])
+    Set x and y by array.
+
+  inline void Rotate(double ANG);
+    Rotate x and y by ANG(radian).
+
+OPERATOR:
+  inline YsVec2 operator-(const YsVec2 &A)
+    Return -1.0*A
+
+  inline YsVec2 operator-(const YsVec2 &A,const YsVec2 &B)
+    Return A-B
+
+  inline YsVec2 operator+(const YsVec2 &A,const YsVec2 &B)
+    Return A+B
+
+  inline YsVec2 operator/(const YsVec2 &A,double B)
+    Return A/B
+
+  inline YsVec2 operator*(const YsVec2 &A,double B)
+  inline YsVec2 operator*(double B,const YsVec2 &A)
+    Return A*B
+
+  inline double operator*(const YsVec2 &A,const YsVec2 &B)
+    Return inner product (dot product) of A and B
+
+  inline double operator^(const YsVec2 &A,const YsVec2 &B)
+    Return outer product (cross product) of A and B. Since A and B are
+    both 2D vectors, this function will return only z value.
+    (Outer products is always going to be (0,0,z);
+
+  inline int operator==(const YsVec2 &A,const YsVec2 &B)
+  inline int operator!=(const YsVec2 &A,const YsVec2 &B)
+    Compare two vectors.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsVec3">YsVec3</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsVec3">
+<PRE>
+NAME:YsVec3
+DESCRIPTION:
+  3D Vector class
+MEMBERFUNCTION:
+  inline YsVec3();
+    Constructor. Does NOT initialize x,y and z to zero.
+
+  inline YsVec3(const double &X,const double &Y,const double &Z);
+    Constructor with initialization.
+
+  inline YsVec3(const double &A);
+    Constructor. Elements are initialized as x=y=z=A.
+
+  inline double x(void) const
+    Get x value.
+
+  inline double y(void) const
+    Get y value
+
+  inline double z(void) const
+    Get z value
+
+  inline const double *GetValue(void) const
+    Get a pointer to the array of x,y and z.
+
+  inline void Set(const double &X,const double &Y,const double &Z)
+    Set x,y and z value
+
+  inline void SetX(const double &X)
+    Set x value.
+
+  inline void SetY(const double &Y)
+    Set y value.
+
+  inline void SetZ(const double &Z)
+    Set z value.
+
+  inline void Set(double V[3])
+    Set x,y and z value by an array.
+
+  inline void Get(double &X,double &Y,double &Z) const
+    Get x,y and z value.
+
+  inline double GetSquareLength(void) const
+    Get x*x+y*y+z*z
+
+  inline double GetLength(void) const
+    Get sqrt(x*x+y*y+z*z)
+
+  YSBOOL IsNormalized(void) const;
+    Return YSTRUE if this vector is normalized (having length of 1.0).
+    Otherwise, return YSFALSE.
+
+  YSRESULT Normalize(void);
+    Normalize this vector. If the vector length is equal to zero,
+    this function will return YSERR. If there's no err, return YSOK.
+
+  YsVec3 GetArbitraryParpendicularVector(void);
+    Get an arbitrary vector that is parpendicular to this vector.
+
+  inline void RotateXY(double ANG);
+    Rotate in XY plane.
+        newX=x*cos(ANG)-y*sin(ANG);
+        newY=x*sin(ANG)+y*cos(ANG);
+
+  inline void RotateXZ(double ANG);
+    Rotate in XZ plane.
+        newX=x*cos(ANG)-z*sin(ANG);
+        newZ=x*sin(ANG)+z*cos(ANG);
+
+  inline void RotateYZ(double ANG);
+    Rotate in YZ plane.
+        newY=y*cos(ANG)-z*sin(ANG);
+        newZ=y*sin(ANG)+z*cos(ANG);
+
+OPERATOR:
+  inline YsVec3 operator-(const YsVec3 &A)
+    Return -A
+
+  inline YsVec3 operator-(const YsVec3 &A,const YsVec3 &B)
+    Return A-B
+
+  inline YsVec3 operator+(const YsVec3 &A,const YsVec3 &B)
+    Return A+B
+
+  inline YsVec3 operator/(const YsVec3 &A,double B)
+    Return A/B
+
+  inline YsVec3 operator*(const YsVec3 &A,double B)
+  inline YsVec3 operator*(double B,const YsVec3 &A)
+    Return A*B
+
+  inline double operator*(const YsVec3 &A,const YsVec3 &B)
+    Return inner product(dot product) of A and B
+
+  inline YsVec3 operator^(const YsVec3 &A,const YsVec3 &B)
+    Return outer product(cross product) of A and B
+
+  inline int operator==(const YsVec3 &A,const YsVec3 &B)
+  inline int operator!=(const YsVec3 &A,const YsVec3 &B)
+    Compare A and B.
+
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsAtt3">YsAtt3</A>,<A HREF="#YsVec2">YsVec2</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+<A NAME="YsZero">
+<PRE>
+NAME:YsZero
+DEFINITION:
+  #define YsZero(A) YsEqual((A),0.0)
+DESCRIPTION:
+  Check if A is equal to zero. If the absolute of A is smaller
+  than YsTolerance, this macro will return YSTRUE. Otherwise YSFALSE.
+REFERENCE:
+</PRE>
+<UL>
+  <A HREF="#YsAbs">YsAbs</A>,<A HREF="#YsEqual">YsEqual</A>,<A HREF="#YsTolerance">YsTolerance</A>
+</UL>
+<BR>
+<A HREF="#INDEX">
+[RETURN TO INDEX]
+</A>
+<HR>
+
+<!---------------------------------------------------------->
+
+<HR>
+
+<UL>
+<A HREF="http://www.ysflight.com">
+RETURN TO TOP PAGE
+</A>
+</UL>
+
+<BR>
+
+<UL>
+Comments are welcome. Send E-Mail to<BR>
+  <UL>
+    <A HREF="mailto:PEB01130@nifty.ne.jp">
+    <ADDRESS>PEB01130@nifty.ne.jp</ADDRESS>
+    </A>
+  </UL>
+or
+  <UL>
+    <A HREF="mailto:soji@andrew.cmu.edu">
+    <ADDRESS>soji@andrew.cmu.edu</ADDRESS>
+    </A>
+  </UL>
+In both address, I can read E-Mail written in either Japanese or English.
+</UL>
+
+</UL>
+</BODY>
+</HTML>
+

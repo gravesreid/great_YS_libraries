@@ -1,0 +1,53 @@
+CC=g++
+
+CFLAGS=-c -DMACOSX -I../../src -I../../../ysbitmapfont/src
+
+LIBS=-framework Cocoa -framework OpenGL
+
+OBJDIR=sample02-echo-obj
+
+OBJSIMPLEWIN=$(OBJDIR)/fsmacosxwrapper.o $(OBJDIR)/fsmacosxwrappercpp.o
+OBJGLBITMAP=$(OBJDIR)/ysglfontdata.o $(OBJDIR)/ysglusefontbitmap.o
+OBJAPP=$(OBJDIR)/sample02-echo.o
+OBJS=$(OBJAPP) $(OBJSIMPLEWIN) $(OBJGLBITMAP)
+
+EXE=sample02-echo
+
+
+$(EXE).app/Contents/MacOS/$(EXE) : $(EXE)
+	mkdir -p $(EXE).app/Contents/MacOS
+	cp $(EXE) $(EXE).app/Contents/MacOS/.
+
+$(EXE) : $(OBJDIR) $(OBJS)
+	$(CC) -o $(EXE) $(OBJS) $(LIBS)
+
+run :
+	$(EXE).app/Contents/MacOS/$(EXE)
+
+link :
+	$(CC) -o $(EXE) $(OBJS) $(LIBS)
+	mkdir -p $(EXE).app/Contents/MacOS
+	cp $(EXE) $(EXE).app/Contents/MacOS/.
+
+$(OBJDIR) :
+	mkdir -p $(OBJDIR)
+
+
+
+$(OBJDIR)/sample02-echo.o : sample02-echo.cpp
+	$(CC) $? $(CFLAGS) -o $@
+
+
+
+$(OBJDIR)/fsmacosxwrapper.o : ../../src/macosx/fsmacosxwrapper.m
+	$(CC) $? $(CFLAGS) -o $@
+
+$(OBJDIR)/fsmacosxwrappercpp.o : ../../src/macosx/fsmacosxwrappercpp.cpp
+	$(CC) $? $(CFLAGS) -o $@
+
+$(OBJDIR)/ysglfontdata.o : ../../../ysbitmapfont/src/ysglfontdata.c
+	$(CC) $? $(CFLAGS) -o $@
+
+$(OBJDIR)/ysglusefontbitmap.o : ../../../ysbitmapfont/src/ysglusefontbitmap.c
+	$(CC) $? $(CFLAGS) -o $@
+

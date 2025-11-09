@@ -1,0 +1,338 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>FsSimpleWindow framework Reference</title>
+</head>
+
+<body>
+
+<h1>FsSimpleWindow framework Reference</h1>
+<p><b>Revision:</b></p>
+<p>2010/12/11 First version of the reference</p>
+<h2><a name="LICENSE"></a>License</h2>
+<p>This framework is copyrighted to CaptainYS.&nbsp; But, this framework is open 
+source.&nbsp; When I say open source, I mean it.&nbsp; You can use it for any 
+purposes, commercial, private, internal, open source, or proprietary as long as 
+you take responsibility for the consequence.&nbsp; (If you use it for an illegal 
+purpose, the police will come to you!&nbsp; Whatcha gonna do when they come to 
+you?&nbsp; So, don't use it for an illegal purpose.)&nbsp; You can cut &amp; paste 
+some part of the code and use in your program.&nbsp; If you want to 
+reverse-engineer, sure, go ahead!&nbsp; That's the way you learn programming.&nbsp; 
+Only condition is you are responsible, and I will NOT take any responsibility 
+for the consequence of using this framework.&nbsp; If you do not agree with this 
+condition, please do not use this framework.&nbsp; Of course, I will be happy if 
+you let me know about your interesting projects with this framework.</p>
+<h2><a name="CONTACT"></a>Contact</h2>
+<p>Web site&nbsp;&nbsp;&nbsp; <a href="http://www.ysflight.com">
+http://www.ysflight.com</a></p>
+<p>E-Mail&nbsp;&nbsp;&nbsp; PEB01130[A]nifty.com&nbsp;&nbsp; (Please replace [A] 
+with @)</p>
+<h2><a name="ABSTRACT"></a>Abstract</h2>
+<p>This framework gives you a set of functions that opens an OpenGL enabled 
+window, and take key strokes, mouse input, and sub-second timer.&nbsp; The 
+framework is available for Mac OSX, Windows, and Linux.</p>
+<p>Whole point of this framework is to give you full control of your program.&nbsp; 
+This framework doesn't ask you to surrender your main loop.&nbsp; You write main 
+loop.&nbsp; However, not to overheat your CPU, or over-stress your CPU cooling 
+fan, I recommend you to give some sleeping time to your CPU, like 20ms per 
+iteration.</p>
+<p>Event-driven programming is good for some applications.&nbsp; But, when you 
+want to write a quick test program, event-driven programming is evil.&nbsp; 
+There is nothing wrong with polling-based programming, which you can do with 
+this framework.</p>
+<h2><a name="HEADERFILE"></a>Header file</h2>
+<pre><b><i>fssimplewindow.h</i></b></pre>
+<p>This header file must be included to use this simple window framework.&nbsp; 
+The include path must be added to the location where this file is stored, or 
+this file needs to be copied to the location where the include path is pointing.</p>
+<h2><a name="BITMAPFONTLIBRARY"></a>Using Bitmap-font library</h2>
+<p>This package also includes the bitmap-font library.&nbsp; To use the 
+bitmap-font library, please see <a href="../../ysbitmapfont/doc/reference.html">
+the reference</a>.</p>
+<h2><a name="SOURCEFILE"></a>Source files</h2>
+<p>The following source files need to be added to the project to use this simple 
+window framework.</p>
+<ul>
+  <li>Mac OSX<br>
+  <b><i>fsmacosxwrapper.m<br>
+  fsmacosxwrappercpp.cpp</i></b></li>
+  <li>Windows<br>
+  <b><i>fswin32keymap.cpp<br>
+  fswin32wrapper.cpp</i></b></li>
+  <li>Linux<br>
+  <i><b>fsglxkeymap.cpp<br>
+  fsglxwrapper.cpp</b></i></li>
+</ul>
+<h2><a name="COMPILING"></a>Compiling a program</h2>
+<p>If you are familiar with a makefile, makefiles in the samples directory will 
+tell you everything.&nbsp; It is easy and simple.&nbsp; I'm a minimalist.&nbsp; 
+I like to keep things simple.&nbsp; For each sample code, there are three 
+makefiles, makefile.win, makefile.mac, and makefile.glx, which can be used in 
+Windows (in Visual Studio Command Prompt), Mac OS X (from the terminal), or 
+Linux, respectively.</p>
+<p>In Windows, you can open &quot;Visual Studio Command Prompt&quot;, which you can find 
+in the same folder in the start menu.&nbsp; In Windows 7, you may be able to 
+find by searching by the keywords &quot;Visual Studio Command Prompt&quot;.&nbsp; It is so 
+easy in Windows XP to get there.&nbsp; Windows 7's interface is very 
+inefficient.&nbsp; It forces you to search things even when you know exactly 
+where it is.&nbsp; Anyways, if you are lucky enough to find it, open it, and 
+change directory to one of the samples.&nbsp; Then type:</p>
+<p>&nbsp;&nbsp;&nbsp; nmake -f makefile.win</p>
+<p>If you want to clean it, type:</p>
+<p>&nbsp;&nbsp;&nbsp; nmake -f makefile.win cln</p>
+<p>In Mac OS X, open a Unix terminal, then change directory to one of the 
+samples.&nbsp; And, type:</p>
+<p>&nbsp;&nbsp;&nbsp; make -f makefile.mac</p>
+<p>It is tricky to run a program in Mac OS X since it requires the executable to 
+be in a specific bundle directory structure, and this makefile will make one for 
+you.&nbsp; To run the program, type:</p>
+<p>&nbsp;&nbsp;&nbsp; make -f makefile.mac run</p>
+<p>By the way, you must have XCode installed.</p>
+<p>In Linux (I have tested with Ubuntu 8.4), open a Unix terminal, go to the 
+directories of one of the samples, and type:</p>
+<p>&nbsp;&nbsp;&nbsp; make -f makefile.glx</p>
+<p>to build a program.&nbsp; You can directly type the executable name to run.</p>
+<p>Easy enough.&nbsp; Right?&nbsp; But, if you want to compile from Visual 
+Studio or XCode IDE, I also wrote a tutorial for doing it.&nbsp; You can read 
+from the following links:</p>
+<p>&nbsp;&nbsp;&nbsp;
+<a href="vs10express_tutorial/vc10express_fssimplewindow.html">Compiling 
+FsSimpleWindow framework program in Visual Studio 2010 Express Edition</a></p>
+<p>&nbsp;&nbsp;&nbsp; <a href="xcode_tutorial/xcode_fssimplewindow.html">
+Compiling FsSimpleWindow framework program in XCode IDE</a></p>
+<h2><a name="FUNCTION"></a>Functions</h2>
+<pre><a name="FsCheckWindowExposure"></a><b>int FsCheckWindowExposure(void);</b></pre>
+<p>This function returns non-zero if the at least part of the window has been 
+exposed since the last inquiry.&nbsp; See also <a href="#FsPollDevice">
+FsPollDevice</a>.</p>
+<pre><a name="FsGetKeyState"></a><b>int FsGetKeyState(int fsKeyCode);</b></pre>
+<p>This function returns non-zero if the key specified by fsKeyCode is held 
+down, or zero if it is not.&nbsp; See also <a href="#KEYCODEENUM">Key-Code enum</a> 
+and <a href="#FsPollDevice">FsPollDevice</a></p>
+<pre><a name="FsGetMouseEvent"></a><b>int FsGetMouseEvent(int &amp;lb,int &amp;mb,int &amp;rb,int &amp;mx,int &amp;my);</b></pre>
+<p>This function gives non-zero (button is pressed) or zero (button is not 
+pressed) in lb (left button), mb (middle button), and rb (right button), and 
+mouse cursor coordinate relative to the window in mx and my.</p>
+<p>The return value is the mouse event since the last inquiry.&nbsp; See also
+<a href="#MOUSEEVENTENUM">Mouse-Event enum</a> and <a href="#FsPollDevice">
+FsPollDevice</a>.</p>
+<pre><a name="FsGetMouseState"></a><b>void FsGetMouseState(int &amp;lb,int &amp;mb,int &amp;rb,int &amp;mx,int &amp;my);</b></pre>
+<p>This function gives non-zero (button is pressed) or zero (button is not 
+pressed) in lb (left button), mb (middle button), and rb (right button), and 
+mouse cursor coordinate relative to the window in mx and my.</p>
+<p>In fact, I realized this function is really unnecessary since FsGetMouseEvent 
+function does the same and gives more information with virtually zero extra 
+cost.&nbsp; So, use <a href="#FsGetMouseEvent">FsGetMouseEvent</a> instead.</p>
+<p>See also <a href="#FsPollDevice">FsPollDevice</a>.</p>
+<pre><a name="FsGetWindowSize"></a><b>void FsGetWindowSize(int &amp;wid,int &amp;hei);</b></pre>
+<p>This function gives window size in pixels in <i>wid</i> and <i>hei</i>.&nbsp; 
+See also <a href="#FsPollDevice">FsPollDevice</a>.</p>
+<pre><a name="FsInkey"></a><b>int FsInkey(void);</b></pre>
+<p>This function returns a key code of the key that has been pressed since the 
+last inquiry.&nbsp; See also <a href="#KEYCODEENUM">Key-Code enum</a> and
+<a href="#FsPollDevice">FsPollDevice</a>.</p>
+<pre><a name="FsInkeyChar"></a><b>int FsInkeyChar(void);</b></pre>
+<p>This function returns a character code that has been produced by a key stroke 
+since the last inquiry.&nbsp; The framework has an independent buffer for the 
+produced character codes and key strokes, and this function will not take away 
+one key code to be retrieved by <a href="#FsInkey">FsInkey</a>, nor
+<a href="#FsInkey">FsInkey</a> will not clear a character code to be retrieved 
+by FsInkeyChar.&nbsp; See also <a href="#FsPollDevice">FsPollDevice</a>.</p>
+<pre><a name="FsOpenWindow"></a><b>void FsOpenWindow(int x0,int y0,int wid,int hei,int useDoubleBuffer);</b></pre>
+<p>This function opens up a window located from (<i>x0</i>,<i>y0</i>) pixels 
+from the reference point of the window (top left or bottom left depending on the 
+platform), with the size of (<i>wid</i>,<i>hei</i>) pixels.&nbsp; If <i>
+useDoubleBuffer</i> is non-zero, the window will have a back buffer.</p>
+<pre><a name="FsPassedTime"></a><b>int FsPassedTime(void);</b></pre>
+<p>This function returns elapsed time in millisecond since the last inquiry.</p>
+<pre><a name="FsPollDevice"></a><b>void FsPollDevice(void);</b></pre>
+<p>This function talks to the operating system and checks for the device events 
+(such as mouse, key stroke, and window).&nbsp; The events are copied to the 
+framework's internal buffer and be ready to be retrieved by the framework's 
+functions.&nbsp; In other words, you need to call this function at least once in 
+the main loop, or you will not be able to get key strokes, mouse status, etc., 
+by the framework functions.</p>
+<p>See also <a href="#FsCheckWindowExposure">FsCheckWindowExposure</a>,
+<a href="#FsGetKeyState">FsGetKeyState</a>, <a href="#FsGetMouseEvent">
+FsGetMouseEvent</a>, <a href="#FsGetMouseState">FsGetMouseState</a>,
+<a href="#FsInkey">FsInkey</a> and <a href="#FsInkeyChar">FsInkeyChar.</a></p>
+<pre><a name="FsSleep"></a><b>void FsSleep(int <i>ms</i>);</b></pre>
+<p>This function let the program sleep for the given time period.&nbsp; The 
+parameter <i>ms</i> is the duration of the sleep in milliseconds.&nbsp; It is a 
+good practice to give some time back to other processes by this function in the 
+main loop.&nbsp; This way, if your program is idle, your program will not take 
+100% of one CPU core just to run the main loop.</p>
+<pre><a name="FsSwapBuffers"></a><b>void FsSwapBuffers(void);</b></pre>
+<p>In double-buffered environment, this function exposes the back buffer 
+contents to the front buffer.</p>
+<h2><a name="ENUMS"></a>Enums</h2>
+<h3><a name="MOUSEEVENTENUM"></a>Mouse-Event Enum</h3>
+<p>FsGetMouseEvent function will return one of the following values.</p>
+<pre>enum
+{
+    FSMOUSEEVENT_NONE,
+    FSMOUSEEVENT_LBUTTONDOWN,
+    FSMOUSEEVENT_LBUTTONUP,
+    FSMOUSEEVENT_MBUTTONDOWN,
+    FSMOUSEEVENT_MBUTTONUP,
+    FSMOUSEEVENT_RBUTTONDOWN,
+    FSMOUSEEVENT_RBUTTONUP,
+    FSMOUSEEVENT_MOVE
+};
+</pre>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%">
+  <tr>
+    <td width="20%">FSMOUSEEVENT_NONE</td>
+    <td width="50%">No change in the mouse status.</td>
+  </tr>
+  <tr>
+    <td width="20%">FSMOUSEEVENT_LBUTTONDOWN</td>
+    <td width="50%">Left button has been pressed since the last inquiry.</td>
+  </tr>
+  <tr>
+    <td width="20%">FSMOUSEEVENT_LBUTTONUP</td>
+    <td width="50%">Left button has been released since the last inquiry.</td>
+  </tr>
+  <tr>
+    <td width="20%">FSMOUSEEVENT_MBUTTONDOWN</td>
+    <td width="50%">Middle button has been pressed since the last inquiry.</td>
+  </tr>
+  <tr>
+    <td width="20%">FSMOUSEEVENT_MBUTTONUP</td>
+    <td width="50%">Middle button has been released since the last inquiry.</td>
+  </tr>
+  <tr>
+    <td width="20%">FSMOUSEEVENT_RBUTTONDOWN</td>
+    <td width="50%">Right button has been pressed since the last inquiry.</td>
+  </tr>
+  <tr>
+    <td width="20%">FSMOUSEEVENT_RBUTTONUP</td>
+    <td width="50%">Right button has been released since the last inquiry.</td>
+  </tr>
+  <tr>
+    <td width="20%">FSMOUSEEVENT_MOVE</td>
+    <td width="50%">Mouse cursor has moved since the last inquiry.</td>
+  </tr>
+</table>
+<p>　</p>
+<h3><a name="KEYCODEENUM"></a>Key-Code Enum</h3>
+<p>FsInkey function will return one of the following values.&nbsp; These values 
+are also used to check the key state (down or up) with FsGetKeyState function.&nbsp; 
+(I think you can see the meaning by looking at the value.&nbsp; So, I don't 
+write them out.)</p>
+<p><b>Caution: Some special keys are not available in some platforms.&nbsp; Use 
+of those keys makes your program platform-dependent.</b></p>
+<pre>enum
+{
+    FSKEY_NULL,
+    FSKEY_SPACE,
+    FSKEY_0,
+    FSKEY_1,
+    FSKEY_2,
+    FSKEY_3,
+    FSKEY_4,
+    FSKEY_5,
+    FSKEY_6,
+    FSKEY_7,
+    FSKEY_8,
+    FSKEY_9,
+    FSKEY_A,
+    FSKEY_B,
+    FSKEY_C,
+    FSKEY_D,
+    FSKEY_E,
+    FSKEY_F,
+    FSKEY_G,
+    FSKEY_H,
+    FSKEY_I,
+    FSKEY_J,
+    FSKEY_K,
+    FSKEY_L,
+    FSKEY_M,
+    FSKEY_N,
+    FSKEY_O,
+    FSKEY_P,
+    FSKEY_Q,
+    FSKEY_R,
+    FSKEY_S,
+    FSKEY_T,
+    FSKEY_U,
+    FSKEY_V,
+    FSKEY_W,
+    FSKEY_X,
+    FSKEY_Y,
+    FSKEY_Z,
+    FSKEY_ESC,
+    FSKEY_F1,
+    FSKEY_F2,
+    FSKEY_F3,
+    FSKEY_F4,
+    FSKEY_F5,
+    FSKEY_F6,
+    FSKEY_F7,
+    FSKEY_F8,
+    FSKEY_F9,
+    FSKEY_F10,
+    FSKEY_F11,
+    FSKEY_F12,
+    FSKEY_PRINTSCRN,
+    FSKEY_CAPSLOCK,
+    FSKEY_SCROLLLOCK,
+    FSKEY_PAUSEBREAK,
+    FSKEY_BS,
+    FSKEY_TAB,
+    FSKEY_ENTER,
+    FSKEY_SHIFT,
+    FSKEY_CTRL,
+    FSKEY_ALT,
+    FSKEY_INS,
+    FSKEY_DEL,
+    FSKEY_HOME,
+    FSKEY_END,
+    FSKEY_PAGEUP,
+    FSKEY_PAGEDOWN,
+    FSKEY_UP,
+    FSKEY_DOWN,
+    FSKEY_LEFT,
+    FSKEY_RIGHT,
+    FSKEY_NUMLOCK,
+    FSKEY_TILDA,
+    FSKEY_MINUS,
+    FSKEY_PLUS,
+    FSKEY_LBRACKET,
+    FSKEY_RBRACKET,
+    FSKEY_BACKSLASH,
+    FSKEY_SEMICOLON,
+    FSKEY_SINGLEQUOTE,
+    FSKEY_COMMA,
+    FSKEY_DOT,
+    FSKEY_SLASH,
+    FSKEY_TEN0,
+    FSKEY_TEN1,
+    FSKEY_TEN2,
+    FSKEY_TEN3,
+    FSKEY_TEN4,
+    FSKEY_TEN5,
+    FSKEY_TEN6,
+    FSKEY_TEN7,
+    FSKEY_TEN8,
+    FSKEY_TEN9,
+    FSKEY_TENDOT,
+    FSKEY_TENSLASH,
+    FSKEY_TENSTAR,
+    FSKEY_TENMINUS,
+    FSKEY_TENPLUS,
+    FSKEY_TENENTER,
+    FSKEY_WHEELUP,
+    FSKEY_WHEELDOWN,</pre>
+<pre>FSKEY_NUM_KEYCODE
+};</pre>
+<p>　</p>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+CC=g++
+
+CFLAGS=-c -DGLX -I../../src
+
+LIBS=/usr/lib/libX11.so /usr/lib/libXext.so.6 -lGLU -lGL -lm
+
+OBJDIR=sample00-lineart-obj
+
+OBJSIMPLEWIN=$(OBJDIR)/fsglxwrapper.o $(OBJDIR)/fsglxkeymap.o
+
+OBJAPP=$(OBJDIR)/sample00-lineart.o
+OBJS=$(OBJAPP) $(OBJSIMPLEWIN)
+
+EXE=sample00-lineart
+
+
+$(EXE) : $(OBJDIR) $(OBJS)
+	$(CC) -o $(EXE) $(OBJS) $(LIBS)
+
+link :
+	$(CC) -o $(EXE) $(OBJS) $(LIBS)
+
+$(OBJDIR) :
+	mkdir -p $(OBJDIR)
+
+cln :
+	rm $(EXE)
+	rm -r $(OBJDIR)
+
+
+$(OBJDIR)/sample00-lineart.o : sample00-lineart.cpp
+	$(CC) $? $(CFLAGS) -o $@
+
+
+
+$(OBJDIR)/fsglxwrapper.o : ../../src/glx/fsglxwrapper.cpp
+	$(CC) $? $(CFLAGS) -o $@
+
+$(OBJDIR)/fsglxkeymap.o : ../../src/glx/fsglxkeymap.cpp
+	$(CC) $? $(CFLAGS) -o $@
+
+

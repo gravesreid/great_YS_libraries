@@ -1,0 +1,166 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>YS Bitmap-Font Library reference</title>
+</head>
+
+<body>
+
+<h1>YS Bitmap-Font Library Reference</h1>
+<p><b>Revision:</b></p>
+<p>2010/12/11 First version of the reference</p>
+<p>　</p>
+<h2><a name="LICENSE"></a>License</h2>
+<p>This library (including font data) is copyrighted to CaptainYS.&nbsp; But, 
+this library is open source.&nbsp; When I say open source, I mean it.&nbsp; You 
+can use it for any purposes, commercial, private, internal, open source, or 
+proprietary as long as you take responsibility for the consequence.&nbsp; (If 
+you use it for an illegal purpose, the police will come to you!&nbsp; Whatcha 
+gonna do when they come to you?&nbsp; So, don't use it for an illegal purpose.)&nbsp; 
+You can cut &amp; paste some part of the code and use in your program.&nbsp; If you 
+want to reverse-engineer, sure, go ahead!&nbsp; That's the way you learn 
+programming.&nbsp; Only condition is you are responsible, and I will NOT take 
+any responsibility for the consequence of using this library.&nbsp; If you do 
+not agree with this condition, please do not use this library.&nbsp; Of course, 
+I will be happy if you let me know about your interesting projects with this 
+library.</p>
+<h2><a name="CONTACT"></a>Contact</h2>
+<p>Web site&nbsp;&nbsp;&nbsp; <a href="http://www.ysflight.com">
+http://www.ysflight.com</a></p>
+<p>E-Mail&nbsp;&nbsp;&nbsp; PEB01130[A]nifty.com&nbsp;&nbsp; (Please replace [A] 
+with @)</p>
+<h2><a name="ABSTRACT"></a>Abstract</h2>
+<p>This library gives you functions for drawing ASCII text on the OpenGL window.&nbsp; 
+There are two sets of functions, one is for making bitmap-font display list 
+(just like wglUseFontBitmap and glxUseFont) and the other for directly drawing 
+fonts without using display list.&nbsp; Of course, the former is faster, but it 
+contaminates display-list name space.&nbsp; The latter is slow, but as long as 
+you don't draw too many characters, it may be good enough.</p>
+<p>There are also functions that makes up a bitmap from a text string so that 
+you can use as texture, which hasn't been extensively tested, but I think it 
+works.&nbsp; Let me know if you find bugs.</p>
+<p>Only one weakness of OpenGL is lack of the text-drawing function.&nbsp; I'm 
+not talking about a fancy decorated stylish font.&nbsp; I need ugliest tiniest 
+simplest fixed-pitch ASCII character font that is readable.&nbsp; If you go with 
+wglUseFontBitmap or glxUseFont, you suddenly lose portability.&nbsp; The font 
+differs slightly from platform to platform.&nbsp; This library gives you a 
+simple portable solution.&nbsp; (Simple is good, isnt' it?)</p>
+<h2><a name="HEADERFILE"></a>Header file</h2>
+<p><i>ysglfontdata.h</i></p>
+<p>This header file must be included to use this library.&nbsp; The include path 
+must be added to the location where this file is stored, or this file needs to 
+be copied to the location where the include path is pointing.</p>
+<h2><a name="SOURCEFILE"></a>Source files</h2>
+<p>The following source files need to be added in the project.</p>
+<blockquote>
+  <p><i>ysglfontdata.c</i></p>
+  <p><i>ysglmaketextbitmap.c</i></p>
+  <p><i>ysglusefontbitmap.c</i></p>
+</blockquote>
+<h2><a name="FONT"></a>Available fonts</h2>
+<p>As of 2010/12/10, this library has following set of fonts:</p>
+<blockquote>
+  <p>6x7, 6x8, 6x10, 7x10, 8x8, 8x12, 12x16, 16x20, 16x24, 20x28, 20x32</p>
+</blockquote>
+<h2><a name="FUNCTION"></a>Functions</h2>
+<p><a name="YsGlDrawFontBitmap"></a><b>void YsGlDrawFontBitmap6x7(const char str[]);<br>
+void YsGlDrawFontBitmap6x8(const char str[]);<br>
+void YsGlDrawFontBitmap6x10(const char str[]);<br>
+void YsGlDrawFontBitmap7x10(const char str[]);<br>
+void YsGlDrawFontBitmap8x8(const char str[]);<br>
+void YsGlDrawFontBitmap8x12(const char str[]);<br>
+void YsGlDrawFontBitmap12x16(const char str[]);<br>
+void YsGlDrawFontBitmap16x20(const char str[]);<br>
+void YsGlDrawFontBitmap16x24(const char str[]);<br>
+void YsGlDrawFontBitmap20x28(const char str[]);<br>
+void YsGlDrawFontBitmap20x32(const char str[]);</b></p>
+<p>These functions draws a text string given by <i>str</i>.&nbsp; The lower 
+bottom of the string should be specified by glRasterPos function.</p>
+<p>　</p>
+<pre><font size="3"><a name="YsGlUseFontBitmap"></a><b>void YsGlUseFontBitmap6x7(int listBase);
+void YsGlUseFontBitmap6x8(int listBase);
+void YsGlUseFontBitmap6x10(int listBase);
+void YsGlUseFontBitmap7x10(int listBase);
+void YsGlUseFontBitmap8x8(int listBase);
+void YsGlUseFontBitmap8x12(int listBase);
+void YsGlUseFontBitmap12x16(int listBase);
+void YsGlUseFontBitmap16x20(int listBase);
+void YsGlUseFontBitmap16x24(int listBase);
+void YsGlUseFontBitmap20x28(int listBase);
+void YsGlUseFontBitmap20x32(int listBase);</b></font></pre>
+<p>These functions makes display lists for the ASCII character drawing.&nbsp; It 
+works just like wglUseFontBitmap and glxUseFont.&nbsp; The application must make 
+sure at least 128 display lists are available starting from <i>listBase</i>.&nbsp; 
+The best way of making sure the availability of the display list is to use 
+glGenLists function.</p>
+<p>　</p>
+<pre><font size="3"><a name="YsGlWriteStringToSingleBitmap"></a><b>int YsGlWriteStringToSingleBitBitmap(
+    const char str[],
+    unsigned char bmpPtr[],unsigned int bmpWid,unsigned int bmpHei,
+    int bottomLeftX,int bottomLeftY,
+    unsigned char const *fontPtr[],int fontWid,int fontHei);</b></font></pre>
+<p>This function makes a monochrome bitmap that can be given to glBitmap 
+function or be used as a texture of a text string given by <i>str</i>.</p>
+<p>The bitmap will be stored in <i>bmpPtr</i>.&nbsp; The size of the bitmap is
+<i>bmpWid</i> and <i>bmpHei</i>,&nbsp; If the image of text string does not fit 
+within the size of the given bitmap, the image will be trimmed to fit within the 
+given bitmap.&nbsp; Parameters <i>bottomLeftX</i> and <i>bottomLeftY </i>specify 
+the lower left corner of the first letter within the bitmap.</p>
+<p>One of the following pointers (defined in <a href="#HEADERFILE">
+ysglfontdata.h</a>) can be given as <i>fontPtr</i>, and <i>fontWid</i> and <i>
+fontHei</i> must match the pointer you specify in <i>fontPtr</i>.</p>
+<blockquote>
+  <p>extern unsigned char *YsFont6x7[];<br>
+  extern unsigned char *YsFont6x8[];<br>
+  extern unsigned char *YsFont6x10[];<br>
+  extern unsigned char *YsFont7x10[];<br>
+  extern unsigned char *YsFont8x8[];<br>
+  extern unsigned char *YsFont8x12[];<br>
+  extern unsigned char *YsFont12x16[];<br>
+  extern unsigned char *YsFont16x20[];<br>
+  extern unsigned char *YsFont16x24[];<br>
+  extern unsigned char *YsFont20x28[];<br>
+  extern unsigned char *YsFont20x32[];</p>
+</blockquote>
+<p>　</p>
+<pre><font size="3"><a name="YsGlWriteStringToRGBA8Bitmap"></a><b>int YsGlWriteStringToRGBA8Bitmap(
+    const char str[],
+    unsigned int c0,unsigned int c1,unsigned int c2,unsigned int c3,
+    unsigned char bmpPtr[],unsigned int bmpWid,unsigned int bmpHei,
+    int bottomLeftX,int bottomLeftY,
+    unsigned char const *fontPtr[],int fontWid,int fontHei);</b></font></pre>
+<p>This function makes a color bitmap that can be given to glDrawPixels function 
+or be used as a texture of a text string given by <i>str</i>.&nbsp; The color is 
+given by <i>c0</i>, <i>c1</i>, <i>c2</i>, and <i>c3</i>, which corresponds to R, 
+G, B, and A respectively.</p>
+<p>The bitmap will be stored in <i>bmpPtr</i>.&nbsp; The size of the bitmap is
+<i>bmpWid</i> and <i>bmpHei</i>,&nbsp; If the image of text string does not fit 
+within the size of the given bitmap, the image will be trimmed to fit within the 
+given bitmap.&nbsp; Parameters <i>bottomLeftX</i> and <i>bottomLeftY </i>specify 
+the lower left corner of the first letter within the bitmap.</p>
+<p>One of the following pointers (defined in <a href="#HEADERFILE">
+ysglfontdata.h</a>) can be given as <i>fontPtr</i>, and <i>fontWid</i> and <i>
+fontHei</i> must match the pointer you specify in <i>fontPtr</i>.</p>
+<blockquote>
+  <p>extern unsigned char *YsFont6x7[];<br>
+  extern unsigned char *YsFont6x8[];<br>
+  extern unsigned char *YsFont6x10[];<br>
+  extern unsigned char *YsFont7x10[];<br>
+  extern unsigned char *YsFont8x8[];<br>
+  extern unsigned char *YsFont8x12[];<br>
+  extern unsigned char *YsFont12x16[];<br>
+  extern unsigned char *YsFont16x20[];<br>
+  extern unsigned char *YsFont16x24[];<br>
+  extern unsigned char *YsFont20x28[];<br>
+  extern unsigned char *YsFont20x32[];</p>
+</blockquote>
+<p>　</p>
+<p>　</p>
+
+</body>
+
+</html>

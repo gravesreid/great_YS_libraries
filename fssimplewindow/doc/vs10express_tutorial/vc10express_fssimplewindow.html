@@ -1,0 +1,82 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>Compiling FsSimpleWindow framework program in Visual Studio 2010 Express 
+Edition</title>
+</head>
+
+<body>
+
+<h1>Compiling FsSimpleWindow framework program in Visual Studio 2010 Express 
+Edition</h1>
+<p>I see little point of using Visual Studio IDE.&nbsp; I can do almost 
+everything from a makefile.&nbsp; Rather, using it may be a waste of time 
+because Microsoft changes the interface once every a few years and forces you to 
+re-learn how to do the same thing.&nbsp; It is a total waste of your time.&nbsp; 
+If you are paid for hours, that's not a bad thing for you.&nbsp; But, if you are 
+paid for what you make, you don't want to go along with Microsoft's freak.</p>
+<p>I have been doing most of my development work with a makefile and nmake.exe, 
+and I didn't have to change much settings since Visual C++ 6.0.&nbsp; Of course 
+I did some, but not much.&nbsp; I am using same command prompt and my favorite 
+editor from which I can run nmake.exe.</p>
+<p>So, I suggest you to learn to compile from command prompt, but until then, 
+you can go with the following instructions.</p>
+<h3>Step 1 Start Microsoft Visual Studio 2010 Express Edition IDE</h3>
+<p><img border="0" src="shot01.png" width="800" height="600"></p>
+<h3>Step 2 Select File -&gt; New -&gt; Project</h3>
+<p><img border="0" src="shot02.png" width="800" height="600"></p>
+<h3>Step 3 Select &quot;Win32&quot; -&gt; &quot;Win32 Console Application&quot;</h3>
+<h3>Step 4 Select location (In this case &quot;C:/Projects&quot;), and name (in this 
+example &quot;sampleProject&quot;), and make sure &quot;Create directory for solution&quot; is ON, 
+and click &quot;OK&quot;</h3>
+<p><img border="0" src="shot03.png" width="955" height="660"></p>
+<h3>Step 5 In Win32 Application Wizard, Click &quot;Next&quot;</h3>
+<p><img border="0" src="shot04.png" width="615" height="524"></p>
+<h3>Step 6 CHECK &quot;Empty Project&quot; and click &quot;Finish&quot;.&nbsp; Another thing of 
+Visual Studio that freaks me out is its nosy default files.&nbsp; Let's start 
+with an empty project.</h3>
+<p><img border="0" src="shot05.png" width="615" height="524"></p>
+<h3>Step 7 Project opens up</h3>
+<p><img border="0" src="shot06.png" width="800" height="600"></p>
+<h3>Step 8 Select &quot;Project&quot; -&gt; &quot;Settings&quot;</h3>
+<p><img border="0" src="shot07.png" width="800" height="600"></p>
+<h3>Step 9 From &quot;Configuration&quot;, select &quot;All Configurations&quot;</h3>
+<p><img border="0" src="shot08.png" width="752" height="531"></p>
+<h3>Step 10 In &quot;Configuration Properties&quot;, select &quot;VC++ Directories&quot;, and add 
+the following.</h3>
+<pre>        <font size="3">;C:\Projects\fssimplewindow\src;C:\Projects\ysbitmapfont\src</font></pre>
+<h3>I am assuming you extracted fssimplewindow and ysbitmapfont in 
+&quot;C:\Projects&quot;.&nbsp; Directory names must be changed according to the location 
+you extracted the files.&nbsp; Directories must be separated by a semi-colon 
+(;).<br>
+<img border="0" src="shot09.png" width="752" height="531"></h3>
+<h3>Step 11 Click &quot;OK&quot;</h3>
+<h3>Step 12 Select &quot;Project&quot; -&gt; &quot;Add Existing Item&quot;</h3>
+<p><img border="0" src="shot10.1.png" width="800" height="600"></p>
+<h3>Step 13 Goto &quot;C:\Projects\fssimplewindow\src\windows&quot; and select 
+&quot;fswin32keymap.cpp&quot;, &quot;fswin32winmain.cpp&quot;, and &quot;fswin32wrapper.cpp&quot;, and click 
+&quot;Add&quot;.</h3>
+<p><img border="0" src="shot10.2.png" width="563" height="419"></p>
+<h3>Step 14 Select &quot;Project&quot; -&gt; &quot;Add Existing Item&quot; (same as Step 12)</h3>
+<h3>Step 15 Go to &quot;C:\Projects\ysbitmapfont\src&quot; and select &quot;ysglfontdata.c&quot;, &quot;ysglmaketextbitmap.c&quot;, 
+and &quot;ysglusefontbitmap.c&quot;, and click &quot;Add&quot;</h3>
+<p><img border="0" src="shot10.3.png" width="563" height="419"></p>
+<h3>Step 16 Select &quot;Project&quot; -&gt; &quot;Add New Item&quot;</h3>
+<p><img border="0" src="shot11.png" width="800" height="600"></p>
+<h3>Step 17 Select &quot;C++ File (.cpp)&quot; and type file name and click &quot;Add&quot;</h3>
+<p><img border="0" src="shot12.png" width="955" height="660"></p>
+<h3>Step 18 Write your program.</h3>
+<p><img border="0" src="shot13.png" width="800" height="600"></p>
+<h3>Step 19 Press Ctrl + F5 and click &quot;Yes&quot;</h3>
+<p><img border="0" src="shot14.png" width="300" height="279"></p>
+<h3>Step 20 then your program starts.&nbsp; This program shows a message &quot;This 
+is a sample program.&quot; and closes when you press a key.</h3>
+<h3><img border="0" src="shot15.png" width="808" height="634"></h3>
+
+</body>
+
+</html>

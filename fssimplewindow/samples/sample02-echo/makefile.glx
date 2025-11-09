@@ -1,0 +1,47 @@
+CC=g++
+
+CFLAGS=-c -DGLX -I../../src -I../../../ysbitmapfont/src
+
+LIBS=/usr/lib/libX11.so /usr/lib/libXext.so.6 -lGLU -lGL -lm
+
+OBJDIR=sample02-echo-obj
+
+OBJSIMPLEWIN=$(OBJDIR)/fsglxwrapper.o $(OBJDIR)/fsglxkeymap.o
+OBJGLBITMAP=$(OBJDIR)/ysglfontdata.o $(OBJDIR)/ysglusefontbitmap.o
+OBJAPP=$(OBJDIR)/sample02-echo.o
+OBJS=$(OBJAPP) $(OBJSIMPLEWIN) $(OBJGLBITMAP)
+
+EXE=sample02-echo
+
+
+$(EXE) : $(OBJDIR) $(OBJS)
+	$(CC) -o $(EXE) $(OBJS) $(LIBS)
+
+link :
+	$(CC) -o $(EXE) $(OBJS) $(LIBS)
+
+$(OBJDIR) :
+	mkdir -p $(OBJDIR)
+
+cln :
+	rm $(EXE)
+	rm -r $(OBJDIR)
+
+
+$(OBJDIR)/sample02-echo.o : sample02-echo.cpp
+	$(CC) $? $(CFLAGS) -o $@
+
+
+
+$(OBJDIR)/fsglxwrapper.o : ../../src/glx/fsglxwrapper.cpp
+	$(CC) $? $(CFLAGS) -o $@
+
+$(OBJDIR)/fsglxkeymap.o : ../../src/glx/fsglxkeymap.cpp
+	$(CC) $? $(CFLAGS) -o $@
+
+$(OBJDIR)/ysglfontdata.o : ../../../ysbitmapfont/src/ysglfontdata.c
+	$(CC) $? $(CFLAGS) -o $@
+
+$(OBJDIR)/ysglusefontbitmap.o : ../../../ysbitmapfont/src/ysglusefontbitmap.c
+	$(CC) $? $(CFLAGS) -o $@
+

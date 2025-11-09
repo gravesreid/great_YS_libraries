@@ -1,0 +1,102 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>Compiling FsSimpleWindow framework in XCode IDE</title>
+</head>
+
+<body>
+
+<h1>Compiling FsSimpleWindow framework in XCode IDE</h1>
+<p>This document explains how to build a program with FsSimpleWindow framework 
+in XCode IDE.</p>
+<p>Although I like to build everything from the terminal, there are some 
+benefits of using XCode IDE.&nbsp; For example, I haven't figured out how to 
+build a universal binary from my own makefile, but it is very easy to build a 
+x86_x64 universal binary in the XCode IDE.</p>
+<p>It takes 28 steps to set up a project and compile your program.&nbsp; It may 
+appear long for you, but it takes just 3 minutes after you do a few times.&nbsp; 
+Or, you can set up a project up to Step 27 and save it as an archive so that you 
+can start a new project quickly.</p>
+<p>　</p>
+<h3>Step 1. Open XCode</h3>
+<h3>Step 2. Select &quot;File&quot; -&gt; &quot;New Project&quot;, and select &quot;Mac OS X&quot;, 
+&quot;Application&quot;, &quot;Cocoa Application&quot;, and then click &quot;Choose&quot;</h3>
+<p><img border="0" src="shot01.png" width="720" height="560"></p>
+<p>　</p>
+<h3>Step 3.&nbsp; Select folder, specify project name, and then click &quot;Save&quot;</h3>
+<p><img border="0" src="shot02.png" width="720" height="560"></p>
+<p>　</p>
+<h3>Step 4.&nbsp; Your project appears.</h3>
+<p><img border="0" src="shot03.png" width="840" height="600"></p>
+<p>　</p>
+<h3>Step 5.&nbsp; Select &quot;main.m&quot; from the list of files included in the project 
+and select &quot;Edit&quot; -&gt; &quot;Delete&quot;, then click &quot;Also Move to Trash&quot;</h3>
+<p><img border="0" src="shot04.png" width="840" height="600"></p>
+<h3>Step 6.&nbsp; Similarly delete &quot;(something)AppDelegate.h&quot; and &quot;(something)AppDelegate.m&quot;.&nbsp; 
+(In this example, &quot;sample_projectAppDelegate.h&quot; and &quot;sample_projectAppDelegate.m&quot;)</h3>
+<h3>Step 7.&nbsp; Right-click on &quot;Other Sources&quot; and select &quot;Add&quot; -&gt; &quot;Existing 
+Files&quot;</h3>
+<p><img border="0" src="shot05.1.png" width="840" height="600"></p>
+<h3>Step 8.&nbsp; Select &quot;fssimplewindow/src/macosx/fsmacosxwrapper.m&quot; and &quot;fsmacosxwrappercpp.cpp&quot;, 
+and then click &quot;Add&quot;</h3>
+<p><img border="0" src="shot05.2.png" width="920" height="780"></p>
+<h3>Step 9.&nbsp; Click &quot;Add&quot;.&nbsp; (Do NOT check &quot;Copy items into destination 
+group's folder&quot;)</h3>
+<p><img border="0" src="shot06.png" width="840" height="600"></p>
+<h3>Step 10.&nbsp; Right-click on &quot;Other Sources&quot; and select &quot;Add&quot; -&gt; Existing 
+Files&quot;. (Same as Step 7)</h3>
+<h3>Step 11.&nbsp; Select &quot;ysbitmapfont/src/ysglfontdata.c&quot;, &quot;ysglmaketextbitmap.c&quot;, 
+and &quot;ysglusefontbitmap.c&quot;, and then click &quot;Add&quot;</h3>
+<p><img border="0" src="shot07.png" width="920" height="780"></p>
+<h3>Step 12.&nbsp; Click &quot;Add&quot; (Same as Step 9)</h3>
+<h3>Step 13.&nbsp; Now your project should look like this.</h3>
+<p><img border="0" src="shot08.0.png" width="840" height="600"></p>
+<h3>Step 14.&nbsp; Right-click on &quot;Frameworks&quot; and select &quot;Add&quot; -&gt; &quot;Existing 
+Frameworks&quot;</h3>
+<p><img border="0" src="shot08.1.png" width="840" height="600"></p>
+<h3>Step 15.&nbsp; Scroll down and select &quot;OpenGL.framework&quot;, and then click 
+&quot;Add&quot;</h3>
+<p><img border="0" src="shot08.2.png" width="840" height="600"></p>
+<h3>Step 16.&nbsp; Click on &quot;Resources&quot;, and then double click on &quot;MainMenu.xib&quot;</h3>
+<p><img border="0" src="shot09.png" width="840" height="600"></p>
+<h3>Step 17.&nbsp; Interface Builder starts up.</h3>
+<p><img border="0" src="shot10.png" width="1100" height="820"></p>
+<h3>Step 18.&nbsp; Select &quot;Window (....)&quot; and then select &quot;Edit&quot; -&gt; &quot;Delete&quot;&nbsp; 
+FsSimpleWindow framework opens up its own window.&nbsp; Therefore, we don't need 
+a window from the resource file.</h3>
+<h3>Step 19.&nbsp; Main window disappears.</h3>
+<p><img border="0" src="shot11.png" width="1100" height="820"></p>
+<h3>Step 19.&nbsp; Select &quot;File&quot; -&gt; &quot;Save&quot;, and press &quot;Apple&quot;+&quot;Q&quot; key to exit 
+Interface Builder.</h3>
+<h3>Step 20.&nbsp; Come back to XCode, if XCode is not active.</h3>
+<h3>Step 21.&nbsp; Select &quot;Project&quot; -&gt; &quot;Edit Project Setting&quot;</h3>
+<h3>Step 22.&nbsp; Click on &quot;Build&quot; tab, and then scroll down to find &quot;Search 
+Paths&quot;</h3>
+<p><img border="0" src="shot12.png" width="880" height="740"></p>
+<h3>Step 23.&nbsp; On the right of &quot;Header Search Paths&quot;, enter the directories 
+where fssimplewindow.h and ysglfontdata.h are stored.&nbsp; Two directories must 
+be separated by a space.&nbsp; If a directory path includes a space character, 
+the entire path must be enclosed by &quot;&quot;.&nbsp; In this example, I have extracted 
+the package under (my user directory)/src.&nbsp; Therefore, the paths are 
+/Users/soji/src/fssimplewindow/src and /Users/soji/src/ysbitmapfont/src.</h3>
+<h3>Step 24.&nbsp; Close Project-Setting dialog.</h3>
+<h3>Step 25.&nbsp; Select &quot;File&quot; -&gt; &quot;New File&quot;</h3>
+<p><img border="0" src="shot14.png" width="840" height="600"></p>
+<h3>Step 26.&nbsp; Select &quot;Mac OS X&quot;, &quot;C and C++&quot;, &quot;C++ File&quot;, then click 
+&quot;Next&quot;.</h3>
+<h3>Step 27.&nbsp; Give an appropriate file name, UNCHECK &quot;Also create 
+something.h&quot; and then click &quot;Finish&quot;.</h3>
+<p><img border="0" src="shot15.png" width="840" height="600"></p>
+<h3>Step 28.&nbsp; Write your program and click &quot;Build and Run&quot;</h3>
+<p><img border="0" src="shot16.png" width="840" height="600"></p>
+<h3>Step 29.&nbsp; Your program will appear like this.&nbsp; This particular 
+short sample program shows a message &quot;This is a sample program.&quot; and closes when 
+you press a key.</h3>
+<p><img border="0" src="shot17.png" width="840" height="720"></p>
+
+</body>
+
+</html>

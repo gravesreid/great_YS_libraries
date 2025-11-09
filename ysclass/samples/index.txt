@@ -1,0 +1,228 @@
+There's 3 sets of sample codes
+  -Samples without using graphisc  (./nographics/*.cpp)
+  -Samples using GLUT (./glut/*.cpp)
+  -Samples using Blue Impusle (./impulse/*.cpp)
+
+
+
+
+
+-Samples without using graphics
+
+ For Windows, source codes are compiled by
+   cl sample??.cpp ysclass.lib
+
+ Different people are using different graphics toolkit. So, it is
+ difficult to choose which graphics toolkit to use for sample codes.
+ But, there's a common screen called Text Buffer, isn't it?
+
+ Also these examples are demonstragint that this class library is
+ independent from any graphics toolkit.
+
+
+  ./nographics/
+    sample01.cpp    Check Inside/Outside of a polygon.
+                    with text grapnics  :-)
+                    (YsCheckInsidePolygon2)
+
+    sample02.cpp    Geometric Transformation Matrix
+                    (YsMatrix4x4)
+
+    sample03.cpp    General Purpose Matrix Class
+                    (YsMatrix)
+
+    sample04.cpp    Drawing line by digital differential analysis
+                    (YsDrawLineByDDA)
+
+    sample05.cpp    Drawing polygon
+                    (YsScreenPolygon)
+
+    sample06.cpp    Slashing polygons, 2D case.
+                    (YsSword)
+
+    sample07.cpp    Array class
+                    (YsArray)
+
+    sample08.cpp    List class
+                    (YsList)
+
+    sample09.cpp    Analyzing string
+                    (YsArguments)
+
+
+
+
+
+-Samples using GLUT
+
+  You need GLUT libraries,headers and DLLs. Windows versiosn are available
+  from
+
+     http://www.opengl.org
+
+  You may find GLUT libraries,headers and DLLs in "Downloads" page.
+
+  In windows, you can compile sample sources by
+      cl /DWIN32 sample??.cpp ysclass.lib kernel32.lib user32.lib gdi32.lib advapi32.lib opengl32.lib glu32.lib glut32.lib
+
+  ./glut/
+    sample01.cpp    Demonstrating YsCheckInsidePolygon2.
+                    Inside/Outside checking of 2D polygon.
+
+    sample02.cpp    How to use YsClass library for viewing control.
+                    What you want to do is rotate viewing point around
+                    a point of interest. It must naturally follow
+                    motion of the mouse pointer.
+
+                    Rotating viewing point is done by NoseUp and YawLeft
+                    member function of YsAtt3. Just plug in the mouse
+                    pointer motion in X direction and Y direction into
+                    NoseUp and YawLeft (with scaling factor). Next problem
+                    is how to get viewing point.
+
+                    Imagine that you are on an airplane at your point of
+                    interest. Airplane rotated so that its attitude became A.
+                    Let's say the airplane moved straight back from the
+                    origin by the distance of D. What are you looking at?
+                    You are looking at the point of interest at an attitude
+                    of A from the distance of D! That's what this program
+                    is doing in Display function.
+
+
+    sample03.cpp    Demonstrating YsCheckInsidePolygon3.
+                    You can control an attitude of the polygon and the
+                    position of the point of interest.
+
+                    Press C key, then you can rotate the polygon.
+                    Press D key, then you can move the point of interest.
+
+                    There are two cursors on the screen. One is the
+                    point of interest. It's white. The other is a
+                    point that is on the polygon and is closest to the
+                    point of interest.
+
+                    The latter cursor shows the result of
+                    YsCheckInsidePolygon3 function by the color. Each
+                    color means:
+                        Blue    Outside
+                        Green   Inside
+                        Yellow  On Boundary
+                        Red     Calculation Failure
+
+                    I think you'll never see Red. Since the actual boundary
+                    is thinner than 1 pixel, you'll rarely see Yellow, but
+                    you can.
+
+                    In this program, you'll also find some features of
+                    YsPlane class, YsMatrix4x4 class and YsColor class.
+
+                    Most part of this program is same as sample01.cpp
+
+
+    sample04.cpp    Demonstrating YsSword class. 3D polygon slashing.
+                    You can control a target polygon and two slasher
+                    polygons.
+
+                    Press C key to control target polygon, D key to
+                    slasher polygon 1 and E key to slasher polygon 2.
+
+
+    sample05.cpp    Demonstrating YsClass's shell operation capability.
+                    Initially you can control two blocks. C,D,E and F
+                    key to choose to rotate or to move these blocks.
+
+                    Then O,I and S key to perform OR(UNION),AND(INTERSECTION)
+                    and MINUS(DIFFERENCE) operation.
+
+                    This program also demonstrate tessellation by YsSword.
+                    Because the resulting shell can have concave polygon,
+                    OpenGL cannot draw it without cut the polygon into
+                    convex polygon. You may or may not know how to
+                    tessellate a polygon by OpenGL. Anyway, OpenGL's
+                    tessellation doesn't look very clear. So, this program
+                    tessellates concave polygons by YsSword class.
+
+
+    sample06.cpp    Demonstrating YsRotation class. YsRotation class
+                    rotate a point about a certain axis. Also you can
+                    obtain a matrix from YsRotation class.
+
+                    In this example, YsVec3::GetArbitraryParpendicularVector
+                    is also used. It is a useful function. When you
+                    want to obtain an arbitrary vector that is parpendicular
+                    to another vector, you can use it.
+
+
+    sample07.cpp    Demonstrating YsCheckSeparatability3 function.
+                    The program shows separatable pairs by green lines.
+                    The polygon can be separated by slashing along
+                    these green lines. This function is used inside
+                    YsSword class to tesselate or convexnize a polygon.
+
+
+    simldg/ldg.cpp  You are designing a retractable landing gear of an
+                    airplane. You must make sure that the landing gear
+                    can be extended without colliding with the other
+                    parts of the airplane.
+
+                    This program simulate extending a landing gear.
+                    If the program detects collision between landing gear
+                    and the other parts, the program shows colliding
+                    polygon in red polygon. Also the program can find
+                    colliding volume using boolearn operation.
+
+
+
+
+
+-Samples using Blue Impulse
+
+  Blue Impulse 3D Graphics SDK is a graphics toolkit that I developed
+  during my master's program. I'm still using it :-)  I'm confident
+  that it runs faster than OpenGL in most Windows system. (Actually,
+  this toolkit also can work as a higher layer of OpenGL system).
+
+  You need Blue Impulse 3DG-SDK libraries, headers (no DLLs required!).
+  Blue Impulse 3DG-SDK is available from
+
+      http://member.nifty.ne.jp/ysdynamics/impulse/impulse.html
+
+  In Windows with VC++, you must download "Library binaries+headers" then
+  install them to VC++'s lib and include directory. You can compile
+  sample codes by
+
+     cl ldg.cpp ysclass.lib kernel32.lib user32.lib gdi32.lib impls32d.lib
+
+  This is fast.
+
+  Or, if you compile the program by
+
+     cl ldg.cpp ysclass.lib kernel32.lib user32.lib gdi32.lib impls32o.lib opengl32.lib glu32.lib
+
+  this case, Blue Impulse 3DG-SDK works as a higher layer of OpenGL.
+
+  "impls32d.lib" will draw graphics with Z-Sort method. "impls32o.lib"
+  will draw graphics with Z-Buffer method. I omit the explanation of
+  the two methods. Z-Sort method is faster if the number of polygons
+  are less then a certain amount. But the drawback is if polygons are
+  drawn closely to each other, some polygons that must not be seen
+  can be exposed through the other polygon.
+
+  So, when you need accurate graphics, but do not need speed, use
+  "impls32o.lib". If you need speed, but do not care accuracy,
+  use "impls32d.lib". If you need both accuracy and speed, buy a
+  fast PC or Indigo2 Impact or something new :-)
+
+
+
+  ./impulse/
+    sample01.cpp through sample07.cpp
+      Basically, same as ones that implemented on GLUT.
+
+    simldg/ldg.cpp
+      Almost same as one in GLUT examples. You can control each parts
+      interactively in this version. And, since there are many polygons
+      are drawn closely to each other, use "impls32o.lib" instead of
+      "impls32d.lib". "impls32o.lib" works as a higher layer of
+      OpenGL. See 1st line of ldg.cpp for complete command line.
+
